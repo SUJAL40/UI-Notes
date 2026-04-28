@@ -51,7 +51,7 @@ What type of appln?
 - Google is web application 
 
 GitHub image :: https://github.com/SUJAL40/UI-Notes/blob/main/Images/Full%20Stack.jpg?raw=true
-GitHub image :: ![Architecture](Full Stack.jpg)
+GitHub image :: Images/Full Stack.jpg
    
 
 - Middleware is responsible for handling comm btw Front end & backend
