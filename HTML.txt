@@ -49,6 +49,8 @@ What type of appln?
 		  <Price> 65955 </Price>
 		 
 - Google is web application 
+
+GitHub image :: Images/Full Stack.jpg
    
 
 - Middleware is responsible for handling comm btw Front end & backend
