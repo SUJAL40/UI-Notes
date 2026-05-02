@@ -52,6 +52,7 @@ What type of appln?
 - Google is web application 
 
 GitHub image :: https://github.com/SUJAL40/UI-Notes/blob/main/Images/Full%20Stack.jpg?raw=true
+GitHub image :: Images/Full Stack.jpg
    
 
 - Middleware is responsible for handling comm btw Front end & backend
@@ -99,6 +100,7 @@ Lecture-2
 eg. 1:14:50 - 1:15:30
 
 Create Github repository & commit all this notes.
+<<<<<<< HEAD
 
 
 --------------------------------------------------------------------------------
@@ -186,3 +188,5 @@ Download and install 'Node JS' on your PC
 
 
 
+=======
+>>>>>>> fe6c6e4e5c00f115f623568da83c56a8c9a656e5
