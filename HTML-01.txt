@@ -1,0 +1,454 @@
+27/4/26
+	
+Lecture-1
+Web UI Full Stack with React.                                           
+
+- Real time project / Live Project
+    > project that use real world (Hospital - App)
+					\     /
+				      Developers
+- ES = JavaScript
+# Web UI Full Stack
+- Front End: HTML, CSS, Bootstrap, Saas, Less, JavaScript [ES6], jQuery, TypeScript, React.
+- Back End: MySQL, MongoDB, Node JS, Express JS.
+- Tools: GIT, Cloud, DevOps, Testing.
+
+Q) What is UI & UX -> User Experience (How your website should work, planned by UX people) -> Plan to build 
+            ---------> User Interface (Your job is you want to build this type of website)
+                        -> IT is about building.
+
+Q) What is diff btw various Full Stack?
+- Java Full Stack          }
+- Python Full Stack     } Primary learning is about backend 70%.
+- .NET Full Stack         } 30% Front end
+
+- Web UI full stack     } 100% Front end 80% backend
+
+-> Software Appln - Desktop Application       - IOT Appln [smartwatch (sensor related)]
+                  - Web Application           - AI Appln [alexa]
+                  - Distribute Appln          - 2D & 3D Gaming Appln
+                  - Mobile Appn
+
+- Netflix App is distributed app - Amazon, swiggy, zomato
+- Netflix is Distributed + mobile.
+- calculator, calendar, phonebook, gallery } mobile app.
+
+--------------------------------------------------------------------------------
+
+28/4/26
+
+What type of appln?                                                      
+-> 1) Web Application
+   2) Distributed Application
+
+* Web Application *
+
+1) Data is kept in dt center, Data is maintained by software called database like Oracle, mysql etc.
+
+- If you search mobile in amazon, this dt come in backend as XML / JSON -> { Title: Apple, Price: 65955 }
+		  <Title> Apple </Title>
+		  <Price> 65955 </Price>
+		 
+- Google is web application 
+
+GitHub image :: https://github.com/SUJAL40/UI-Notes/blob/main/Images/Full%20Stack.jpg?raw=true
+GitHub image :: Images/Full Stack.jpg
+   
+
+- Middleware is responsible for handling comm btw Front end & backend
+
+Q) What is Full Stack?
+- It is developer platform
+- A full stack comprises of all tools required for a developer from building to deploying.
+- It contain a) Front End b) Back End
+
+Q) What is Role of developer in Back End?
+- Creating Database        - Designing Data Structure
+- Storing data             - Handling CRUD operation.
+- Writing Business logic for application (comm. with db)
+- Design API
+
+Q) What is role of developer in Front end?
+-> - Consuming data from API
+   - Creating a UI for presenting dt
+   - Designing interactive with dt  a) sorting b) filtering c) searching d) posting
+
+--------------------------------------------------------------------------------
+
+Lecture-2
+
+* Developer Environment                                                    (2)
+                                                                           
+[ library  ] ----> [ Build ]        [ Build ]      (Go Live)
+[ Repository]        [ app ]         [ app ]        [ Build app ] ---> [ Client ]
+                                                                  ---> [ Client ]
+  Sand box          Development      Quality        Production
+  server                             server         server
+ (Golden server)
+
+* Design own online portfolio -> Showcase your work
+                                -> URL -> Desktop friendly & Mobile friendly
+
+1) SandBox: Repository
+2) Development: Build App
+3) Quality: Test App
+4) Production: Go live
+
+-) When you design a website: (Rule of using color)
+-> 70% 20% 10% : A website use only 3 color shades, 70% one color, 20% one color, 10% one color.
+
+eg. 1:14:50 - 1:15:30
+
+Create Github repository & commit all this notes.
+<<<<<<< HEAD
+
+
+--------------------------------------------------------------------------------
+
+								Lecture-3
+
+					Web Application ( Front End )	
+					
+Basic Requirement:
+	window 8+ version/Apple/Mac/Linux
+	Ram 4 GB+
+	
+Download and install 'Node JS' on your PC
+	- Every developer pc must have package Manager
+		(A package manager simplifies 
+		software installation(Installs software, libraries, and tools with a single command)
+		manages dependencies (Automatically installs required dependencies)
+		,saves time,and ensures a consistent development environment.)
+	- There are various package manager softwares
+			a) NPM [Node Package Manager]
+			b) Yarn
+			c) NuGet
+			d) Bower
+			e) RubyGEMS
+			f) Composer etc..
+	- Node Official Website : https://nodejs.org/en
+		Download Node Js package Manager
+	- How to check it installed on your PC
+		Open Cmd Prompt: $node -v (it must be 14+)
+						 $npm -v (it must be 8+)
+	- Download VS Code(it is microsoft created)
+		It provide an IDE(Integrated Development Tool)
+		IDE allow build ,debug, test and deploy
+		Various editors : https://editorconfig.org/
+		
+	- Open VS Code and install below Extensions/plugins
+		- Live server [Ritwik Dey]
+			It is used to host your web application
+			It runs the web application locally.
+			You can test and deploy locally using live server.
+		- VsCode-icons
+		- IntelliSense for CSS class names in HTML
+		
+	Summary :
+	
+		Install Node JS
+		Install Visual Studio Code
+		Install Plugin's [Extentions]
+		  Live Server
+		  Vscode Icons
+		  IntelliSense for CSS class name in HTML	
+		
+	Official website 
+			HTML : https://whatwg.org/
+			
+	- Web Server 
+		local server [eg live server of vs code]
+		cloud server [eg AWS , Azure]
+		
+	What is Web?
+		The internet is a vast global system that connects millions of computers and devices
+			so they can communicate and share information with each other.
+		The Web (or World Wide Web) is a system that allows people to access and share information
+			over the internet using websites.	
+		Network comprises of group of computers connected with each other for sharing information and resources.
+		
+		ARAPNET is the first computer network introduced by US-DOD. [Advanced Research Projects Agency Network]
+		CERN developed concept of Internet.
+		
+		Tim Berners Lee introduced the concept of "Web".
+		Web is a portion of internet with restricted access.
+		W3C mantains the standards of Web.
+		[World Wide Web Consoritum]
+		The latest version of Web is "Web-3"
+ 
+--------------------------------------------------------------------------------
+
+					Lecture-4
+					
+Technically Web Site is a vitrual directory which give access to resources
+
+Create a new Web Application:
+	Web Comprises various types of content
+	  Website
+	  Web Application
+	  Blog
+	  Micro Blog
+	  Wiki [means quick]
+	  Podcasting
+
+Website is a virtual directory/folder on web server(powerfull computer connected to the internet).
+	It provides access to the resources of server.
+A website is a collection of files stored on a server that people can access through the internet.
+
+Image : Web-Server.png
+
+Website comprises of 2 paths
+	a) physical path
+	a) Vitural path
+
+Website Comprises only static resources (static : Just access and watch)
+
+if intractions are present then we called as webapplication
+
+Website: A collection of static web pages you can view in a browser (mainly for information).
+Web Application: A dynamic website that lets users interact, input data, and perform tasks 
+	(like login, forms, etc.).
+	Web application comprises of both static and dynamic resources
+
+(Logs means information about activity)
+
+Podcasting:
+	Podcasting means creating and sharing audio (sometimes video) episodes on the internet that people can listen to anytime.
+	Example:
+		Apps like Spotify and YouTube let you listen to or watch podcasts.
+	In simple words:
+		Podcast = like a radio show, but you can play it anytime on your phone 
+
+Wiki allow any anonymous user to change content of website eg.imdb(actor name,photo),google map (Hotel Name,Hotel Address)
+
+above simple notes on chatgpt : https://chatgpt.com/s/t_69f60d11453c8191b993d4b2c527ce9d
+
+Here are your notes rewritten in a clear, point-wise and easy-to-revise format 👇
+
+	🌐 Web Concepts – Simple Notes
+
+	🔹 1. What is a Website?
+
+	A website is a collection of web pages stored on a server
+	It acts like a virtual folder (directory) on a web server
+	It mainly provides information (no interaction)
+
+	👉 Example:
+	Company website showing details
+	Portfolio website
+
+	👉 Key Point:
+	Website = Static (just view, no input)
+
+	🔹 2. What is a Web Application?
+
+	A web application is an advanced website
+	It allows user interaction (input + output)
+	Users can perform actions like:
+	Login
+	Fill forms
+	Upload data
+
+	👉 Example:
+	YouTube (upload, comment, like)
+	Spotify (search, play, create playlist)
+
+	👉 Key Point:
+	Web Application = Dynamic (interaction allowed)
+
+	🔹 3. Website vs Web Application (Quick Trick)
+
+	FeatureWebsiteWeb ApplicationTypeStaticDynamicInteraction❌ No✅ YesExampleInfo pagesLogin systems
+	👉 Exam Trick:
+	Website → Read only
+	Web App → Read + Write (Interact)
+
+	🔹 4. Web Content Types
+	The Web includes many types of content:
+	Website
+	Web Application
+	Blog (articles/posts)
+	Microblog (short posts like tweets)
+	Wiki (editable content)
+	Podcasting (audio/video content)
+
+	🔹 5. Website Paths
+	A website has 2 types of paths:
+	a) Physical Path
+	Actual location on server (folder/files)
+	b) Virtual Path
+	URL seen by user (friendly path)
+
+	👉 Example:
+	Physical: C:/website/index.html
+	Virtual: www.site.com/index
+
+	🔹 6. Static vs Dynamic Resources
+	Static: Only view (HTML, images)
+	Dynamic: Changes based on user input
+
+	👉 Important:
+	Website → Only static
+	Web App → Static + Dynamic
+
+	🔹 7. Podcasting
+
+	Sharing audio/video episodes online
+	Can listen anytime
+	👉 Example:
+	Spotify
+	YouTube
+	👉 Simple Meaning:
+	Podcast = Radio on internet (anytime play)
+
+	🔹 8. Wiki
+
+	A wiki is a website where users can edit content
+	👉 Example:
+	Wikipedia
+	Google Maps (user edits places)
+	👉 Key Point:
+	Wiki = User can edit content
+
+	🔹 9. Logs (Important)
+	Logs = record of activities
+	Stores:
+	User actions
+	Errors
+	Login info
+
+	👉 Simple:
+	Logs = History of what happened on system
+
+	🔥 Final Revision Shortcut
+
+	Website → Static (only view)
+	Web App → Dynamic (interaction)
+	Podcast → Audio/video episodes
+	Wiki → Editable content
+	Logs → Activity records
+
+
+Creating a New Project Folder and Opening It in Visual Studio Code
+
+	Step 1: Create a New Folder for Your Project
+	Navigate to any location on your computer where you want to store your project.
+	Create a new folder and give it a name, for example: travel-app.
+	On Windows, you can do this by right-clicking in the desired location, selecting New > Folder, and typing the folder name.
+	
+	Step 2: Open Visual Studio Code
+	Launch Visual Studio Code from your Start Menu, desktop shortcut, or application list.
+	
+	Step 3: Open the Folder in Visual Studio Code
+	In Visual Studio Code, go to the File menu.
+	Select Open Folder.
+	Browse to the folder you created (e.g., D: travel-app) and click Select Folder.
+	
+	Step 4: Open a New Terminal in Visual Studio Code
+	In Visual Studio Code, go to the Terminal menu.
+	Select New Terminal.
+	Alternatively, you can use the keyboard shortcut Ctrl + ` (backtick key, usually located under the Esc key).
+	You now have your project folder open in VS Code and a terminal ready for running commands.
+
+	Generate package.json by using the following command in terminal
+	Step 5: npm init -y
+	package.json comprises of project meta data.
+	
+	Step 6: Add new file in project by name : README.md
+	
+	Step 7: Add following folders into project
+		a) public : It is used for static resources like html pages, images, text documents, pdf document, audio & video clips etc.
+		b) src : It is used for dynamic resources like css, scss, less, js, ts, jsx, tsx etc.
+		public 
+			> image
+			> icons
+			> video
+			> docs
+		src
+			> styles
+			> scripts
+			> scss
+			
+	Step 8: Add few resources like images and pdf document into project physical path
+	
+	Step 9: Click on "Go Live" in status bar of vs Code
+	
+	Step 10: Open any browser
+  - Chrome
+  - Edge
+  - FireFox
+  - Safari etc.
+	http://127.0.0.1:5500
+	  (or)
+	http://localhost:5500
+
+	Step 11: Add "index.html" into your project, which is the startup page.
+			
+@@
+Termianl you can open in powershell this use to run os related cmd
+if you go in ps in vs code switch to cmd prompt
+
+write cmd in terminal $npm init -y
+it add file package.json (it is metadata:it contain info about project like name,version,description)
+	every project must have file package.json
+	-y means yes for every question
+
+README.md : it is help document (is designed by devloper to developer)
+
+for development if you required image you not take from google
+you get from free image website like pixart, freepik.com/s/t_69f60d11453c8191b993d4b2c527ce9d
+
+website start with one page called index.html
+@@
+
+	Here are your notes rewritten into clear, simple sentence meanings 👇
+
+	🔹 Terminal / PowerShell
+
+	A terminal is a tool where you type commands to control your computer (OS).
+	In VS Code, you can switch between PowerShell and Command Prompt (CMD).
+
+	🔹 npm init -y
+
+	The command npm init -y creates a new project setup automatically.
+	It generates a file called package.json.
+	The -y means “yes to all questions” (auto setup).
+
+	🔹 package.json
+
+	package.json is a file that stores project information (metadata).
+	It contains:
+	Project name
+	Version
+	Description
+	Every Node.js project should have this file.
+
+	🔹 README.md
+	
+	README.md is a help/document file for developers.
+	It explains how the project works and how to use it.
+
+	🔹 Images for Development
+
+	Do not take images randomly from Google (copyright issue).
+	Use free image websites like:
+	Pixabay
+	Freepik
+
+	🔹 index.html
+
+	A website usually starts with index.html.
+	It is the main page (homepage) of the website.
+
+	🔹 Final Important Point
+
+	Always check all data and files before starting or running your project.
+
+	🔥 Quick Revision
+
+	Terminal → Run commands
+	npm init → Create project
+	package.json → Project info
+	README → Guide
+	index.html → First page
+	Images → Use free sources
