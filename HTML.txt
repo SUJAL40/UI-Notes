@@ -1,5 +1,6 @@
 27/4/26
 	
+Lecture-1
 Web UI Full Stack with React.                                           
 
 - Real time project / Live Project
@@ -73,6 +74,8 @@ Q) What is role of developer in Front end?
 
 --------------------------------------------------------------------------------
 
+Lecture-2
+
 * Developer Environment                                                    (2)
                                                                            
 [ library  ] ----> [ Build ]        [ Build ]      (Go Live)
@@ -96,3 +99,90 @@ Q) What is role of developer in Front end?
 eg. 1:14:50 - 1:15:30
 
 Create Github repository & commit all this notes.
+
+
+--------------------------------------------------------------------------------
+
+								Lecture-3
+
+					Web Application ( Front End )	
+					
+Basic Requirement:
+	window 8+ version/Apple/Mac/Linux
+	Ram 4 GB+
+	
+Download and install 'Node JS' on your PC
+	- Every developer pc must have package Manager
+		(A package manager simplifies 
+		software installation(Installs software, libraries, and tools with a single command)
+		manages dependencies (Automatically installs required dependencies)
+		,saves time,and ensures a consistent development environment.)
+	- There are various package manager softwares
+			a) NPM [Node Package Manager]
+			b) Yarn
+			c) NuGet
+			d) Bower
+			e) RubyGEMS
+			f) Composer etc..
+	- Node Official Website : https://nodejs.org/en
+		Download Node Js package Manager
+	- How to check it installed on your PC
+		Open Cmd Prompt: $node -v (it must be 14+)
+						 $npm -v (it must be 8+)
+	- Download VS Code(it is microsoft created)
+		It provide an IDE(Integrated Development Tool)
+		IDE allow build ,debug, test and deploy
+		Various editors : https://editorconfig.org/
+		
+	- Open VS Code and install below Extensions/plugins
+		- Live server [Ritwik Dey]
+			It is used to host your web application
+			It runs the web application locally.
+			You can test and deploy locally using live server.
+		- VsCode-icons
+		- IntelliSense for CSS class names in HTML
+		
+	Summary :
+	
+		Install Node JS
+		Install Visual Studio Code
+		Install Plugin's [Extentions]
+		  Live Server
+		  Vscode Icons
+		  IntelliSense for CSS class name in HTML	
+		
+	Official website 
+			HTML : https://whatwg.org/
+			
+	- Web Server 
+		local server [eg live server of vs code]
+		cloud server [eg AWS , Azure]
+		
+	What is Web?
+		The internet is a vast global system that connects millions of computers and devices
+			so they can communicate and share information with each other.
+		The Web (or World Wide Web) is a system that allows people to access and share information
+			over the internet using websites.	
+		Network comprises of group of computers connected with each other for sharing information and resources.
+		
+		ARAPNET is the first computer network introduced by US-DOD. [Advanced Research Projects Agency Network]
+		CERN developed concept of Internet.
+		
+		Tim Berners Lee introduced the concept of "Web".
+		Web is a portion of internet with restricted access.
+		W3C mantains the standards of Web.
+		[World Wide Web Consoritum]
+		The latest version of Web is "Web-3"
+ 
+--------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
