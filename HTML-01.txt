@@ -531,7 +531,7 @@ Ans:It is a Hyper Text Document.(Hyper:beyond)
 	  Edge
 	  etc..
 	
-	Browser Architecture
+	Browser Architecture	[Image : Images/Browser Engins.png]
 	
 	1. User Interface
 	The presentation of browser
