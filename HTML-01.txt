@@ -1,6 +1,5 @@
-27/4/26
-	
-Lecture-1
+							Lecture-1
+							
 Web UI Full Stack with React.                                           
 
 - Real time project / Live Project
@@ -75,7 +74,7 @@ Q) What is role of developer in Front end?
 
 --------------------------------------------------------------------------------
 
-Lecture-2
+							Lecture-2
 
 * Developer Environment                                                    (2)
                                                                            
@@ -178,8 +177,8 @@ Download and install 'Node JS' on your PC
  
 --------------------------------------------------------------------------------
 
-					Lecture-4
-					
+							Lecture-4
+						
 Technically Web Site is a vitrual directory which give access to resources
 
 Create a new Web Application:
@@ -566,5 +565,148 @@ Ans:It is a Hyper Text Document.(Hyper:beyond)
 	  - Session Storage
 	  - Cookies
 	etc..
+	
+-------------------------------------------------------------------------------------------------------------------
+							Lecture-6	
+						   HTML Parsing
+
+	HTML Parsing means how html works
+	In html tag = token
+	## Tokenization means process of converting character into tokens.
+	<a> , <img> --> token name 
+	anchor,image --> Element name
+	HTML and browser understand only elements
+	Image : Images/HTML_Translation_Mechanism.png --> html work in browser
+	
+	How html translates in browser(see image->HTML_Translation_Mechanism.png)
+	
+	1) Developer write markup		<b> Hello </b>
+	2) Markup convert to Bytes  	101101010101110100
+	3) Bytes convert to chars   	< b > h  e l l o </ b >
+	4) Chars convert to token    	<b> Token/Tag
+		called tokenization 
+	5) Token convert into elements  <b> Bold <a> Anchor
+	6) Token are arranged in a 			parent
+		hierarchical order called 	child1  child2
+		DOM 
+	7) DOM is converted into layout
+	8) Layout undergo a process called Render
+	9) Render will paint result on browser
+	
+	This is how HTML works in browser
+	
+	Flow
+	
+	Markup => Bytes => Chars => Token => Elements => DOM 
+	=> Layout => Rendering => Paint
+	
+	In HTML, everything is treated as an element.
+	
+	What is HTML about?
+	It is about designing a layout for a page using DOM.
+	DOM is "Document Object Model".
+	DOM comprises elements arranged in hierarchical order.
+	HTML  is devloped and maintained commnunity called WHATWG
+	
+	HTML Elements:
+	Elements in HTML are categorized into 5 groups according to WHATWG:
+	
+	Normal Elements
+	Void Elements
+	RC Data Elements
+	Raw Text Elements
+	Foreign Elements
+		
+	# Normal Elements
+	
+	- A normal element returns a presentation directly on callback.
+	- It doesn't require additional attributes to return presentation.
+	- A normal element starts presentation and will not stop.
+	- You have to explicitly stop by using end token.
+
+	<b>      start token
+	</b>     end token
+	
+	 
+	# Void Elements
+	
+	- The terms void refers to no return.
+	- Void elements will not return any presentation directly on call back.
+	- They require additional attributes.
+	- It doesn't require end token
+		<img>
+	- Void elements are HTML tags that don’t have closing tags and cannot contain content.
+	 eg <img src="photo.jpg"> 
+		<img> is a void element because it has no closing tag and no content.
+	
+	Q) In HTML which element not require end token? -> void element
+	
+	# RC Data Element
+	
+	- Rich text content element
+	- if a parent element is an RC Data element it not allow other element inside 
+		eg <textarea>
+			HTML is a <b>markup</b> language
+		   </textarea>
+		   
+		   for <b>markup</b> treat as a simple/plain text	
+	- Rich text allow alphabet , number and special chars
+	- It will not allow any another element or format inside
+	eg
+		<textarea> </textarea>
+	
+	# Raw text element
+	
+	- These are element presented used raw text
+	- These element doesn't required any token[tag]
+	- Raw text chars are used to present an content 
+	
+	eg  Offer price &#8377 99,999 		&copy - ©
+	o/p Offer price ₹ 99,999
+	
+	# Foreign elements
+	
+	- These are HTML element,but not supported on all browsers directly
+	- They require additional plugin's to work.
+	Ex.
+		<svg> : it use XML language
+		<canvas>
+		<mathml>
+		
+	FAQ: what are Semantic & Non-Semantic Elements in HTML (semantic: for a specific purpose/reason)
+	ANS: Semantic refers to specific purpose.HTML have over 100 of semantic
+		 Non-semantic are used for various purpose.They are not for specific
+	eg. <header> <footer> <main>...  Semantic
+		<div> <span> 				 Non semantic
+		
+		more detail about semantic and non-semantic
+			Semantic elements have a clear purpose (meaning).What is inside this tag?
+			eg <header>Website Header</header>
+			   <footer>Website Footer</footer>	
+			Non-semantic have NO specific meaning. 
+			
+			| Type         | Meaning     | Example                |
+			| ------------ | ----------- | ---------------------- |
+			| Semantic     | Has purpose | `<header>`, `<footer>` |
+			| Non-Semantic | No purpose  | `<div>`, `<span>`      |
+			
+			👉 Semantic = tells WHAT the content is
+			👉 Non-semantic = only groups content (HOW to arrange)
+			
+			Non-semantic elements like <div> only define structure, while semantic elements define the meaning of content.
+
+	Brendan Eich is widely recognized as the father and creator of JavaScript
+	
+	learn all technology from official website like MDN,WHATWG etc not like w3school,geeksforgeeks etc bcz official website 
+	are developed this language this know how use in real development
+	
+	Official sources like MDN and WHATWG provide accurate standards, while sites like W3Schools are useful for basic 
+	learning but should be verified.
+	
+	we can design a web page using MS WORD
+	
+	FAQ: What is difference between "html" & "htm" ?
+	Ans: Technically there is no difference. Both are same.
+	".htm" is as per naming standards, extention name given to file in 3 chars.
 	
 	
