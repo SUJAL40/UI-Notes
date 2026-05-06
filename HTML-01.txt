@@ -530,7 +530,7 @@ Ans:It is a Hyper Text Document.(Hyper:beyond)
 	  Edge
 	  etc..
 	
-	Browser Architecture
+	Browser Architecture	[Image : Images/Browser Engins.png]
 	
 	1. User Interface
 	The presentation of browser
@@ -566,6 +566,7 @@ Ans:It is a Hyper Text Document.(Hyper:beyond)
 	  - Cookies
 	etc..
 	
+<<<<<<< HEAD
 -------------------------------------------------------------------------------------------------------------------
 							Lecture-6	
 						   HTML Parsing
@@ -710,3 +711,6 @@ Ans:It is a Hyper Text Document.(Hyper:beyond)
 	".htm" is as per naming standards, extention name given to file in 3 chars.
 	
 	
+=======
+	
+>>>>>>> 65953170e80b3c59cba1fa70a4292599d01bd2ba
