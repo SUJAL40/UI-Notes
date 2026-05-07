@@ -713,6 +713,8 @@ Ans:It is a Hyper Text Document.(Hyper:beyond)
 	
 -------------------------------------------------------------------------------------------------------------------
 
+							Lecture-7
+							
 	https://getbootstrap.com/
 	https://colorlib.com/
 	
@@ -826,3 +828,99 @@ Ans:It is a Hyper Text Document.(Hyper:beyond)
 			<link rel="shortcut icon" href="public/icons/favicon.ico">
 		</head>
 		</html>
+		
+		
+
+-------------------------------------------------------------------------------------------------------------------
+
+							Lecture-8
+							
+	Meta
+	
+	- Meta refers to 'Meta Data' : Information about your application [data about data]
+	- It is used to make page SEO friendly and Responsive
+	
+	Meta Responsive
+		<meta name="viewport" content="width=device-width,intial-scale=1">
+		viewport means which screen user is using
+		content="width=device-width : content/page will adjust according to device
+		scale = zoom % , 1 = 100% zoom
+		
+	- In VS Code if you write lorem and hit tab button it put a small paragraph 
+	 
+	- To test responsive page download and install "Mobile Simulator" extention for Chrome browser.
+	
+	- To test responsive page download and install "Mobile Simulator" extention for Chrome browser.
+		viewport: It refers to screen / device type and dimensions.
+		initial-scale: It refers to zoom% for content on device.
+		1=100%
+		
+	<meta http-equiv="refresh" content="4"> : every 4 second content will refresh
+	refresh : it reload the page every few seconds , 1 = 1second 
+	
+	Meta SEO Friendly:
+
+	<meta name="keywords" content="some keywords to find your page">
+	<meta name="description" content="something about your page to show in SEO">
+	
+	Google bots read meta tags to understand webpage information.
+	
+		<meta charset="utf-8">
+
+		UTF = Unicode Transformation Format
+		8	= 8bit memory size required to read the chars.
+			= 8bit is used for english
+		
+	Syntax:
+	<head>
+		<meta charset="utf-8">
+		<meta name="keywords" content="some words">
+		<meta name="description" content="some description">
+		<meta http-equiv="refresh" content="5">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+	</head>
+
+	Body Section
+
+	- The <body> section defines content to load directly into browser.
+	- The contents of body require a round-trip everytime when requested.
+	
+	Attributes:
+		1. bgcolor : It sets background color for page
+		2. text    : It sets color for text.
+
+		HTML Colors:
+		a) Color Name
+		b) Shade Name
+		c) Hexa Decimal Code
+
+		<body bgcolor="red">  		: color name
+		<body bgcolor="darkred"> 	: shade name
+
+		Hexa Code
+		a) 3 chars code with "#"
+		b) 6 chars code with "#"
+
+		#RGB
+		#RRGGBB
+
+		Red, Green, Blue
+
+		Red		= 0,1,2,3,4,5,6,7,8,9,a,b,c,d,e,f
+		Green   = 0,1,2,3,4,5,6,7,8,9,a,b,c,d,e,f
+		Blue    = 0,1,2,3,4,5,6,7,8,9,a,b,c,d,e,f
+				 dark							bright
+
+		<body bgcolor="#000"> Black
+		<body bgcolor="#fff"> White
+		<body bgcolor="#f00"> Red
+		<body bgcolor="#0f0"> Green
+
+		<body bgcolor="red">		Good (name is small only 3 chars)
+		<body bgcolor="#f00">
+		<body bgcolor="#ff0000">
+		<body text="white">
+		<body text="#fff">			Good (name is small only 4 chars)
+
+		
+	
