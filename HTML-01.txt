@@ -711,6 +711,118 @@ Ans:It is a Hyper Text Document.(Hyper:beyond)
 	".htm" is as per naming standards, extention name given to file in 3 chars.
 	
 	
-=======
+-------------------------------------------------------------------------------------------------------------------
+
+	https://getbootstrap.com/
+	https://colorlib.com/
 	
->>>>>>> 65953170e80b3c59cba1fa70a4292599d01bd2ba
+	See above page template and practice accordingly
+	
+	HTML Page Structure
+	
+	1. Every Web page starts with document decleration
+		document decleration means telling which version of HTML we are using to browser Engine
+		<!DOCTYPE html>
+	- It specifies that the page is designed using HTML 5 version.
+	  So, Browser engine uses HTML 5 parser.
+		
+	Symbol,		Description
+	< >			Start Token / Tag
+	<!>			Not token
+	</>			End Token
+	
+	Q) which version of html is used to design to work with web page ?
+	-> if at top it write a <!DOCTYPE html> then it uses html 5 otherwise it uses html 4 
+	
+	- Markup language have a declaration to notify the version and behaviour
+	
+	2. Every document have a scope , which defined by using
+		<html>
+		</html>
+		
+		- It specify the start and end of document in browser
+		- Document related sources are kept within document scope.
+		
+	3. Every document scope have a "lang" attribute [language]
+			<html lang="en-in">  --> english INDIA
+			
+			</html>
+		- It defines the regional language for web page
+		- The currency , number & date formats are according to
+			regional language
+			
+	eg <!DOCTYPE html>
+	   <html lang="en-in">
+	   
+	   </html>
+	   
+	4. Every document comprises of 2 section at high levels:
+
+	a) <head>
+	b) <body>
+
+	Head Section:
+	- It defines the content that is loaded into browser cache [memory].
+	- It contains content that is stored in the browser cache (memory) because
+	 this data is required multiple times when the user visits the website.
+	 It stores important files in browser memory so the website can load 
+	 faster when the user visits again.
+	- It saves round trips.
+	- The frequently requested content in page is kept in <head>.
+	- The content in head section first load into browser memory and then delivered to the
+	  browser when ever request.
+	- The popular <head> section content are
+		<title> <link> <meta> <script> <style> <base>
+	
+	<head> → Contains webpage setup information like CSS, title, fonts, and scripts.
+	<body> → Contains all visible content shown on the webpage.
+	Browser Cache → Temporary browser memory used to store website files for faster loading.
+	Round Trip → Communication process where browser requests data from server and gets response back.
+	Frequently Requested Content in <head> → Important files are loaded early to improve website speed.
+	   
+	FAQ: What is round trip?
+	Ans: It is a techinique used in web application 
+		 In round trip the resource requested by client is returned as response to server.
+		 You can save round trip by caching the resources 
+			(means save the resource in browser cache(memory))
+			
+	Title:
+	A page title is used to display
+	It is also used in bookmarking
+	It is used in SEO [Search Engine Optimization] to help users find what they are searching for.
+	SEO → Technique used to improve website ranking in search engines.
+
+	sytax:
+		<!DOCTYPE html>
+		<html lang="en-in">
+		<head>
+			<title>Travel Site-Explore World</title>
+		</head>
+		</html>
+		
+	Link:
+	-It is used to link various resources to your page
+	-It is also used in SEO.
+	-You can link shortcut icons, style sheets etc.
+	-It is also used in responsive design.
+	
+	Ex: Set Favicon
+	1. Open Ms-Paint
+	2. Set Image Properties: 24 x 24 pixels (it can 16px to 32 px)
+	3. Draw icons and save in your project folder public/icons/favicon.png
+	4. Go to your project and rename the icon as "favicon.ico" (.ico is standard format)
+	5. Link to HTML page
+	<head>
+	<title> Travel </title>
+	<link rel="shortcut icon" href="public/icons/favicon.ico">
+	</head>
+	
+	
+	Ex:
+		<!DOCTYPE html>
+		<html lang="en-in">
+		<head>
+			<title>Travel Site-Explore World</title>
+			<link rel="shortcut icon" href="public/icons/favicon.ico">
+		</head>
+		</html>
