@@ -1074,8 +1074,8 @@ Ans:It is a Hyper Text Document.(Hyper:beyond)
 			
 	- div and span
 	 div is used to keep related content together
-	 span is used to keep with content and but make it in such a way that 
-		it we can access individual
+	 span: It is a container that keeps content along with existing but allows to access
+		   individually.
 		
 	CSS Border , Margin & Padding:
 	{
@@ -1120,7 +1120,6 @@ Ans:It is a Hyper Text Document.(Hyper:beyond)
 					padding: 20px;
 					margin: 10px;
 				}
-
 				span {
 					color: red;
 				}
@@ -1198,12 +1197,12 @@ Ans:It is a Hyper Text Document.(Hyper:beyond)
 		.bi bi-facebook
 		etc ..
 
-	icons.getbootstrap.com
+	icons.getbootstrap.com : we get icon name form here
 
 	7. To use icons in any HTML page you have to link the CSS file
 
 	<head>
-	<link rel="stylesheet" href=" .. /node_modules/bootstrap-icons/font/bootstrap-icons.css">
+	<link rel="stylesheet" href=" ../node_modules/bootstrap-icons/font/bootstrap-icons.css">
 	</head>
 	<body>
 	<span class="bi bi-house"> </span>

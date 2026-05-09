@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap Header</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <style>
+        header {
+            background-color: skyblue;
+            color: white;
+            padding: 10px;
+            font-family: arial;
+            font-size: 18px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;  /*  Is keep content vertically center */
+        }
+
+        .bi-bootstrap-fill {
+            font-size: 30px;
+        }
+
+        nav span {
+            margin-right: 10px;
+            font-size: 20px;
+        }
+
+        nav{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .search-box {
+            border: 1px solid white;
+            padding: 10px;
+            width: 250px;
+            background-color: #57d8c1;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .btn-ctrl {
+            background-color: #000044;
+            padding: 2px;
+            border-radius: 5px;
+        }
+        .right-panle span{
+            margin-right: 10px;
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div>
+            <nav>
+                <span class="bi bi-bootstrap-fill"></span>
+                <span>Docs</span>
+                <span>Examples</span>
+                <span>Icons</span>
+                <span>Theme </span>
+                <span>Blog</span>
+            </nav>
+        </div>
+        <div>
+            <div class="search-box">
+                <span class="bi bi-search">Search</span>
+                <span class="btn-ctrl">Ctrl + k</span>
+            </div>
+        </div>
+        <div class="right-panle">
+            <span class="bi bi-github"></span>
+            <span class="bi bi-twitter"></span>
+            <span class="bi bi-alexa"></span>
+            <span>|</span>
+            <span> v5.3 <span class="bi bi-chevron-down"></span> </span>
+            <span>|</span>
+            <span class="bi bi-sun-fill"></span>
+            <span class="bi bi-chevron-down"></span>
+        </div>
+    </header>
+
+</body>
+
+</html>
