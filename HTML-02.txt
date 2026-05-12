@@ -891,3 +891,963 @@
 	</body>
 
 	</html>
+	
+	
+----------------------------------------------------------------------------------------
+
+				Lecture-13
+				
+	display : block :: Other Data come below 
+	
+	A block element:
+		Starts from a new line
+		Takes full available width
+		Pushes next element to next line
+		You can set width & height
+	
+	display: block 
+		makes an element behave like a block element, 
+		meaning it starts on a new line and takes full available width.
+	
+	Common Block Elements in HTML :
+	
+	<div>
+	<p>
+	<h1> to <h6>
+	<section>
+	<article>
+	<header>
+	<footer>
+	
+	Q) we can make div as inline ? 
+	ans: Yes 
+	We can convert a <div> (which is block by default) into an inline element using:
+	display: inline;
+	
+	- After making div inline: width and height may not work properly.
+	
+	In CSS, we can change the default behavior of HTML elements using the display property.
+		- Inline elements can be converted into block elements.
+		- Block elements can be converted into inline elements.
+		
+	- font-size changes the text size and font-weight changes the thickness of text.
+	- font-size means height of text and font-weight means thickness  
+
+	.service-title+span
+	{
+	} //this is for only first span only
+	
+	.service-title~span
+	{
+	} //Select all <span> elements that come after .service-title at the same level.
+	
+	.service-title span
+	{} //Select all <span> tags that are inside an element having class service-title
+	
+	Ex: Shopper-Template
+	
+	<!DOCTYPE html>
+	<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Shopping</title>
+		<link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+		<style>
+			header {
+				display: flex;
+				justify-content: space-between;
+				padding: 20px;
+				font-family: Arial;
+			}
+
+			nav span {
+				margin-right: 40px;
+			}
+
+			.short-cuts span {
+				margin-right: 10px;
+			}
+
+			.brand-title {
+				font-size: 20px;
+				font-weight: bold;
+			}
+
+			article {
+				background-color: black;
+				padding: 5px;
+				text-align: center;
+				font-family: Arial;
+				color: white;
+				font-size: 13px;
+			}
+
+			.bi-lightning-fill {
+				color: goldenrod;
+			}
+
+			main {
+				display: grid;
+				grid-template-columns: 4fr 4fr 4fr;
+				height: 600px;
+				margin-top: 5px;
+			}
+
+			.women {
+				background-image: url('./image/women-fashion.jpg');
+				background-size: 100% 100%;
+				display: flex;
+				flex-direction: column;
+				justify-content: space-around;
+				align-items: center;
+			}
+
+			.men {
+				background-image: url('./image/men-fashion.jpg');
+				background-size: 100% 100%;
+				display: flex;
+				flex-direction: column;
+				justify-content: space-around;
+				align-items: center
+			}
+
+			.kids {
+				background-image: url('./image/kids-fashion.jpg');
+				background-size: 100% 100%;
+				display: flex;
+				flex-direction: column;
+				justify-content: space-around;
+				align-items: center
+			}
+
+			.main-title {
+				font-family: Arial;
+				font-size: 40px;
+				color: white;
+				text-shadow: 2px 2px 2px black;
+				font-weight: bold;
+			}
+
+			.btn-shop {
+				background-color: white;
+				padding: 20px;
+				border-radius: 5px;
+				display: inline-block;
+				width: 120px;
+				text-align: center;
+			}
+
+			footer {
+				background-color: black;
+				color: white;
+				padding: 10px;
+				font-family: Arial;
+
+			}
+
+			.footer-title {
+				font-size: 30px;
+			}
+
+			.row-1 {
+				text-align: center;
+				padding: 50px;
+			}
+
+			.row-2 {
+				text-align: center;
+				padding: 30px;
+			}
+
+			.email {
+				background-color: rgba(106, 103, 103, 0.6);
+				border: 1px solid white;
+				padding: 20px;
+				display: inline-block;
+				width: 300px;
+				text-align: left;
+				margin-right: 20px;
+			}
+
+			.subscribe {
+				padding: 20px;
+				width: 150px;
+				text-align: center;
+				border: 1px solid white;
+				background-color: rgba(106, 103, 103, 0.976);
+				display: inline-block;
+			}
+
+			.row-3 {
+				display: grid;
+				grid-template-columns: 1.4fr 1.4fr 1.4fr 1.4fr 1.4fr;
+				padding: 20px;
+			}
+
+			.service-title {
+				font-weight: bold;
+				display: block;
+				margin-bottom: 20px;
+			}
+
+			.service-title~span {
+				display: block;
+				margin-bottom: 10px;
+			}
+
+			address span {
+				display: block;
+				margin-bottom: 10px;
+			}
+
+			aside span {
+				padding: 5px;
+				font-size: 20px;
+			}
+			
+			.footer-service-title{
+				font-weight: bold;
+				font-size: 30px;
+				margin-bottom: 20px;
+				display: block;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header>
+
+			<div>
+				<span class="brand-title">Shopper.</span>
+			</div>
+			<div>
+				<nav>
+					<span>Home</span>
+					<span>Catelog</span>
+					<span>Shop</span>
+					<span>Blog</span>
+					<span>Docs</span>
+					<span>page</span>
+				</nav>
+			</div>
+			<div class="short-cuts">
+				<span class="bi bi-search"></span>
+				<span class="bi bi-person"></span>
+				<span class="bi bi-heart"></span>
+				<span class="bi bi-cart"></span>
+			</div>
+		</header>
+		<article>
+			<span class="bi bi-lightning-fill"></span>
+			<span>Happy Holiday Deal on Everything</span>
+			<span class="bi bi-lightning-fill"></span>
+		</article>
+		<section>
+			<main>
+				<div class="women">
+					<div>
+						<span class="main-title">women</span>
+					</div>
+					<div>
+						<span class="btn-shop">Shop Women <span class="bi bi-arrow-right"></span></span>
+					</div>
+				</div>
+				<div class="men">
+					<div>
+						<span class="main-title">Men</span>
+					</div>
+					<div>
+						<span class="btn-shop">Shop Men <span class="bi bi-arrow-right"></span></span>
+					</div>
+				</div>
+				<div class="kids">
+					<div>
+						<span class="main-title">Kids</span>
+					</div>
+					<div>
+						<span class="btn-shop">Shop Kids <span class="bi bi-arrow-right"></span></span>
+					</div>
+				</div>
+			</main>
+		</section>
+		<footer>
+			<div class="row-1">
+				<span class="footer-title">Want style Ideas and Treats?</span>
+			</div>
+			<div class="row-2">
+				<span class="email">Enter Email</span>
+				<span class="subscribe">Subscribe</span>
+			</div>
+			<div class="row-3">
+				<div>
+					<span class="footer-service-title">Shopper.</span>
+					<aside>
+						<span class="bi bi-facebook"></span>
+						<span Elass="bi bi-twitter-x"></span>
+						<span class="bi bi-instagram"></span>
+						<span class="bi bi-linkedin"></span>
+					</aside>
+				</div>
+				<div>
+					<span class="service-title">SUPPORT</span>
+					<span>Contact Us</span>
+					<span>FAQs</span>
+					<span>Size Guide</span>
+					<span>Shipping & Returns</span>
+				</div>
+				<div>
+					<span class="service-title">SHOP</span>
+					<span>Men's Shopping</span>
+					<span>Women's Shopping</span>
+					<span>Kids' Shopping</span>
+					<span>Discountsk/span>
+				</div>
+				<div>
+					<span class="service-title">COMPANY</span>
+					<span>Our Story</span>
+					<span>Careers</span>
+					<span>Terms & Conditions</span>
+					<span>Privacy & Cookie policy</span>
+				</div>
+				<div>
+					<span class="service-title">CONTACT</span>
+					<address>
+						<span>1-202-555-0105</span>
+						<span>1-202-555-0106</span>
+						<span>help@shopper.comk/span>
+					</address>
+				</div>
+
+			</div>
+		</footer>
+	</body>
+
+	</html>
+	
+	eg flipkart-footer
+	
+	<!DOCTYPE html>
+	<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Document</title>
+		<style>
+			footer{
+				display: grid;
+				grid-template-columns: 6fr 6fr;
+				background-color: black;
+				padding: 20px;
+				height: 300px;
+				color: white;
+				font-size: 20px;
+			}
+			.col-1{
+				display: grid;
+				grid-template-columns: 4fr 4fr 4fr 4fr;
+			}
+			.col-2{
+				display: grid;
+				grid-template-columns: 6fr 6fr;
+				border-left: 1px solid white;
+				padding-left: 20px;
+			}
+
+		</style>
+	</head>
+	<body>
+		<footer>
+			<div class="col-1">
+				<div>Col-1</div>
+				<div>Col-2</div>
+				<div>Col-3</div>
+				<div>Col-4</div>
+			</div>
+			<div class="col-2">
+				<div>Col-1</div>
+				<div>Col-2</div>
+			</div>
+
+		</footer>
+	</body>
+	</html>
+	
+								dialog
+
+	- It is used to create a popup.
+	- Dialogs are usually hidden.
+	- You can open and display when ever required.
+	- Controlling dialog dynamically requires JavaScript.
+
+	Syntax:
+		<dialog>
+			... your content ...
+		</dialog>
+
+	- To show dialog add "open" attribute
+
+
+	Syntax:
+		<dialog open>
+			... your content ...
+		</dialog>
+	
+						Code
+
+	- It represents are code snippet. [code block]
+	- It is to make the code in page SEO friendly and Compiler friendly.
+
+						Var
+						
+	- It represents a variable.
+	- Variables are storage locations in computer programmig.
+
+						Pre
+						
+	- It represents pre-formatted content in page.
+	- It keeps the content alignment and spacing exactly as defined in code.
+	
+	Syntax:
+		<code> </code>
+		<var> </var>
+		<pre> </pre>
+	
+				Line Break & Blank Space
+				
+	<br> : for line break.
+	&nbsp: for blank space
+	
+					Sample Text
+
+	- <samp> is used for sample text.
+	- It is used for "note and comments" for content in your page.
+		
+	Syntax: Line Break
+	<div>
+		Welcome <br>
+		To <br>
+		HTML
+	</div>
+
+	Syntax: Blank Space
+
+	H&nbsp;&nbsp;T&nbsp;&nbsp;M&nbsp;&nbsp;L
+	
+	eg of pre
+	
+	<div>Sample C Program</div>
+        <div>
+            <pre>
+                #include &It;stdio.h&gt;
+                main()
+                {
+                    printf("Welcome to C Programming");
+                }
+            </pre>
+        </div>
+    </div>
+	
+	
+	eg . flipkart footer
+	
+	<!DOCTYPE html>
+	<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Document</title>
+		<link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+		<style>
+			footer {
+				display: grid;
+				grid-template-columns: 6fr 6fr;
+				background-color: black;
+				padding: 20px;
+				height: 300px;
+				color: white;
+				font-size: 20px;
+				font-family: Arial;
+			}
+
+			.col-1 {
+				display: grid;
+				grid-template-columns: 4fr 4fr 4fr 4fr;
+			}
+
+			.col-2 {
+				display: grid;
+				grid-template-columns: 6fr 6fr;
+				border-left: 1px solid white;
+				padding-left: 20px;
+			}
+
+			.main-title {
+				display: block;
+				color: grey;
+				white-space: nowrap;
+				margin-right: 10px;
+				margin-bottom: 20px;
+				margin-top: 20px;
+			}
+
+			div span {
+				display: block;
+			}
+
+			.social-icons {
+				display: flex;
+			}
+
+			.social-icons span{
+				padding: 10px;
+
+			}
+		</style>
+	</head>
+
+	<body>
+		<footer>
+			<div class="col-1">
+				<div>
+					<span class="main-title">ABOUT</span>
+					<span>Contact Us</span>
+					<span>About Us</span>
+					<span>Careers</span>
+					<span>Flipkart Stories</span>
+					<span>Press</span>
+					<span>Corporate Information</span>
+				</div>
+				<div>
+					<span class="main-title">GROUP COMPANIES</span>
+					<span>Contact Us</span>
+					<span>About Us</span>
+
+				</div>
+				<div>
+					<span class="main-title">HELP</span>
+					<span>Contact Us</span>
+					<span>About Us</span>
+					<span>Careers</span>
+					<span>Flipkart Stories</span>
+				</div>
+				<div>
+					<span class="main-title">CONSUMER POLICY</span>
+					<span>Contact Us</span>
+					<span>About Us</span>
+					<span>Careers</span>
+					<span>Flipkart Stories</span>
+					<span>Press</span>
+					<span>Corporate Information</span>
+					<span>Press</span>
+					<span>Corporate Information</span>
+				</div>
+			</div>
+			<div class="col-2">
+				<div>
+					<div>
+						<span class="main-title">Mail Us:</span>
+						<address>
+							Flipkart Internet Private Limited,
+							Buildings Alyssa, Begonia &
+							Clove Embassy Tech Village,
+							Outer Ring Road, Devarabeesanahalli Village,
+							Bengaluru, 560103,
+							Karnataka, India
+						</address>
+					</div>
+					<div >
+						<span class="main-title">Social:</span>
+						<div class="social-icons">
+							<span class="bi bi-facebook"></span>
+							<span class="bi bi-twitter-x"></span>
+							<span class="bi bi-youtube"></span>
+							<span class="bi bi-instagram"></span>
+						</div>
+
+					</div>
+
+				</div>
+				<div>
+					<span class="main-title">Registered Office Address:</span>
+					<address>
+						Flipkart Internet Private Limited,
+						Buildings Alyssa, Begonia &
+						Clove Embassy Tech Village,
+						Outer Ring Road, Devarabeesanahalli Village,
+						Bengaluru, 560103,
+						Karnataka, India
+						CIN : U51109KA2012PTC066107
+						Telephone: 044-45614700 / 044-67415800
+					</address>
+				</div>
+			</div>
+
+		</footer>
+	</body>
+
+	</html>	
+	
+	solve 30 days of JS on leetcode
+		
+
+----------------------------------------------------------------------------------------
+
+				Lecture-14
+				
+	.panel-1, .panel-2{} // if you want give same effect for different class
+	
+	#) white-space: nowrap;
+	
+	white-space:
+	Controls:
+		spaces
+		line breaks
+		wrapping behavior
+	nowrap Means:
+		Do NOT move text to next line.
+	
+	#) overflow: auto;
+	- Automatically adds scrollbar when content exceeds container size.
+	
+	| Property | Meaning                  |
+	| -------- | ------------------------ |
+	| visible  | content outside visible  |
+	| hidden   | extra content hidden     |
+	| scroll   | always scrollbar         |
+	| auto     | scrollbar only if needed |
+	
+	
+	CSS Overflow:
+	- It is used to control the overflowing content in a container.
+	- If container have fixed width and height then content inside container will overflow.
+	- You can set overflow as
+		a) hidden
+		b) scroll
+		c) auto
+	- We need a fix height for container then we apply overflow 
+	
+	Syntax:
+			div {
+				height:200px;
+				overflow:scroll;
+			}
+		
+						Headings in HTML
+						
+	- Headings are defined with <hn> element.
+	- "n" refers to level number of heading from 1 to 6.
+
+	Syntax:
+	<h1> Heading-1 </h1>
+	<h2> Heading-2</h2>
+	....
+	<h6> Heading-6 </h6>
+	
+	font-size: unset 
+		(Removes applied font-size and resets it to natural behavior (usually parent value))
+	
+	- unset works in 2 ways:
+	
+		1. For inherited properties:
+			font-size
+			color
+			font-family
+		unset = inherit from parent
+		
+		2. For non-inherited properties
+			margin
+			padding
+			border
+		unset = initial/default value
+			
+	- Parent
+	.parent{
+		font-size: 30px;
+	}
+	
+	- Child
+	.child{
+		font-size: unset;
+	}
+
+	Result:
+	Child size = 30px (Because font-size inherits.)
+	
+	FAQ's:
+	1. Why you need a heading element if you can design similar using styles or other
+	elements?
+	A. To make headings in page SEO friendly. Search engine can identify and make a list
+	of topics in page only when defined with headings.
+
+	2. What are the default styles applied to heading?
+	A. font-size, font-weight & display:block
+
+	3. How to remove any specific default style?
+	A. You can remove any specific style for HTML elements using CSS "unset" value.
+	
+	Syntax:
+		h1 {								h1{
+			font-weight:unset;					all:unset;
+			display:unset;					}
+		}
+	
+	4. Can we change styles defined for heading?
+	A. Yes. You change existing styles or apply new styles.
+	
+	Note:
+	- Don't use too many headings in a page. It may SPAM the page.
+	- Don't use headings for highlighting any word or sentence in a paragraph.
+	
+	5. How to inherit parent element styles?
+	A. By using CSS "inherit" value.
+	{
+		border:inherit;
+		padding:inherit;
+	}
+	
+	6. How to set default state for inherited styles?
+	A. By using CSS "initial" value
+		{
+			color:initial;
+		}
+		
+	- initial : Always gives browser default value.
+		eg. font-size: initial; Resule: 16px (browser default)
+		
+		<div class="parent">
+			<p>Hello</p>
+		</div>
+		
+		.parent{
+			font-size: 40px;
+		}
+		p{
+			font-size: initial;
+		}
+		
+		output:
+			Hello → 16px ( Because initial ignores parent value. )
+		
+		- unset:  Smart reset value. It checks property type.
+			If property is inherited then unset = inherit(parent value)
+			
+			Example:
+			 
+				<div class="parent">
+					<p>Hello</p>
+				</div>
+				
+				.parent{
+					font-size: 40px;
+				}
+
+				p{
+					font-size: unset;
+				}
+
+				✅ Output:
+
+				Hello → 40px
+				
+				- If property is NOT inherited
+				Then: unset = default value
+				Example: margin: unset;
+				Output:	0
+				Because margin does not inherit.
+				
+				-------------------------------------------------
+				initial → always sets browser default value.
+				unset → inherited property gets parent value,
+						non-inherited property gets default value.
+				--------------------------------------------------
+	
+	7. What is difference between "unset" & "initial"?
+	A. If it is inherited style then you have to use "initial".
+	   If it is default style then you have to use "unset".
+	   
+		initial → sets browser default value.
+		unset → uses inherited value for inherited properties,
+		otherwise uses default value.
+
+				Paragraphs & Blockquotes
+				
+	- Paragraph <p> element
+	- Blockquote <blockquote> Element.
+	- Paragraph is to keep content relative.
+	- Blockquote is to keep the summary about content.
+
+	Syntax:
+		<p> some text </p>
+		<blockquote> some text </blockquote>
+
+	blockquote {
+		font-style:italics;
+		padding-left: 100px;
+		padding-right:100px;
+		text-allign:justify;
+	}
+	
+	FAQ's:
+	1. How to set first line indent for paragraph or blockquote?(indent:some space before first word)
+	A. By using CSS "text-indent" attribute
+
+	Syntax:
+	blockquote {
+		text-indent: 50px;
+	}
+	
+	2. How to set Drop Cap?
+	A.
+		- Access the first letter of paragraph by using CSS class ":: first-letter"
+		- Apply float, font size & style.
+
+	Syntax:
+		p :: first-letter {
+			float:left;
+			font-size:25px;
+			font-family:Arial;
+			}
+		
+	3. How to set space between lines , words & chars?
+	A. By using CSS attributes
+		line-height : for line spacing
+		word-spacing : space between words
+		letter-spacing : space between chars
+		
+	eg leet-code (not completed yet)
+	
+	<!DOCTYPE html>
+	<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Leet Code</title>
+		<link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+		<style>
+			header {
+				background-color: rgb(206, 191, 191);
+				padding: 10px;
+				display: flex;
+				justify-content: space-between;
+				font-family: Arial;
+				font-size: 20px;
+			}
+
+			header span {
+				margin-right: 10px;
+			}
+
+			.btn-premium {
+				color: goldenrod;
+				border: 1px solid gold;
+				padding: 5px;
+				background-color: white;
+				border-radius: 8px;
+			}
+
+			section {
+				margin-top: 10px;
+				height: 500px;
+				display: grid;
+				grid-template-columns: 6fr 6fr;
+				grid-gap: 10px;
+			}
+
+			.panel-left,
+			.panel-right {
+				background-color: white;
+				height: 500px;
+				padding: 10px;
+			}
+
+			.panel-left {
+				overflow: auto;
+			}
+
+			body {
+				background-color: rgb(226, 225, 225);
+			}
+
+			.short-cuts {
+				background-color: rgb(230, 223, 223);
+				padding: 5px;
+				font-family: Arial;
+				font-size: 16px;
+
+			}
+
+			.short-cuts span {
+				margin-right: 20px;
+			}
+
+			h1 {
+				font-family: arial;
+				font-size: 20px;
+			}
+
+			.easy,
+			.bi-lock-fill {
+				background-color: lightgray;
+				padding: 5px;
+				border-radius: 5px;
+				margin-right: 5px;
+				font-family: Arial;
+				font-size: 14px;
+				color: darkcyan;
+			}
+
+		</style>
+	</head>
+
+	<body>
+		<header>
+			<div>
+				<span>30 Days JavaScript</span>
+				<span class="bi bi-chevron-left"></span>
+				<span class="bi bi-chevron-right"></span>
+				<span class="bi bi-shuffle"></span>
+			</div>
+			<div>
+				<span class="bi bi-bug"></span>
+				<span class="bi bi-play">Run</span>
+				<span class="bi bi-cloud-arrow-up">Submit</span>
+				<span class="bi bi-file-earmark"> </span>
+			</div>
+			<div>
+				<span class="bi bi-gear"></span>
+				<span>Register</span>
+				<span>or</span>
+				<span>Signin</span>
+				<span class="btn-premium">Premium</span>
+			</div>
+
+		</header>
+		<section>
+			<div class="panel-left">
+				<div class="short-cuts">
+					<span class="bi bi-journal-text"> Description</span>
+					<span class="bi bi-book"> Editorial</span>
+					<span class="bi bi-hourglass"> Solutions</span>
+					<span class="bi bi-arrow-counterclockwise"> Submissions</span>
+				</div>
+				<div>
+					<h1>2667.Create Hellow World function</h1>
+					<div>
+						<span class="easy">Easy</span>
+						<span class="bi bi-lock-fill">Companies </span>
+					</div>
+				</div>
+			</div>
+			<div class="panel-right">
+
+			</div>
+		</section>
+	</body>
+
+	</html>
+	
+	

@@ -26,23 +26,151 @@
             font-size: 20px;
             font-weight: bold;
         }
+
         article {
-            background-color:black;
+            background-color: black;
             padding: 5px;
             text-align: center;
             font-family: Arial;
-            color:white;
+            color: white;
             font-size: 13px;
         }
-        .bi-lightning-fill{
+
+        .bi-lightning-fill {
             color: goldenrod;
         }
 
+        main {
+            display: grid;
+            grid-template-columns: 4fr 4fr 4fr;
+            height: 600px;
+            margin-top: 5px;
+        }
+
+        .women {
+            background-image: url('./image/women-fashion.jpg');
+            background-size: 100% 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .men {
+            background-image: url('./image/men-fashion.jpg');
+            background-size: 100% 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center
+        }
+
+        .kids {
+            background-image: url('./image/kids-fashion.jpg');
+            background-size: 100% 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center
+        }
+
+        .main-title {
+            font-family: Arial;
+            font-size: 40px;
+            color: white;
+            text-shadow: 2px 2px 2px black;
+            font-weight: bold;
+        }
+
+        .btn-shop {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            display: inline-block;
+            width: 120px;
+            text-align: center;
+        }
+
+        footer {
+            background-color: black;
+            color: white;
+            padding: 10px;
+            font-family: Arial;
+
+        }
+
+        .footer-title {
+            font-size: 30px;
+        }
+
+        .row-1 {
+            text-align: center;
+            padding: 50px;
+        }
+
+        .row-2 {
+            text-align: center;
+            padding: 30px;
+        }
+
+        .email {
+            background-color: rgba(106, 103, 103, 0.6);
+            border: 1px solid white;
+            padding: 20px;
+            display: inline-block;
+            width: 300px;
+            text-align: left;
+            margin-right: 20px;
+        }
+
+        .subscribe {
+            padding: 20px;
+            width: 150px;
+            text-align: center;
+            border: 1px solid white;
+            background-color: rgba(106, 103, 103, 0.976);
+            display: inline-block;
+        }
+
+        .row-3 {
+            display: grid;
+            grid-template-columns: 1.4fr 1.4fr 1.4fr 1.4fr 1.4fr;
+            padding: 20px;
+        }
+
+        .service-title {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 20px;
+        }
+
+        .service-title~span {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        address span {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        aside span {
+            padding: 5px;
+            font-size: 20px;
+        }
+        
+        .footer-service-title{
+            font-weight: bold;
+            font-size: 30px;
+            margin-bottom: 20px;
+            display: block;
+        }
     </style>
 </head>
 
 <body>
     <header>
+
         <div>
             <span class="brand-title">Shopper.</span>
         </div>
@@ -68,6 +196,84 @@
         <span>Happy Holiday Deal on Everything</span>
         <span class="bi bi-lightning-fill"></span>
     </article>
+    <section>
+        <main>
+            <div class="women">
+                <div>
+                    <span class="main-title">women</span>
+                </div>
+                <div>
+                    <span class="btn-shop">Shop Women <span class="bi bi-arrow-right"></span></span>
+                </div>
+            </div>
+            <div class="men">
+                <div>
+                    <span class="main-title">Men</span>
+                </div>
+                <div>
+                    <span class="btn-shop">Shop Men <span class="bi bi-arrow-right"></span></span>
+                </div>
+            </div>
+            <div class="kids">
+                <div>
+                    <span class="main-title">Kids</span>
+                </div>
+                <div>
+                    <span class="btn-shop">Shop Kids <span class="bi bi-arrow-right"></span></span>
+                </div>
+            </div>
+        </main>
+    </section>
+    <footer>
+        <div class="row-1">
+            <span class="footer-title">Want style Ideas and Treats?</span>
+        </div>
+        <div class="row-2">
+            <span class="email">Enter Email</span>
+            <span class="subscribe">Subscribe</span>
+        </div>
+        <div class="row-3">
+            <div>
+                <span class="footer-service-title">Shopper.</span>
+                <aside>
+                    <span class="bi bi-facebook"></span>
+                    <span Elass="bi bi-twitter-x"></span>
+                    <span class="bi bi-instagram"></span>
+                    <span class="bi bi-linkedin"></span>
+                </aside>
+            </div>
+            <div>
+                <span class="service-title">SUPPORT</span>
+                <span>Contact Us</span>
+                <span>FAQs</span>
+                <span>Size Guide</span>
+                <span>Shipping & Returns</span>
+            </div>
+            <div>
+                <span class="service-title">SHOP</span>
+                <span>Men's Shopping</span>
+                <span>Women's Shopping</span>
+                <span>Kids' Shopping</span>
+                <span>Discountsk/span>
+            </div>
+            <div>
+                <span class="service-title">COMPANY</span>
+                <span>Our Story</span>
+                <span>Careers</span>
+                <span>Terms & Conditions</span>
+                <span>Privacy & Cookie policy</span>
+            </div>
+            <div>
+                <span class="service-title">CONTACT</span>
+                <address>
+                    <span>1-202-555-0105</span>
+                    <span>1-202-555-0106</span>
+                    <span>help@shopper.comk/span>
+                </address>
+            </div>
+
+        </div>
+    </footer>
 </body>
 
 </html>
