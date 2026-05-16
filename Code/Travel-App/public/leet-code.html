@@ -39,7 +39,7 @@
         .panel-left,
         .panel-right {
             background-color: white;
-            height: 500px;
+            height: 600px;
             padding: 10px;
         }
 
@@ -79,6 +79,117 @@
             color: darkcyan;
         }
 
+        p {
+            font-family: Arial;
+            font-size: 15px;
+            line-height: 25px;
+        }
+
+        pre {
+            margin-left: -220px;
+            font-size: 16px;
+            line-height: 30px;
+        }
+
+        .bi-code-slash {
+            color: green;
+            font-size: 20px;
+        }
+
+        .bi-code-slash+span {
+            font-size: 18px;
+            font-family: Arial;
+        }
+
+        .panel-right div {
+            /* margin-bottom: 20px; */
+        }
+
+        .num-bold {
+            font-weight: bold;
+        }
+
+        .sm-txt {
+            font-size: 12px;
+        }
+
+        .company {
+            color: goldenrod;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .small {
+            margin-top: 50px;
+        }
+
+        .last-row {
+            display: flex;
+            justify-content: space-between;
+            margin: 5px;
+            padding-top: 20px;
+        }
+
+        .bg-grey {
+            border-radius: 5px;
+            padding: 5px;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        .last-row-padding {
+            padding: 5px;
+            /* margin-left: 10px; */
+        }
+
+        .g-dot {
+            background-color: green;
+            height: 7px;
+            width: 7px;
+            border-radius: 7px;
+            margin-top: 6px;
+        }
+
+        .inner-last-row {
+            white-space: nowrap;
+            display: flex;
+
+        }
+
+        .circle {
+            height: 5px;
+            width: 5px;
+            border-radius: 5px;
+            margin-top: 5px;
+            background-color: grey;
+        }
+
+        .right-top {
+            display: flex;
+            padding-top: 10px;
+            justify-content: space-between;
+        }
+
+        .circle-row {
+            display: flex;
+        }
+
+        .right-top-1 {
+            display: flex;
+        }
+
+        .inner-right-top {
+            padding-left: 20px;
+        }
+
+        .ml-10 {
+            margin-left: 10px;
+        }
+
+        .ml-5 {
+            margin-left: 4px;
+        }
     </style>
 </head>
 
@@ -119,9 +230,160 @@
                     <span class="easy">Easy</span>
                     <span class="bi bi-lock-fill">Companies </span>
                 </div>
+                <div>
+                    <p>
+                        Write a function <samp>createHello</samp> World. It should return a new function that always
+                        returns <samp>"Hello
+                            World".</samp>
+                    </p>
+                </div>
+                <div>
+                    <font> <b>Example 1:</b></font>
+                </div>
+                <div>
+                    <div>
+                        <pre>
+                            <b>Input:</b> args = []
+                           <b> Output:</b> <samp>"Hello World"</samp>
+                            <b>Explanation:</b>
+                            const <var>f</var> = createHelloWorld();
+                            f(); // "Hello World"
+                            The function returned by createHelloWorld should always
+                            return "Hello World".
+
+                        </pre>
+                    </div>
+
+                    <div>
+                        <div>
+                            <font> <b>Example 2:</b></font>
+                        </div>
+                        <pre>
+                            <b>Input:</b>  args = [{},null,42]
+                            <b> Output:</b> <samp>"Hello World"</samp>
+                            <b>Explanation:</b>
+                            const <var>f</var> = createHelloWorld();
+                            f({}, null, 42); // "Hello World"
+                            The function returned by createHelloWorld should always
+                            return "Hello World".
+                        </pre>
+                    </div>
+
+                    <div>
+                        <h3>Constraints</h3>
+                        <ul>
+                            <li>
+                                <samp>0 <= args.length <=10</samp>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <span>Accepted</span>
+                        <span class="num-bold">847,885</span>
+                        <span class="sm-txt">/1M</span>
+                        &nbsp;
+                        |
+                        &nbsp;
+                        <span>Acceptance Rate </span>
+                        <span class="num-bold">81.9</span>
+                        <span class="sm-txt">%</span>
+                    </div>
+                    <hr>
+                    <div class="company">
+                        <div>
+                            <span class="bi bi-lock"></span>
+                            <span>Companies</span>
+                        </div>
+                        <div>
+                            <span class="bi bi-chevron-down"></span>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="company">
+                        <div>
+                            <span class="bi bi-cloud"></span>
+                            <span>Discussion (311)</span>
+                        </div>
+                        <div>
+                            <span class="bi bi-chevron-down"></span>
+                        </div>
+                    </div>
+                    <div class="small">
+                        <small>Copyright &copy 2026 LeetCode. All rights reserved.
+                        </small>
+                    </div>
+
+                    <div class="last-row">
+                        <div class="inner-last-row">
+                            <div class="bg-grey">
+                                <span class="bi bi-hand-thumbs-up-fill"></span>
+                                <span>1.7K</span> |
+                                <span class="bi bi-hand-thumbs-down-fill"></span>
+                            </div>
+                            <div class="last-row-padding">
+                                <span class="bi bi-cloud"> 311</span>
+                                <span class="last-row-padding">|</span>
+                            </div>
+                            <div class="last-row-padding">
+                                <span class="bi bi-star last-row-padding"></span>
+                                <span class="bi bi-arrow-up-right-square last-row-padding"></span>
+                                <span class="bi bi-question-circle last-row-padding"></span>
+                            </div>
+                        </div>
+
+                        <div class="inner-last-row">
+                            <div class="g-dot">.</div>
+                            <span> 23 Onlines</span>
+                        </div>
+                    </div>
+
+                </div>
             </div>
         </div>
         <div class="panel-right">
+            <div class="short-cuts">
+                <span class="bi bi-code-slash"> </span> <span>Code</span>
+            </div>
+            <div class="right-top">
+                <div class="right-top-1">
+                    <div class="inner-right-top">
+                        <span>Javascript</span>
+                        <span class="bi bi-chevron-down"></span>
+                    </div>
+                    <div class="circle-row inner-right-top">
+                        <div class="circle"></div>
+                        <span class="ml-10">Auto</span>
+                    </div>
+                </div>
+
+                <div>
+                    <div>
+                        <span class="bi bi-bookmark ml-5"></span>
+                        <span class="bi bi-braces ml-5"></span>
+                        <span class="bi bi-arrow-clockwise ml-5"></span>
+                        <span class="bi bi-arrows-angle-expand ml-5"></span>
+                    </div>
+                </div>
+            </div>
+            <hr>
+
+            <div>
+                <ol>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ol>
+            </div>
 
         </div>
     </section>

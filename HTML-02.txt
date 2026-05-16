@@ -1850,4 +1850,964 @@
 
 	</html>
 	
+-----------------------------------------------------------------------------------
+
+						Lecture-15
+						
+		title: it indicate what to display when mouse is hover
+		
+		
+		FAQ: How to display paragraph with ellipsis?
+		Ans: By using the CSS attributes
+			white-space	: It can display text without wrapping.
+			overflow: It can hide overflowing text
+			text-overflow: It sets ellipsis for text overflow.
+			width : It sets fixed width for paragraph
+		Syntax:
+		p {
+			width: 250px;
+			white-space: nowrap;
+			overflow:hidden;
+			text-overflow: ellipsis;
+		}
+		
+		FAQ: How to set screen tip in HTML?
+		Ans: By using "title" attribute for HTML elements.
+		Syntax:
+		<span title="Hyper Text Markup language">HTML</span>
+		
+						Sample Text
+						
+	- The element <samp> is used to for sample text.
+	- It represents the sample output rendered for any code block.
 	
+
+						Big and Small
+
+	- <big> is for large text.
+	- <small> is for text size less than normal.
+
+	Syntax:
+		<big> Large Text </big> 
+		<small> Smaller Text </small> 
+		<span> Normal </span>
+		
+					Text formatting Elements
+
+	1. <font> : It can set size, color and face.
+
+	Syntax:	<font color="red" size="4" face="Arial"> Text </font>
+
+	size : 1 to 7 levels
+	color : name, shade name or hexa code
+	face : font family name
+
+	Note: <font> element is not recommended to use in modern web design.
+	
+	FAQ: What are web-safe fonts?
+	Ans: serif, sans-serif, monospace.
+
+	FAQ: What web-safe font refers to?
+	Ans: It refers to the font available for all devices.
+		 If any rare font is used by developer then it transforms into web-safe fonts.
+
+	Developer can link the font library to page, so that it can display in the same
+	designed format.
+	
+	2. Font Styles & Effects
+	
+	<b>			Bold
+	<strong>	Bold
+	<i>			Italics
+	<em>		Italics [Emphasized]
+	<u>			Underline
+	<ins>		Underline [inserted]
+	<strike>	Strikeout
+	<del>		Strikeout [deleted]
+	<sup>		Super Script
+	<sub>		Sub Script
+
+	FAQ: What is difference between <b> & <strong> or other semantic which are similar?
+	Ans: Documentation provides 2 types of semantics
+
+		a) Design Mode Semantics
+			<b> <i> <u> <strike>
+		b) Review Mode Semantics
+			<strong> <em> <ins> <del>
+	
+	- In real stickout meaning is , it is not permanant it make come back any time
+	
+	<div>
+		<b>Bold</b> is similar to <strong>Strong</strong> 5<sup>th</sup>
+		H<sub>2</sub>O <br>
+		<j>Italics</i> is similar to <em>Emphasized</em> <br>
+			<u>Underline</u> is similar to <ins>Inserted</ins> <br>
+			<strike>Strikeout</strike> is similar to <del>Deleted</del>
+	</div
+	
+	Ordered List:
+	
+	- It sets auto numbering for a list of items.
+	- Numbering updates when you add to delete items.
+	- <ol> is to define list.
+	- <li> is to define list item.
+	
+	Syntax:
+		<ol> 
+			<li> Item-1 </li>
+			<li> Item-2 </li>
+		</ol>
+	
+	
+-----------------------------------------------------------------------------------
+
+						Lecture-16
+
+
+Text Formatting
+	Font -
+		face, size, color	(face attribute is used to change the font style (text design) of text.)
+	-Font Styles
+		bold, italic
+	-Font Effects
+		underline, superscript, subscript, strikeout
+
+Ordered List
+
+	- It is used to configure auto numbering for a list of items.
+	- Numbering updates automatically when you add or delete items.
+	- List is defined with <ol>
+	- List Item is defined with <li>
+
+Syntax:
+	<ol>
+		<li> Item-1 </li>
+		<li> Item-2 </li>
+	</ol>
+	
+Attributes:
+
+1. type : It defines numbering type as "1, a, A, I, i"
+	<ol type="A">
+
+2. start : It specifies the initial value to start with. It refers to level number.
+
+	<ol start="2">
+		<li>HTML</li>
+		<li>CSS</li>
+		<li>JavaScript</li>
+	</ol>
+
+	2. HTML
+	3. CSS
+	4. JavaScript
+         
+
+	<ol type="A" start="5">
+		<li>HTML</li>
+		<li>CSS</li>
+		<li>JavaScript</li>
+	</ol>
+
+	E. HTML
+	F. CSS
+	G. JavaScript
+	
+		type="A" → Uses capital letters (A, B, C, D, E,...)
+		start="5" → Starts from 5th letter
+		5th letter is E
+		
+3. reversed : It is used to reverse the numbering style in descending order.
+
+<ol type="1" start="2" reversed>
+	<li>HTML</li>
+	<li>CSS</li>
+	<li>Bootstrap</li>
+	<li>JavaScript</li>
+</ol>
+
+	2. HTML
+	1. CSS
+	0. Bootstrap
+	-1. JavaScript
+
+
+	- You can configure nested list.
+	- A child list must be with in "<li>" element. ######
+	
+	eg
+	<ol>
+		<li>HTML</li>
+		<ol>
+			<li>Normal Element</li>
+			<li>Void Element</li>
+		</ol>
+	</ol>
+	- here it is wrong 
+
+	<ol>
+		<li>HTML
+			<ol>
+				<li>Normal Element</li>
+				<li>Void Element</li>
+			</ol>
+		</li>
+	</ol>
+	-it is corects
+
+Yes, second code is correct because the nested <ol> must be inside the parent <li>.
+
+FAQ's:
+	1. How many levels of nested numbering can be defined?
+	A. There is no specified limit. You have 5 numbering types,
+		which you have to repeat if there are more levels.
+		
+		
+	<ol>
+		<li>HTML
+			<ol>
+				<li>Normal Element
+					<ol>
+						<li>bold</li>
+						<li>italic</li>
+					</ol>
+				</li>
+				<li>Void Element</li>
+			</ol>
+		</li>
+	</ol>
+
+
+2. How to display list items side by side?
+A. By using "display:flex" for ordered list.
+
+Eg. 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List</title>
+    <style>
+        .option-list{
+            display: flex;
+            margin-top: 10px;
+        }
+        .option-list li{
+            margin-right: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <ol type="1">
+        <li>__________ element will not have end token
+            <ol type="a" class="option-list">
+                <li>Normal Elements</li>
+                <li>Void Elements</li>
+                <li>RC Data Elements</li>
+                <li>Raw Text Elements</li>
+            </ol>
+        </li>
+    </ol>
+</body>
+
+3. How to display list in multiple columns?
+A. By using "display:grid" or "columns" in CSS
+
+Syntax:
+	ol {
+		display:grid;
+		grid-template-columns: 6fr 6fr;
+	}
+
+or
+
+	ol {
+		columns: 2
+	}
+
+
+eg.
+
+<!DOCTYPE html>
+	<html>
+	<head>
+		<style>
+			ol{
+				columns: 2;
+			}
+		</style>
+	</head>
+	<body>
+
+		<ol>
+			<li>HTML</li>
+			<li>CSS</li>
+			<li>JavaScript</li>
+			<li>Bootstrap</li>
+			<li>React</li>
+			<li>Node JS</li>
+		</ol>
+
+	</body>
+</html>
+
+output : 
+	1. HTML				4. Bootstrap
+	2. CSS				5. React
+	3. JavaScript       6. Node JS
+
+4. How to create a scrollable list?
+A. By using CSS overflow attribute
+
+syntax:
+	ol{
+		height:50px;
+		border:1px solid black;
+		overflow: auto;
+	}
+
+
+5. How to remove numbering for list?
+A. By using the attribute "list-style" set to "none"
+
+Syntax:
+	ol {
+		list-style: none;
+	}
+
+
+				Unordered List
+				
+- It configures a bulleted list.
+- Bulleted list contains a symbol instead of number.
+- List is defined with <ul>
+- Items are defined with <li>
+
+Syntax:
+	<ul>
+		<li> Item-1 </li>
+		<li> Item-2 </li>
+	</ul>
+
+- <ul> type can be "disc, circle or square"
+
+	<ul type="circle">
+	<ul type="square">
+
+
+FAQ:
+1. How to define a custom symbol?
+A. By using CSS attribute "list-style-image"
+	By using 3rd party icons classes.
+	
+eg.
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List</title>
+    <style>
+        ul {
+            list-style: none;
+            list-style-image: url('./icons/star-icon.gif');
+            font-size: 27px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <ul>
+            <li>html</li>
+            <li>css</li>
+            <li>Js</li>
+            <li>forntend</li>
+        </ul>
+    </div>
+
+</body>
+
+</html>
+
+
+-----------------------------------------------------------------------------------
+
+						Lecture-17
+									
+Data List
+	- It is a collection of terms & definitions.
+	- List is defined with "<dl>"
+	- Terms are defined with <dt>
+	- Definitions are defined with <dd>
+
+Syntax:
+	<dl>
+		<dt> Term </dt>
+		<dd> Definition </dd>
+	</dl>
+
+eg
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data List</title>
+</head>
+
+<style>
+    dt{
+        background-color: black;
+        color: white;
+    }
+</style>
+
+<body>
+    <dl>
+        <dt>HTML</dt>
+        <dd>This is markup language</dd>
+        <dt>CSS</dt>
+        <dd>This is used for styling</dd>
+    </dl>
+</body>
+
+</html>
+
+Another Example:
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data List</title>
+</head>
+
+<style>
+    dt {
+        background-color: black;
+        color: white;
+        font-weight: bold;
+        padding: 5px;
+        margin-bottom: 5px;
+    }
+
+    dl {
+        display: grid;
+        grid-template-columns: 2fr 10fr;
+    }
+
+    dd {
+        background-color: grey;
+        color: white;
+        padding: 5px;
+        margin-bottom: 5px;
+    }
+</style>
+
+<body>
+
+    <h2>Your Profile</h2>
+    <dl>
+        <dt>First Name</dt>
+        <dd>Some Data</dd>
+        <dt>Last Name</dt>
+        <dd>Some Data</dd>
+        <dt>Age</dt>
+        <dd>Some Age</dd>
+        <dt>City</dt>
+        <dd>Some City</dd>
+    </dl>
+</body>
+
+</html>
+
+
+						Sticky in CSS
+
+position: sticky is used to make an element:
+
+	behave like normal content
+	but when page scroll reaches that element,
+	it becomes fixed/sticks at a position.
+
+It is a combination of:
+
+	relative
+	fixed
+
+syntax:
+	selector {
+		position: sticky;
+		top: 0px;
+	}
+	
+eg
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    dt {
+        background-color: black;
+        color: white;
+        font-weight: bold;
+        padding: 5px;
+        margin-bottom: 5px;
+    }
+
+    dt{
+        background-color: aquamarine;
+        color: white;
+        position: sticky;
+        top: 0px;
+    }
+
+    nav{
+        width: 200px;
+    }
+
+    dd {
+        background-color: grey;
+        color: white;
+        padding: 5px;
+        margin-bottom: 5px;
+    }
+</style>
+
+<body>
+    <h1>Shopping</h1>
+    <nav>
+        <dl>
+            <dt>Electronics</dt>
+
+            <dd>Telivisons</dd>
+            <dd>Mobiles</dd>
+            <dd>Watech</dd>
+            <dd>Electronics</dd>
+            <dd>Electronics</dd>
+            <dd>Telivisons</dd>
+            <dd>Mobiles</dd>
+            <dd>Watech</dd>
+            <dd>Electronics</dd>
+            <dd>Electronics</dd>
+            <dd>Telivisons</dd>
+            <dd>Mobiles</dd>
+            <dd>Watech</dd>
+            <dd>Electronics</dd>
+            <dd>Electronics</dd>
+            <dd>Telivisons</dd>
+            <dd>Mobiles</dd>
+            <dd>Watech</dd>
+            <dd>Electronics</dd>
+            <dd>Electronics</dd>
+            <dd>Telivisons</dd>
+            <dd>Mobiles</dd>
+            <dd>Watech</dd>
+            <dd>Electronics</dd>
+            <dd>Electronics</dd>
+            <dd>Telivisons</dd>
+            <dd>Mobiles</dd>
+            <dd>Watech</dd>
+            <dd>Electronics</dd>
+            <dd>Electronics</dd>
+            <dd>Telivisons</dd>
+            <dd>Mobiles</dd>
+            <dd>Watech</dd>
+            <dd>Electronics</dd>
+            <dd>Electronics</dd>
+            <dd>Telivisons</dd>
+            <dd>Mobiles</dd>
+            <dd>Watech</dd>
+            <dd>Electronics</dd>
+
+            <dt>Footware</dt>
+            <dd>Shoes</dd>
+            <dd>Boots</dd>
+            <dd>socks</dd>
+            <dd>Shoes</dd>
+            <dd>Boots</dd>
+            <dd>socks</dd>
+            <dd>Shoes</dd>
+            <dd>Boots</dd>
+            <dd>socks</dd>
+            <dd>Shoes</dd>
+            <dd>Boots</dd>
+            <dd>socks</dd>
+            <dd>Shoes</dd>
+            <dd>Boots</dd>
+            <dd>socks</dd>
+            <dd>Shoes</dd>
+            <dd>Boots</dd>
+            <dd>socks</dd>
+            <dd>Shoes</dd>
+            <dd>Boots</dd>
+            <dd>socks</dd>
+            <dd>Shoes</dd>
+            <dd>Boots</dd>
+            <dd>socks</dd>
+            <dd>Shoes</dd>
+            <dd>Boots</dd>
+            <dd>socks</dd>
+        </dl>
+    </nav>
+</body>
+
+</html>
+
+							Details & Summary
+							
+- Details is a container that can show or hide any content dynamically.
+- Summary is a caption for details.
+
+Syntax:
+	<details>
+		<summary> Title </summary>
+
+		.... your content ....
+
+	</details>
+
+- Details is by default hidden in state. You can open details on page load by using the
+attribute "open".
+
+Syntax:
+	<details open>
+
+	</details>
+	
+eg
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    summary {
+        background-color: black;
+        color: white;
+        padding: 5px;
+
+    }
+
+    details div {
+        background-color: black;
+        color: white;
+        padding: 20px;
+        margin-top: 10px;
+    }
+
+    details{
+        margin-bottom: 20px ;
+    }
+</style>
+
+
+<body>
+
+    </div>
+
+    <h1 align="center">Frequently Asked Questions</h1>
+    <details open>
+        <summary>What is Netflix ?</summary>
+        <div>
+            <p>Netflix is a streaming service that offers a wide variety of award-winn</p>
+
+            <p>You can watch as much as you want, whenever you want, without a single</p>
+        </div>
+        </summary>
+    </details>
+
+    <details>
+        <summary>What is Netflix ?</summary>
+        <div>
+            <p>Netflix is a streaming service that offers a wide variety of award-winn</p>
+
+            <p>You can watch as much as you want, whenever you want, without a single</p>
+        </div>
+        </summary>
+    </details>
+</body>
+
+</html>
+
+
+						Fieldset & Legend
+						
+- Fieldset is a container with frame.
+- Legend is a caption for container.
+- It is used to keep all relative content together.
+
+Syntax:
+	<fieldset>
+		<legend> Title </legend>
+
+		....your content....
+
+	</fieldset>
+	
+eg
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>details-summary</title>
+</head>
+
+<style>
+    dl {
+        display: grid;
+        grid-template-columns: 2fr 10fr;
+    }
+
+    dt {
+        background-color: black;
+        padding: 5px;
+        margin-bottom: 5px;
+        color: white;
+    }
+
+    dd {
+        background-color: gray;
+        padding: 5px;
+        margin-bottom: 5px;
+        color: white;
+        width: 200px;
+    }
+
+    fieldset {
+        margin-bottom: 40px;
+        box-shadow: 4px 4px 2px black;
+        border-radius: 5px;
+        width: 600px;
+    }
+
+    legend {
+        width: 150px;
+        padding: 5px;
+        background-color: black;
+        color: white;
+        border-radius: 20px;
+        text-align: center;
+        box-shadow: 4px 3px 2px gray;
+    }
+</style>
+
+<body>
+    <fieldset>
+        <legend>Personal Info</legend>
+        <dl>
+            <dt>First Name</dt>
+            <dd>some name</dd>
+            <dt>Last Name</dt>
+            <dd>some name</dd>
+            <dt>Age</dt>
+            <dd>some number</dd>
+        </dl>
+    </fieldset>
+
+    <fieldset>
+        <legend>Other Details</legend>
+        <dl>
+            <dt>City</dt>
+            <dd>some city</dd>
+            <dt>State</dt>
+            <dd>some state</dd>
+            <dt>Postal Code</dt>
+            <dd>some code</dd>
+        </dl>
+    </fieldset>
+
+</body>
+
+</html>
+
+
+eg
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fieldset and summary</title>
+    <style>
+        legend {
+            text-align: center;
+            padding-right: 10px;
+            padding-left: 10px;
+        }
+
+        fieldset {
+            width: 300px;
+            border-left: none;
+            border-right: none;
+            border-bottom: none;
+            text-align: center;
+        }
+
+        div {
+            margin-top: 20px;
+            border: 1px solid gray;
+            padding: 5px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <fieldset>
+        <legend> New to Amazon ? </legend>
+        <div>Create an account</div>
+    </fieldset>
+</body>
+
+</html>
+
+  
+					Figure & Caption
+					
+- Figure is a container used to encapsulate any graphic with caption.
+- It keeps the content SEO friendly.
+- Caption can be used as keyword for searching a picture.
+
+Syntax:
+	<figure>
+		your image...
+		<figcaption> keyword </figcaption>
+	</figure>
+
+eg
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Figure </title>
+    <style>
+        .women-fashion {
+            background-image: url('./image/women-fashion.jpg');
+            background-size: cover;
+            width: 200px;
+            height: 300px;
+        }
+
+        .men-fashion {
+            background-image: url('./image/men-fashion.jpg');
+            background-size: cover;
+            width: 200px;
+            height: 300px;
+        }
+
+        .kids-fashion {
+            background-image: url('./image/kids-fashion.jpg');
+            background-size: cover;
+            width: 200px;
+            height: 300px;
+        }
+
+        figure {
+            border: 1px solid black;
+            padding: 10px;
+            width: 200px;
+        }
+
+        figcaption {
+            background-color: maroon;
+            color: white;
+            padding: 5px;
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        body{
+            display: flex;
+        }
+    </style>
+</head>
+
+<body>
+    <figure>
+        <div class="women-fashion">
+
+        </div>
+        <figcaption>Women Fashion</figcaption>
+    </figure>
+
+    <figure>
+        <div class="men-fashion">
+
+        </div>
+        <figcaption>Men Fashion</figcaption>
+    </figure>
+
+    <figure>
+        <div class="kids-fashion">
+
+        </div>
+        <figcaption>Kids Fashion</figcaption>
+    </figure>
+</body>
+
+</html>
+
+					Images in HTML
+
+- Images are of various types in computing system.
+- Web will not support all types of images.
+- The most recommended image types for web are:
+
+Image										MIME Type						Extension
+
+APNG[Animated Portable Network Graphics]	image/apng						.apng
+
+PNG[Portable Network Graphics]				image/png						.png
+
+JPEG[Joint Photographic Expert Group]		image/jpeg						.jpg, .jpeg, .jfif
+
+GIF[Graphic Interchange Format]				image/gif						.gif
+
+TIFF										image/tiff						.tiff
+[Tagged Image File Format]
+
+Bitmap										image/bmp						.bmp
+
+Microsoft Icon								image/icon						.ico
+
+SVG											image/svg-xml					.svg
+[Scalar Vector Graphics]					application/xml
+
+Web Picture									image/webp						.webp
+
+FAQ: What is MIME type?
+Ans: MIME is Multi purpose Internet Mail Extension
+	A MIME type refers to the file type that comprises of various extensions for
+	different situations. Browser can understand the file only by MIME type.
+
+
+
+
+
+
