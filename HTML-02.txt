@@ -2807,7 +2807,748 @@ Ans: MIME is Multi purpose Internet Mail Extension
 	different situations. Browser can understand the file only by MIME type.
 
 
+------------------------------------------------------------------------------------------------
 
+								Lecture-18
+								
 
+1. PNG & APNG
+	- High Definition
+	- More Pixel Depth
+	- Good Quality
+	- Uses more memory
+	- Loads slow
+	- It is good for downloads.
+	
+2. JPEG
+	- High Definition
+	- Less Pixel Depth compared to PNG
+	- Good Quality
+	- Compressed Format
+	- Less memory.
+	- Loads Fast
+	- Good for on screen presentation.
 
+3. GIF
+	- Less Pixel Depth than JPG
+	- Only 256 colors
+	- Not HD
+	- Poor Image Quality
+	- Memory same as JPG
+	- Load Fast
+	- Can be animated
+	- Good for icons, logos, bullets, lines, patterns etc.
+	
+Most modern computer screens can display approximately 16.7 million colors.
 
+4. TIFF
+	- Sliced image format
+	- It is used for scanned documents.
+	- HD
+	- Need More memory than PNG
+	- More Pixel than PNG
+
+5. ICON
+	- Microsoft Icons
+	- Used for Favicon [.ico]
+	- Max "32 x 32" recommended
+	
+6. SVG
+	- It is not pixel based.
+	- It is vector based.
+	- Need more memory
+	- High Quality
+	- HD
+	- High Resolution at various zoom levels.
+	- It is XML format image. [Extensible Markup Language]
+	- Mostly used for Icons and Architectural diagrams.
+	
+7. Bitmap
+	- Image in binary format.
+	- It is not much recommend in modern web.
+	- It is good to store in database.
+	- It is good in COM marshal.
+	  [Common Object Model]
+	  Binary to Object => Object to Binary
+	- Need more memory
+	- Loads slow
+	
+						Image Element
+						
+	HTML <img> element is used to embed image into page.
+	
+	Attributes:
+	1. src		: It defines the image path and name.
+	2. alt		: It defines the alternative text to display when image fails to load.
+	3. title	: It defines text to display when mouse is over.
+	4. width	: It sets width for image.
+	5. height	: It sets height for image.
+	6. border	: It sets border with specified pixels.
+	7. align	: It aligns left or right with text wrapping.(Wrap = move around)
+	8. vspace	: Vertical padding space
+	9. hspace	: Horizontal padding space
+	
+	Syntax:
+		<img src="./images/fashion.jpg" width="200" height="300" border="3" align="left"
+		alt="Women Fashion" title="Offer Ends Today" hspace="20" vspace="30">
+	
+	FAQ: What is fluid Image? How to define a fluid image?
+	Ans: Fluid image can adjust according to the parent window or container.
+	You can define fluid images with size in "%" instead of pixels.
+	
+	Syntax:
+		<img src="./images/pic.jpg" width="50%" height="30%">
+	
+	Eg landkit-template
+	
+	<!DOCTYPE html>
+	<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>LandKit</title>
+		<link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+		<style>
+			header {
+				padding: 20px;
+				display: flex;
+				/* keep content side by side */
+				justify-content: space-around;
+				font-family: arial;
+				font-size: 18px;
+			}
+
+			.brand-title {
+				color: #335EEA;
+				font-weight: bold;
+				font-size: 20px;
+				font-family: arial;
+			}
+
+			nav span {
+				padding-left: 20px;
+				font-family: calibri;
+			}
+
+			.btn-buy {
+				background-color: blue;
+				color: white;
+				padding: 10px;
+				border-radius: 5px;
+			}
+
+			.landkit-title {
+				width: 50%;
+				padding-left: 100px;
+				padding-top: 100px;
+			}
+
+			.title {
+				font-family: Arial;
+				font-size: 50px;
+				color: blue;
+			}
+
+			.sub-title {
+				font-family: Arial;
+				font-size: 25px;
+			}
+
+			.text {
+				font-size: 16px;
+				font-family: Arial;
+				width: 400px;
+				line-height: 30px;
+				color: gray;
+			}
+
+			.btn-pages,
+			.btn-doc {
+				width: 120px;
+				padding: 10px;
+				text-align: center;
+				border: 1px solid grey;
+				margin-top: 20px;
+				display: inline-block;
+				border-radius: 3px;
+				font-size: 15px;
+				font-family: Arial;
+			}
+
+			.btn-pages {
+				background-color: blue;
+				color: white;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header>
+			<div class="brand-title">
+				<span>Landkit.</span>
+			</div>
+			<div>
+				<nav>
+					<span>Landings</span>
+					<span>Pages</span>
+					<span>Accounts</span>
+					<span>Documentation</span>
+				</nav>
+			</div>
+			<div>
+				<!-- <button>Buy now</button> -->
+				<span class="btn-buy">Buy now</span>
+			</div>
+		</header>
+
+		<section>
+			<main>
+				<img src="./image/landkit-banner.jpg" alt="Banner" width="50%" align="right">
+
+				<div class="landkit-title">
+					<h1 class="title">Welcome to Landkit.</h1>
+					<h2 class="sub-title">Develop anything.</h2>
+					<p class="text">Building a beautiful , modern website with flexible bootstrap component build form
+						scratch</p>
+					<span class="btn-pages"> View Pages <span class="bi bi-arrow-right"></span> </span>
+					<span class="btn-doc">Documents</span>
+				</div>
+			</main>
+		</section>
+
+	</body>
+
+	</html>
+	
+	Eg cards
+	
+	<!DOCTYPE html>
+	<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Cards</title>
+		<link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+		<style>
+			.card {
+				width: 250px;
+				border: 1px solid grey;
+				border-radius: 5px;
+				margin: 20px;
+			}
+
+			.card-image {
+				width: 100%;
+				border-top-left-radius: 5px;
+				border-top-right-radius: 5px;
+			}
+
+			.card-body {
+				padding: 10px;
+				height: 200px;
+			}
+
+			.card-title {
+				font-size: 20px;
+				font-family: Arial;
+				font-weight: bold;
+				margin-bottom: 20px;
+			}
+
+			.rating {
+				margin-top: 10px;
+				color: goldenrod;
+				margin-bottom: 10px;
+			}
+
+			.card-footer {
+				font-size: 18px;
+				font-family: Arial;
+				text-align: center;
+				display: flex;
+				/* justify-content: space-around;
+				padding-top: 10px;
+				padding-bottom: 10px; */
+			}
+
+			.card-footer {
+				border-top: 1px solid black;
+			}
+
+			.btn-enroll {
+				background-color: blue;
+				color: white;
+				width: 50%;
+				padding: 20px;
+
+			}
+
+			.btn-share {
+				width: 50%;
+				padding: 20px;
+			}
+
+			body{
+				display: flex;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="card">
+			<div class="card-header">
+				<img src="./image/cloud.jpg" alt="cloud-image" class="card-image">
+			</div>
+			<div class="card-body">
+				<div class="card-title">Cloud</div>
+				<div class="rating">
+					<span class="bi bi-star-fill"></span>
+					<span class="bi bi-star-fill"></span>
+					<span class="bi bi-star-fill"></span>
+					<span class="bi bi-star-fill"></span>
+					<span class="bi bi-star-half"></span>
+				</div>
+				<div>
+					<span class="bi bi-clock"></span> <span>Start Date: 6 May 2024</span>
+					<br><br>
+					<span class="bi bi-person"></span> <span>By Mr. Santosh</span>
+					<br><br>
+					<span class="bi bi-clock-fill"></span> <span>Duration 5 months</span>
+				</div>
+			</div>
+			<div class="card-footer">
+				<div class="btn-enroll">Enroll</div>
+				<div class="btn-share"> <span class="bi bi-share"></span>Share</div>
+			</div>
+		</div>
+
+		<div class="card">
+			<div class="card-header">
+				<img src="./image/java.jpg" alt="cloud-image" class="card-image">
+			</div>
+			<div class="card-body">
+				<div class="card-title">Java</div>
+				<div class="rating">
+					<span class="bi bi-star-fill"></span>
+					<span class="bi bi-star-fill"></span>
+					<span class="bi bi-star-fill"></span>
+					<span class="bi bi-star-fill"></span>
+					<span class="bi bi-star-half"></span>
+				</div>
+				<div>
+					<span class="bi bi-clock"></span> <span>Start Date: 6 May 2024</span>
+					<br><br>
+					<span class="bi bi-person"></span> <span>By Mr. Santosh</span>
+					<br><br>
+					<span class="bi bi-clock-fill"></span> <span>Duration 5 months</span>
+				</div>
+			</div>
+			<div class="card-footer">
+				<div class="btn-enroll">Enroll</div>
+				<div class="btn-share"> <span class="bi bi-share"></span>Share</div>
+			</div>
+		</div>
+	</body>
+
+	</html>
+		
+------------------------------------------------------------------------------------------------
+
+								Lecture-19		
+								
+Images in HTML
+	- <img> element
+	- Attributes for <img>
+	- eg. Cards
+		
+.row {
+    display: grid;
+    /* Makes the container use CSS Grid layout */
+	
+    grid-template-columns: 6fr 6fr;
+    /* Creates 2 equal columns
+       First column = 6 parts
+       Second column = 6 parts
+       Both columns get equal width
+    */
+
+    grid-gap: 5px;
+    /* Adds 5px space between grid items */
+
+    font-family: Arial;
+    /* Sets text font to Arial */
+
+    font-size: 14px;
+    /* Sets text size to 14 pixels */
+
+    height: 150px;
+    /* Sets total height of the row/container to 150px */
+}
+	
+	
+Eg. Amazon-Cards
+	
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazon Cards</title>
+    <style>
+        body {
+            background-color: lightgrey;
+        }
+
+        section {
+            display: grid;
+            grid-template-columns: 3fr 3fr 3fr 3fr;
+            margin-top: -250px;
+        }
+
+        .card {
+            background-color: white;
+            padding: 5px;
+            margin: 10px;
+            height: 400px;
+        }
+
+        .card-title {
+            font-family: Arial;
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        .card-header {
+            height: 60px;
+        }
+
+        .row {
+            display: grid;
+            grid-template-columns: 6fr 6fr;
+            grid-gap: 5px;
+            font-family: Arial;
+            font-size: 14px;
+            height: 150px;
+        }
+
+        .footer-title {
+            text-align: center;
+            font-family: Arial;
+            color: darkcyan;
+            padding-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <img src="./image/amazon-banner.jpg" alt="banner" width="100%">
+    </header>
+    <section>
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title">Deals on smartphones that suits your budget</div>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div>
+                        <img src="./image/a1.jpg" width="100%" alt="a1">
+                        <p>Budget | Under <br> &#8377; 10,000</p>
+                    </div>
+                    <div>
+                        <img src="./image/a1.jpg" width="100%" alt="a1">
+                        <p>Mid Range | &#8377; 10,000 <br> &#8377; 25,000</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div>
+                        <img src="./image/a1.jpg" width="100%" alt="a1">
+                        <p>Premium | &#8377; 25,000 &#8377; 40,000</p>
+                    </div>
+                    <div>
+                        <img src="./image/a1.jpg" width="100%" alt="a1">
+                        <p>Ultra Premium | Above &#8377; 40,000</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer">
+                <div class="footer-title">See all offers</div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title">Latest trends from top brands | 50% - 70% off</div>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div>
+                        <img src="./image/a5.jpg" width="100%" alt="a1">
+                        <p>Bed</p>
+                    </div>
+                    <div>
+                        <img src="./image/a6.jpg" width="100%" alt="a1">
+                        <p>Carten</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div>
+                        <img src="./image/a7.jpg" width="100%" alt="a1">
+                        <p>Table</p>
+                    </div>
+                    <div>
+                        <img src="./image/a8.jpg" width="100%" alt="a1">
+                        <p>Show Piece</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer">
+                <div class="footer-title">See all offers</div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title">Up to 50% off | Baby care & toys | Amazon Brands</div>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div>
+                        <img src="./image/a9.jpg" width="100%" height="80" alt="a1">
+                        <p>Up to 50% off | Baby diapers & wipes </p>
+                    </div>
+                    <div>
+                        <img src="./image/a10.jpg" width="100%" height="80" alt="a1">
+                        <p>Up to 50% off | Use Glamarous life </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div>
+                        <img src="./image/a11.jpg" width="100%" height="80" alt="a1">
+                        <p>Up to 50% off | Exciting Offer </p>
+                    </div>
+                    <div>
+                        <img src="./image/a12.jpg" width="100%" height="80" alt="a1">
+                        <p>Up to 50% off | tooster </p>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer">
+                <div class="footer-title">See all offers</div>
+            </div>
+        </div>
+
+        <div class="card">
+
+            <div class="card-header">
+                <div class="card-title">Up to 75% off Electronics & accessories</div>
+            </div>
+
+            <div class="card-body">
+                <img src="./image/a13.jpg" alt="a13" height="290" width="100%">
+            </div>
+            <div class="footer-title">See all offers</div>
+        </div>
+    </section>
+</body>
+
+</html>
+
+Image Advanced Attributes:
+
+1. crossorigin : It refers to CORS [Cross Origin Resource Sharing].
+				 It is used for images, which are accessed from remote locations.
+				 It allows to set restrictions for image.
+
+				a) allow-anonymous
+				b) use-credentials
+Syntax:
+	<img src="some-remote-url" crossorigin="anonymous | use-credentials">
+
+Ex:
+	<img width="500" height="400" crossorigin="use-credentials"
+	src="https://apod.nasa.gov/apod/image/2405/BlackHole_Simonnet_960.jpg">
+
+here image is not visible bcz you use use-credentials, this we learn after in js - how to deal with it	
+	
+2. decoding : It controls image loading along with other content in page.
+				It can define
+				a) sync : blocking [blocks other content] - one after another
+				b) async (all at a time) : un-blocking [along with other content]
+				c) auto : change according to situations
+
+Syntax:
+	<img src=" ... " decoding="async | sync | auto">
+		
+3. Importance : It sets priority for image.
+				Priority includes
+				a) low
+				b) high
+				c) auto
+
+Syntax:
+<img src=" ... " importance="low | high | auto">
+
+4. srcset : It is used to configure multiple images.
+			An image element can embed multiple images.
+			However images will rotate[change] with CSS attributes.
+
+Syntax:
+	<img srcset="set of images">
+
+FAQ: How to keep image SEO friendly?
+Ans: Enclose image in <figure> with <figcaption>
+
+Syntax:
+	<figure>
+		<img src="pic.jpg" width="200" height="200">
+		<figcaption> Title </figcaption>
+	</figure>
+
+CSS Float for Images:
+- "float" is a CSS attribute used to float content left or right.
+- It controls the content wrapping along with alignment.
+- [“Wrapping” means moving content to the next line or 
+	next row when there is not enough space in the current line.]
+- "float" may effect other elements in container, hence you have to use "clear" as CSS
+attribute to discard float.
+	{
+		float: left | right;
+		clear:left | right | both;
+	}
+	
+- while working with responsive design use float instead of allign
+
+eg.
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Float</title>
+    <style>
+        .img1{
+            float: left;
+            /* Moves image to the left side
+               Text/content will wrap around the image */
+        }
+
+        .img2{
+            float: right;
+            /* Moves image to the right side */
+        }
+
+        p{
+            clear: left;
+            /* Paragraph will start below any left floated element
+               It will not stay beside .img1 image */
+        }
+    </style>
+</head>
+<body>
+    <img class="img1" src="./image/a1.jpg">
+    <p> Lorem ipsum dolor sit amet consectetur adipisicing elit.
+		Voluptate molestiae deserunt alias laboriosam suscipit perspiciatis numquam ad itaque,
+		officiis veritatis odit. Consequatur autem iusto harum distinctio,
+		deleniti vero esse reiciendis.
+    </p>    
+    <img class="img2" src="./image/a1.jpg">
+
+</body>
+</html>
+
+	FAQ: What is difference between align and float?
+	Ans : Float is a responsive attribute of CSS. It can be controlled dynamically.
+		  Align is basic HTML attribute used for text-wrapping. It is not responsive.
+
+------------------------- own doubt clear ----------------------------------------
+
+div : <div> is a block-level element
+	  They try to take the full available width of the parent container
+
+eg. 
+
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+
+        div{
+            border:2px solid red;
+            width:300px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div>
+        Hello
+    </div>
+
+</body>
+</html>
+
+Output idea:
+
+----------------
+| Hello        |
+----------------
+
+Here:
+	We manually gave width:300px
+	So div no longer takes full width
+
+Now understand “full available width of parent”.
+
+Example-2 :
+
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+
+        .parent{
+            width:500px;
+            border:3px solid blue;
+        }
+
+        .child{
+            border:2px solid red;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="parent">
+
+        <div class="child">
+            Hello
+        </div>
+
+    </div>
+
+</body>
+</html>
+
+Output idea:
+
+------------------------------------  ← Parent (500px)
+| -------------------------------- |  
+| | Hello                        | | ← Child div takes full width
+| -------------------------------- |
+------------------------------------
+
+Important:
+	Child div takes 100% width of parent
+	NOT 100% width of entire screen
+
+Because block elements use:
+	Full available width inside parent container.
+	
+--------------------------------------------------------------------------------
