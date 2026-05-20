@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inter Document</title>
+
+    <style>
+        nav{
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 50px;
+            font-size: 30px;
+        }
+        a{
+            text-decoration: none;
+        }
+        a:hover{
+            text-decoration: underline;
+        }
+        main{
+            display: flex;
+            justify-content: space-between;
+            margin-top: 50px;
+        }
+        main div{
+            border: 2px solid black;
+            margin: 20px;
+            padding: 20px;
+            box-shadow: 2px 2px 2px grey;
+        }
+
+        .card:target{
+            background-color: black;
+            color: white;
+            width: 200px;
+            height: 200px;
+            border-radius: 200px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <span><a href="#html">HTML</a></span>
+        <span><a href="#css">CSS</a></span>        
+        <span><a href="#js">JS</a></span>        
+    </nav>
+
+    <main>
+        <div id="html" class="card">
+            <h2>HTML</h2>
+            <p>This is markup language</p>
+        </div>
+        
+        <div id="css" class="card">
+            <h2>CSS</h2>
+            <p>This is used for styling </p>
+        </div>
+
+        <div id="js" class="card">
+            <h2>JS</h2>
+            <p>This is used to manipulate DOM</p>
+        </div>
+        
+    </main>
+</body>
+</html>
