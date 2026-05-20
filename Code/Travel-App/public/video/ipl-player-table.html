@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IPL TABLE</title>
+    <style>
+        .player-img {
+            width: 100%;
+        }
+
+        .row {
+            display: grid;
+            grid-template-columns: 6fr 6fr;
+        }
+
+        .col {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .player-name {
+            font-weight: bold;
+        }
+
+        thead tr {
+            color: white;
+        }
+
+        table {
+            font-family: Arial;
+            font-size: 13px;
+        }
+
+        tr td:first-child {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .btn-view {
+            background-color: red;
+            color: white;
+            padding: 5px;
+            width: 100px;
+        }
+
+        table {
+            border: 1px solid grey;
+            border-radius: 20px;
+        }
+
+        td{
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <table cellspacing="15" cellpadding="10" width="100%">
+        <caption>IPL 2024 Table Stats</caption>
+        <thead>
+            <tr bgcolor="#000077">
+                <th>POS</th>
+                <th width="250">PLAYER</th>
+                <th>MAT</th>
+                <th>INNS</th>
+                <th>NO</th>
+                <th>RUNS</th>
+                <th>HS</th>
+                <th>AVG</th>
+                <th>BF</th>
+                <th>SR</th>
+                <th>100</th>
+                <th>50</th>
+                <th>4S</th>
+                <th>6S</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr valign="center">
+                <td align="center">1</td>
+                <td>
+                    <div class="row">
+                        <div>
+                            <img src="../image/Vaibhav Sooryavanshi.png" alt="Vaibhav Sooryavanshi" class="player-img">
+                        </div>
+                        <div class="col">
+                            <div>
+                                <span class="player-name"> Vaibhav Sooryavanshi</span>
+                                <br>
+                                <span>RR</span>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+                <td>13</td>
+                <td>13</td>
+                <td>0</td>
+                <td>103</td>
+                <td>44.54</td>
+                <td>245</td>
+                <td>236.32</td>
+                <td>1</td>
+                <td>3</td>
+                <td>50</td>
+                <td>53</td>
+                <td>15</td>
+            </tr>
+
+            <tr>
+                <td align="center">2</td>
+                <td>
+                    <div class="row">
+                        <div>
+                            <img src="../image/Mitchell Marsh.png" alt="Mitchell Marsh" class="player-img">
+                        </div>
+                        <div class="col">
+                            <div>
+                                <span class="player-name"> Mitchell Marsh</span>
+                                <br>
+                                <span>LSG</span>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+                <td>13</td>
+                <td>13</td>
+                <td>0</td>
+                <td>103</td>
+                <td>44.54</td>
+                <td>245</td>
+                <td>236.32</td>
+                <td>1</td>
+                <td>3</td>
+                <td>50</td>
+                <td>53</td>
+                <td>15</td>
+
+            </tr>
+
+            <tr>
+                <td align="center">3</td>
+                <td>
+                    <div class="row">
+                        <div>
+                            <img src="../image/Heinrich Klaasen.png" alt="Heinrich Klaasen" class="player-img">
+                        </div>
+                        <div class="col">
+                            <div>
+                                <span class="player-name">Heinrich Klaasen</span>
+                                <br>
+                                <span>SRH </span>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+                <td>13</td>
+                <td>13</td>
+                <td>0</td>
+                <td>103</td>
+                <td>44.54</td>
+                <td>245</td>
+                <td>236.32</td>
+                <td>1</td>
+                <td>3</td>
+                <td>50</td>
+                <td>15</td>
+                <td>53</td>
+            </tr>
+        </tbody>
+
+        <tfoot>
+            <tr>
+                <td colspan="14" align="center">
+                    <div class="btn-view">
+                        View All
+                    </div>
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+</body>
+
+</html>

@@ -1,11 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width= , initial-scale=1.0">
     <title>Document</title>
 </head>
+<style>
+    body {
+        display: grid;
+        grid-template-columns: 2fr 10fr;
+    }
+
+    iframe {
+        width: 100%;
+        height: 100vh;
+        border: none;
+    }
+</style>
+
 <body>
-    
+    <nav>
+        <div> <a href="./image/women-fashion.jpg" target="_blank"><img src="./image/women-fashion.jpg" alt="women"
+                    width="100" height="100"></a></div>
+        <div>
+            <a href="javascript:window.open('./image/kids-fashion.jpg','kids','width=300 height=400')"><img
+                    src="./image/kids-fashion.jpg" alt="kids" width="100" height="100"></a>
+        </div>
+        <div>
+            <a href="./image/men-fashion.jpg" target="frameBody"><img src="./image/men-fashion.jpg" alt="men"
+                    width="100" height="100"></a>
+        </div>
+        <div>
+            <a href="./shopper-template.html" target="frameBody">Shopper.</a>
+        </div>
+        <div>
+            <a href="https://www.youtube.com/embed/ZAo42MCnHRo" target="frameBody">HTML</a>
+        </div>
+    </nav>
+    <main>
+        <iframe name="frameBody"></iframe>
+    </main>
+
 </body>
+
 </html>
