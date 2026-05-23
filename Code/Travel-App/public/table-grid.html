@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table Grid</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+
+    <style>
+
+        table{
+            font-family: Arial;
+        }
+        .bi-pencil-fill {
+            color: goldenrod;
+        }
+
+        .bi-trash {
+            color: red;
+        }
+
+        .active {
+            background-color: skyblue;
+            /* color: white; */
+        }
+
+        .pagination span {
+            display: inline-block;
+            border: 1px solid blue;
+            padding: 8px;
+            width: 10px;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <table width="50%" border="1" frame="void">
+        <thead>
+            <tr>
+                <th align="center" colspan="3"> Product Grid</th>
+            </tr>
+            <tr>
+                <th>Name <span class="bi bi-sort-alpha-down"></span></th>
+                <th>Price <span class="bi bi-sort-alpha-down"></span></th>
+                <th>Action <span class="bi bi-sort-alpha-down"></span></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Samsung TV</td>
+                <td>54000.50</td>
+                <td align="center">
+                    <span class="bi bi-pencil-fill"></span>
+                    <span class="bi bi-eye"></span>
+                    <span class="bi bi-trash"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>Samsung TV</td>
+                <td>54000.50</td>
+                <td align="center">
+                    <span class="bi bi-pencil-fill"></span>
+                    <span class="bi bi-eye"></span>
+                    <span class="bi bi-trash"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>Samsung TV</td>
+                <td>54000.50</td>
+                <td align="center">
+                    <span class="bi bi-pencil-fill"></span>
+                    <span class="bi bi-eye"></span>
+                    <span class="bi bi-trash"></span>
+                </td>
+            </tr>
+        </tbody>
+
+        <tfoot>
+            <td colspan="3" align="center">
+                <div class="pagination">
+                    <span class="bi bi-chevron-double-left"></span>
+                    <span>1</span>
+                    <span class="active">2</span>
+                    <span>3</span>
+                    <span>4</span>
+                    <span>5</span>
+                    <span class="bi bi-chevron-double-right"></span>
+                </div>
+            </td>
+        </tfoot>
+    </table>
+
+</body>
+
+</html>
