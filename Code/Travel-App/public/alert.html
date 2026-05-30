@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alerts</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+</head>
+
+<!-- Full width Bootstrap container -->
+<body class="container-fluid">
+
+    <!-- Main heading -->
+    <h2>Alerts</h2>
+
+    <!-- Success alert box -->
+    <!-- alert = creates alert -->
+    <!-- alert-success = green success alert -->
+    <!-- alert-dismissible = alert can be closed -->
+    <div class="alert alert-success alert-dismissible">
+
+        <!-- Close button -->
+        <!-- btn-close = Bootstrap close icon -->
+        <!-- data-bs-dismiss="alert" = closes alert on click -->
+        <button class="btn btn-close" data-bs-dismiss="alert"></button>
+
+        <!-- Alert title -->
+        <h3 class="alert-title">
+            Registered Successfully
+        </h3>
+
+        <!-- Alert subtitle/message -->
+        <p class="alert-subtitle">
+            Welcome to our website - Verify the email
+        </p>
+
+        <!-- Link inside alert -->
+        <!-- alert-link = styles link according to alert -->
+        <a class="alert-link" href="#">
+            Help ?
+        </a>
+
+        <!-- Line breaks -->
+        <br><br>
+
+        <!-- Success button -->
+        <!-- Clicking button closes alert -->
+        <button data-bs-dismiss="alert" class="btn btn-success"> OK </button>
+
+    </div>
+
+    <!-- Info alert box -->
+    <!-- w-25 = width 25% -->
+    <!-- alert-info = light blue alert -->
+    <div class="alert w-25 alert-info alert-dismissible">
+
+        <!-- Close button -->
+        <button class="btn btn-close" data-bs-dismiss="alert"></button>
+
+        <!-- Image -->
+        <img src="./image/a1.jpg" width="200" height="200">
+
+        <!-- Offer heading -->
+        <h3>45% OFF</h3>
+
+    </div>
+
+</body>
+
+
+</html>

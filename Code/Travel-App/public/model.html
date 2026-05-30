@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!-- Character encoding -->
+    <meta charset="UTF-8">
+
+    <!-- Responsive viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Page title -->
+    <title>Document</title>
+
+    <!-- Bootstrap Icons CSS -->
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+
+    <!-- Bootstrap JavaScript -->
+    <!-- Required for modal functionality -->
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+
+</head>
+
+<!-- Full width Bootstrap container -->
+
+<body class="container-fluid">
+
+    <!-- Button to open modal -->
+    <!-- data-bs-toggle="modal" = opens modal -->
+    <!-- data-bs-target="#login" = targets modal id="login" -->
+    <button data-bs-toggle="modal" data-bs-target="#offers" class="btn btn-primary mt-3">
+        Login
+    </button>
+
+    <div class="modal fade" id="offers">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>Limited Offers</h2>
+                    <button class="btn btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="./image/a1.jpg" width="100" height="100">
+                    <img src="./image/a2.jpg" width="100" height="100">
+                    <img src="./image/a3.jpg" width="100" height="100">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal container -->
+    <!-- fade = adds fade animation -->
+    <!-- id="login" = modal unique identifier -->
+    <div class="modal fade" id="login">
+
+        <!-- Modal dialog box -->
+        <!-- modal-dialog-centered = vertically center modal -->
+        <!-- modal-dialog-scrollable = body gets scrollbar if content increases -->
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+
+            <!-- Full modal content -->
+            <div class="modal-content">
+
+                <!-- Modal header -->
+                <!-- bg-dark = dark background -->
+                <!-- text-white = white text -->
+                <div class="modal-header bg-dark text-white">
+
+                    <!-- Bootstrap icon -->
+                    <!-- bi-person-fill = user icon -->
+                    <h2 class="bi bi-person-fill">
+                        User Login
+                    </h2>
+
+                    <!-- Close button -->
+                    <!-- btn-close = Bootstrap close icon -->
+                    <!-- btn-close-white = white close icon -->
+                    <!-- data-bs-dismiss="modal" = closes modal -->
+                    <button class="btn btn-close btn-close-white" data-bs-dismiss="modal">
+                    </button>
+
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+
+                    <!-- Description list -->
+                    <dl>
+
+                        <!-- Label -->
+                        <dt>User Name</dt>
+
+                        <!-- Input field -->
+                        <dd>
+                            <input type="text" class="form-control">
+                        </dd>
+
+                        <!-- Password label -->
+                        <dt>Password</dt>
+
+                        <!-- Password field -->
+                        <dd>
+                            <input type="password" class="form-control">
+                        </dd>
+
+                    </dl>
+
+                    <!-- Repeated form sections -->
+                    <!-- Added multiple times to demonstrate scrolling -->
+
+                    <dl>
+                        <dt>User Name</dt>
+                        <dd>
+                            <input type="text" class="form-control">
+                        </dd>
+
+                        <dt>Password</dt>
+                        <dd>
+                            <input type="password" class="form-control">
+                        </dd>
+                    </dl>
+
+                    <dl>
+                        <dt>User Name</dt>
+                        <dd>
+                            <input type="text" class="form-control">
+                        </dd>
+
+                        <dt>Password</dt>
+                        <dd>
+                            <input type="password" class="form-control">
+                        </dd>
+                    </dl>
+
+                    <dl>
+                        <dt>User Name</dt>
+                        <dd>
+                            <input type="text" class="form-control">
+                        </dd>
+
+                        <dt>Password</dt>
+                        <dd>
+                            <input type="password" class="form-control">
+                        </dd>
+                    </dl>
+
+                    <dl>
+                        <dt>User Name</dt>
+                        <dd>
+                            <input type="text" class="form-control">
+                        </dd>
+
+                        <dt>Password</dt>
+                        <dd>
+                            <input type="password" class="form-control">
+                        </dd>
+                    </dl>
+
+                    <dl>
+                        <dt>User Name</dt>
+                        <dd>
+                            <input type="text" class="form-control">
+                        </dd>
+
+                        <dt>Password</dt>
+                        <dd>
+                            <input type="password" class="form-control">
+                        </dd>
+                    </dl>
+
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+
+                    <!-- Login button -->
+                    <button class="btn btn-primary">
+                        Login
+                    </button>
+
+                    <!-- Cancel button -->
+                    <!-- data-bs-dismiss="modal" closes popup -->
+                    <button class="btn btn-danger" data-bs-dismiss="modal">
+                        Cancel
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

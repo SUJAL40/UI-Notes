@@ -1,0 +1,1979 @@
+									
+									Lecture-31
+
+Display Classes :
+
+| Class                      | Notes                                  |
+| -------------------------- | -------------------------------------- |
+| `.d-none`                  | Hides the element (`display:none`)     |
+| `.d-inline`                | Displays element inline                |
+| `.d-block`                 | Displays element as block              |
+| `.d-flex`                  | Enables flex container                 |
+| `.d-inline-block`          | Inline element with block properties   |
+| `.d-inline-flex`           | Inline flex container                  |
+| `.flex-wrap`               | Allows flex items to move to next line |
+| `.flex-row`                | Arranges flex items horizontally       |
+| `.flex-column`             | Arranges flex items vertically         |
+| `.justify-content-between` | Adds space between flex items          |
+| `.justify-content-center`  | Centers items horizontally             |
+| `.justify-content-end`     | Moves items to end horizontally        |
+| `.justify-content-start`   | Moves items to start horizontally      |
+| `.align-items-center`      | Centers items vertically               |
+| `.align-items-start`       | Aligns items at top/start              |
+| `.align-items-end`         | Aligns items at bottom/end             |
+
+- Flexbox is used to align and distribute elements efficiently inside a container.
+
+| Class             | Simple Meaning                                                                       |
+| ----------------- | ------------------------------------------------------------------------------------ |
+| `.d-inline-block` | Element stays in same line like inline, but you can give width and height like block |
+| `.d-inline-flex`  | Element stays in same line and also becomes a flex container                         |
+| `.flex-wrap`      | If flex items do not fit in one line, they move to next line                         |
+
+
+
+Ex.
+
+	<div class="m-4 p-4 d-flex flex-row w-50 justify-content-between">
+		<button>A</button>
+		<button>B</button>
+		<button class="d-inline">C</button>
+		<button>D</button>
+		<button>E</button>
+	</div>
+
+- Grid Classes:
+
+	.row
+	.col		: responsive and fits according to parent.
+	.col-{size} : size is in fractions 1 to 12
+
+Ex.	EMI Calculator
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display Grid Property</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+</head>
+<style>
+    .form-range {
+        width: 95%;
+    }
+</style>
+
+<body class="bg-secondary p-4 m-4">
+
+    <div class="bg-light p-3 m-3">
+        <div class="h3 text-center">Personal Loan EMI Calculator</div>
+        <div class="row my-2 py-2">
+            <div class="col">
+                Amount you need &#8377; <input type="text" size="12">
+            </div>
+            <div class="col">
+                for <input type="text" size="2"> years
+            </div>
+            <div class="col">
+                Interest rate <input type="text" size="2"> %
+            </div>
+        </div>
+
+        <div class="row mt-2 pt-2">
+            <div class="col">
+                <input type="range" class="form-range" min="10000" max="1000000" value="200000">
+            </div>
+            <div class="col">
+                <input type="range" class="form-range" min="1" max="5" value="2">
+            </div>
+            <div class="col">
+                <input type="range" class="form-range" min="10.45" max="18.45" value="12.45">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col d-flex justify-content-between">
+                <span> &#8377; 10,000</span>
+                <span> &#8377; 10,00,000</span>
+            </div>
+            <div class="col d-flex justify-content-between">
+                <span>1</span>
+                <span>5</span>
+            </div>
+            <div class="col d-flex justify-content-between">
+                <span>10.45%</span>
+                <span>18.45%</span>
+            </div>
+        </div>
+
+        <div class="row my-4 py-4">
+            <div class="col text-end">
+                <button class="btn btn-primary">Continue</button>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
+
+Ex.
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <title>Data List</title>
+</head>
+
+<body>
+    <div class="p-4 m-4">
+        <dl class="row bg-black text-white w-25">
+            <dt class="col-2 my-4">Name</dt>
+            <dd class="col-10 my-4"><input type="text" class="form-select"></dd>
+            <dt class="col-2 my-4">Age</dt>
+            <dd class="col-10 my-4"><input type="number" class="form-select" name="age" id="age"></dd>
+            <dt class="col-2 my-4">City</dt>
+            <dd class="col-10 my-4">
+                <select name="city" id="city" class="form-select">
+                    <option value="SelectCity">Select City</option>
+                    <option value="hyd">Hyd</option>
+                    <option value="mumbai">Mumbai </option>
+                    <option value="benglore">Benglore</option>
+                </select>
+            </dd>
+            <dd>
+                <button class="btn w-100 btn-light">Submit</button>
+            </dd>
+        </dl>
+    </div>
+</body>
+
+</html>
+
+
+List Classes:
+
+		.list-unstyled		: remove numbering or bullets
+
+Table Classes:
+
+	.table
+	.table-hover
+	.table-responsive : It is defined for container which have table.
+	.table-bordered
+	.table-borderless
+	.table-striped
+	.table-{contextual}
+	.caption-top
+	
+| Class                 | Notes                                                   |
+| --------------------- | ------------------------------------------------------- |
+| `.table`              | Applies basic Bootstrap table styling                   |
+| `.table-hover`        | Highlights row when mouse hovers on it                  |
+| `.table-responsive`   | Makes table scroll horizontally on small screens        |
+|						| It is defined for container which have table.		      |
+| `.table-bordered`     | Adds borders to all table cells                         |
+| `.table-borderless`   | Removes all table borders                               |
+| `.table-striped`      | Adds alternate row colors                               |
+| `.table-{contextual}` | Applies contextual colors like success, danger, warning |
+| `.caption-top`        | Displays table caption at top of table                  |
+
+| Class(Contextual)| Color Meaning |
+| ---------------- | ------------- |
+| `.table-primary` | Blue          |
+| `.table-success` | Green         |
+| `.table-danger`  | Red           |
+| `.table-warning` | Yellow        |
+| `.table-info`    | Light blue    |
+| `.table-dark`    | Dark table    |
+
+
+Ex.
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <title>Data List</title>
+    <style>
+        .player-img {
+            width: 20%;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="h1 text-center">Table</header>
+    <div class="table-responsive">
+        <table class="table table-hover table-striped caption-top">
+            <caption>IPL 2024 Table Stats</caption>
+            <thead>
+                <tr class="table-dark">
+                    <th>POS</th>
+                    <th width="250">PLAYER</th>
+                    <th>MAT</th>
+                    <th>INNS</th>
+                    <th>NO</th>
+                    <th>RUNS</th>
+                    <th>HS</th>
+                    <th>AVG</th>
+                    <th>BF</th>
+                    <th>SR</th>
+                    <th>100</th>
+                    <th>50</th>
+                    <th>4S</th>
+                    <th>6S</th>
+                    <th>AVG</th>
+                    <th>BF</th>
+                    <th>SR</th>
+                    <th>100</th>
+                    <th>50</th>
+                    <th>4S</th>
+                    <th>6S</th>
+                    <th>AVG</th>
+                    <th>BF</th>
+                    <th>SR</th>
+                    <th>100</th>
+                    <th>50</th>
+                    <th>4S</th>
+                    <th>6S</th>
+                    <th>AVG</th>
+                    <th>BF</th>
+                    <th>SR</th>
+                    <th>100</th>
+                    <th>50</th>
+                    <th>4S</th>
+                    <th>6S</th>
+                    <th>AVG</th>
+                    <th>BF</th>
+                    <th>SR</th>
+                    <th>100</th>
+                    <th>50</th>
+                    <th>4S</th>
+                    <th>6S</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr valign="center">
+                    <td align="center">1</td>
+                    <td>
+                        <div class="row">
+                            <div>
+                                <img src="./image/Vaibhav Sooryavanshi.png" alt="Vaibhav Sooryavanshi"
+                                    class="player-img">
+                            </div>
+                            <div class="col">
+                                <div>
+                                    <span class="player-name"> Vaibhav Sooryavanshi</span>
+                                    <br>
+                                    <span>RR</span>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td>13</td>
+                    <td>13</td>
+                    <td>0</td>
+                    <td>103</td>
+                    <td>44.54</td>
+                    <td>245</td>
+                    <td>236.32</td>
+                    <td>1</td>
+                    <td>3</td>
+                    <td>50</td>
+                    <td>53</td>
+                    <td>15</td>
+                </tr>
+
+                <tr>
+                    <td align="center">2</td>
+                    <td>
+                        <div class="row">
+                            <div>
+                                <img src="./image/Mitchell Marsh.png" alt="Mitchell Marsh" class="player-img">
+                            </div>
+                            <div class="col">
+                                <div>
+                                    <span class="player-name"> Mitchell Marsh</span>
+                                    <br>
+                                    <span>LSG</span>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td>13</td>
+                    <td>13</td>
+                    <td>0</td>
+                    <td>103</td>
+                    <td>44.54</td>
+                    <td>245</td>
+                    <td>236.32</td>
+                    <td>1</td>
+                    <td>3</td>
+                    <td>50</td>
+                    <td>53</td>
+                    <td>15</td>
+
+                </tr>
+
+                <tr>
+                    <td align="center">3</td>
+                    <td>
+                        <div class="row">
+                            <div>
+                                <img src="./image/Heinrich Klaasen.png" alt="Heinrich Klaasen" class="player-img">
+                            </div>
+                            <div class="col">
+                                <div>
+                                    <span class="player-name">Heinrich Klaasen</span>
+                                    <br>
+                                    <span>SRH </span>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td>13</td>
+                    <td>13</td>
+                    <td>0</td>
+                    <td>103</td>
+                    <td>44.54</td>
+                    <td>245</td>
+                    <td>236.32</td>
+                    <td>1</td>
+                    <td>3</td>
+                    <td>50</td>
+                    <td>15</td>
+                    <td>53</td>
+                </tr>
+            </tbody>
+
+            <tfoot>
+                <tr>
+                    <td colspan="14" align="center">
+                        <div class="btn btn-primary">
+                            View All
+                        </div>
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</body>
+
+</html>
+
+
+Card Classes :
+
+| Class               | Notes                                                  |
+| ------------------- | ------------------------------------------------------ |
+| `.card`             | Creates a Bootstrap card container                     |
+| `.card-header`      | Adds top section/header in card                        |
+| `.card-body`        | Main content area of card                              |
+| `.card-footer`      | Bottom section/footer of card                          |
+| `.card-title`       | Styles heading/title inside card                       |
+| `.card-subtitle`    | Styles subtitle below title                            |
+| `.card-img-top`     | Places image at top of card                            |
+| `.card-img-bottom`  | Places image at bottom of card                         |
+| `.card-img-overlay` | Places content over image                              |
+| `.bg-{contextual}`  | Applies background color like primary, success, danger |
+
+
+Ex.
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <title>Data List</title>
+    <style>
+        .btn{
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <main class="m-4 p-4 d-flex ">
+        <div class="card w-25 p-2 m-2">
+            <img src="./image/java.jpg" class="card-img-top">
+            <div class="card-header">
+                <h2 class="card-title">Java Full Stack</h2>
+                <p class="card-subtitle">Online Course</p>
+            </div>
+            <div class="card-body">
+                <ul>
+                    <li>Core Java</li>
+                    <li>Spring</li>
+                    <li>JSP</li>
+                </ul>
+            </div>
+            <div class="card-footer">
+                <button class="btn btn-warning w-100">Join Now</button>
+            </div>
+        </div>
+
+        <div class="card w-25 p-2 m-2">
+            <img src="./image/cloud.jpg" class="card-img-top">
+            <div class="card-header">
+                <h2 class="card-title">Multi Cloud</h2>
+                <p class="card-subtitle">Starts at 25th May</p>
+            </div>
+            <div class="card-body">
+                <ul>
+                    <li>Core Java</li>
+                    <li>Spring</li>
+                    <li>JSP</li>
+                </ul>
+            </div>
+            <div class="card-footer">
+                <button class="btn btn-info w-100">Join Now</button>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>
+
+									Badge
+
+- It keeps the appearance different when aligned with content.
+			
+			.badge
+			
+- Mostly used for:
+	notifications
+	status
+	counts
+	new messages
+	labels
+	
+Example:
+	Inbox <span class="badge">5</span>
+	
+Output:
+	Inbox 5
+
+Here 5 appears in different style/design as a badge.
+
+- position : absolute -> remove position from its place
+- position : relative -> keep all child content relative to it
+- relative is given for parent , absolute is given for child
+
+
+Position Classes
+
+| Class                | Notes                                                             |
+| -------------------- | ----------------------------------------------------------------- |
+| `.position-absolute` | Positions element relative to nearest positioned parent           |
+| `.position-fixed`    | Fixes element relative to browser window                          |
+| `.position-static`   | Default position of elements                                      |
+| `.position-relative` | Positions element relative to itself and used as parent reference |
+| `.position-sticky`   | Element sticks when scrolling reaches given position              |
+| `.top-{}`            | Sets distance from top (`0`, `50`, `100`)                         |
+| `.bottom-{}`         | Sets distance from bottom (`0`, `50`, `100`)                      |
+| `.start-{}`          | Sets distance from left/start side                                |
+| `.end-{}`            | Sets distance from right/end side                                 |
+
+
+	.position-absolute
+	.position-fixed
+	.position-static
+	.position-relative [for parent element]
+	.position-sticky
+	.top-{ }		:
+	.bottom-{ }		:	0,50,100
+	.start-{ }		:
+	.end-{ }		:
+
+Ex.
+
+<body>
+    <div class="m-4">
+        <button class="btn btn-dark">
+            <span class="badge bg-danger rounded rounded-circle">
+                <span class="bi bi-bell"></span>
+            </span>
+            <span>Subscribe</span>
+        </button>
+        <button class="btn btn-warning position-relative">
+            <span class="bi bi-cart4">Your Cart</span>
+            <span class="badge bg-danger rounded rounded-circle position-absolute">2</span>
+        </button>
+    </div>
+</body>
+
+Ex.Offers
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <title>Data List</title>
+    <style>
+        .women-fashion{
+            height: 300px;
+            width: 200px;
+            background-image: url('./image/women-fashion.jpg');
+            background-size: 100% 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="m-4">
+        <div class="women-fashion position-relative p-4">
+            <span class="badge bg-danger rounded rounded-circle position-absolute end-0 me-3 text-center">Save<br>50%</span>
+        </div>
+    </div>
+</body>
+
+
+</html>
+
+-------------------------------------------------------------------------------------------------------
+
+									Lecture-32 
+
+						Bootstrap Dynamic Components
+						
+Note: Dynamic components require "bootstrap.bundle.js" script file.
+- Link the script file into HTML page
+
+<script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"> </script>
+
+Why It Is Needed?
+
+	Bootstrap has two types of components:
+
+| Type               | Example                              |
+| ------------------ | ------------------------------------ |
+| Static components  | buttons, cards, tables               |
+| Dynamic components | modal, collapse, accordion, dropdown |
+
+
+- Dynamic components need JavaScript to work.
+- bootstrap.bundle.js gives interactive behavior to Bootstrap components.
+
+1. Alerts
+- It is an embedded message box in page.
+- It is along with existing content in page.
+- It is used to notify messages in page.
+
+| Class                 | Notes                                             |
+| --------------------- | ------------------------------------------------- |
+| `.alert`              | Creates a Bootstrap alert message box             |
+| `.alert-dismissible`  | Adds close button to dismiss alert                |
+| `.alert-{contextual}` | Applies alert color like success, danger, warning |
+| `.alert-link`         | Styles links inside alert                         |
+| `.alert-title`        | Used for alert heading/title                      |
+| `.alert-subtitle`     | Used for alert subtitle or secondary text         |
+
+
+Syntax:
+	<div class="alert alert-dismissible"> </div>
+
+Dynamic Attributes:
+
+	data-bs-dismiss	: It is defined for button to close the component on click	
+					  Used to close/remove a Bootstrap component when button is clicked.
+
+Syntax:
+	<button data-bs-dismiss="alert"> OK </button>
+
+Ex.
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alerts</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+</head>
+
+<body class="container-fluid">	//Content spreads across full screen width.
+
+    <h2>Alerts</h2>
+
+    <div class="alert alert-success alert-dismissible">
+        <button class="btn btn-close" data-bs-dismiss="alert"></button>
+
+        <h3 class="alert-title">
+            Registered Successfully
+        </h3>
+
+        <p class="alert-subtitle">
+            Welcome to our website - Verify the email
+        </p>
+
+        <a class="alert-link" href="#">
+            Help ?
+        </a>
+
+        <br><br>
+
+        <button data-bs-dismiss="alert" class="btn btn-success"> OK </button>
+    </div>
+
+    <div class="alert w-25 alert-info alert-dismissible">
+        <button class="btn btn-close" data-bs-dismiss="alert"></button>
+
+        <img src="./image/a1.jpg" width="100%" height="100%">
+
+        <h3>45% OFF</h3>
+    </div>
+
+</body>
+
+</html>
+
+2. Modal
+	- It is dialog that pops up.
+	- Content is in the backdrop and dialog is over the content.
+
+Classes:
+
+| Class                      | Detailed Explanation                                               |
+| -------------------------- | ------------------------------------------------------------------ |
+| `.modal`                   | Main popup container. Creates backdrop and hidden popup structure. |
+| `.modal-dialog`            | Controls popup size and position.                                  |
+| `.modal-content`           | Wrapper containing header, body, footer.                           |
+| `.modal-header`            | Top area for title and close button.                               |
+| `.modal-body`              | Main content area of modal.                                        |
+| `.modal-dialog-centered`   | Vertically centers modal on screen.                                |
+| `.modal-dialog-scrollable` | Adds scrollbar inside modal body if content is large.              |
+| `.modal-fullscreen`        | Opens modal in full screen.                                        |
+| `.modal-footer`            | Bottom section for buttons/actions.                                |
+
+
+Syntax:
+
+<div class="modal">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			..header, body ,footer
+		</div>
+	</div>
+</div>
+
+- Every modal must have an "ID" reference.
+- Every modal is hidden in page.
+- You can open specific model with button or link click.
+- It requires attributes.
+
+Dynamic Attributes
+
+	data-bs-toggle	: which component to open, it refers to component name
+	data-bs-target  : It refers to component "ID"
+	data-bs-dismiss	: which component to close
+
+Ex.
+
+<!-- Modal container -->
+<!-- class="modal" = creates Bootstrap modal popup -->
+<!-- id="login" = unique modal identifier -->
+<div class="modal" id="login">
+
+</div>
+
+
+<!-- Button to open modal -->
+<!-- data-bs-toggle="modal" = tells Bootstrap to open modal -->
+<!-- data-bs-target="#login" = opens modal whose id is login -->
+<button data-bs-toggle="modal"
+        data-bs-target="#login">
+
+    Open Modal
+
+</button>
+
+
+<!-- Anchor tag to open modal -->
+<!-- href="#login" = points to modal id -->
+<!-- data-bs-toggle="modal" = opens modal popup -->
+<a href="#login"
+   data-bs-toggle="modal">
+
+    Open Login Modal
+
+</a>
+
+
+- #login means:	id="login"	# is used to target element id.
+
+Syntax:
+	<div class="modal" id="login"> </div>
+
+	<button data-bs-toggle="modal" data-bs-target="#login">
+	<a href="#login" data-bs-toggle="modal">
+	
+
+- To open model with transition use ".fade" class.
+
+	<div class="modal fade"> </div>
+	
+- data-bs-toggle="modal" : Defines modal action on click.
+- data-bs-target="#login" : Targets and opens modal having id="login".
+
+Ex.
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+</head>
+<body class="container-fluid">
+
+    <button data-bs-toggle="modal" data-bs-target="#login" class="btn btn-primary mt-3">
+        Login
+    </button>
+
+    <div class="modal fade" id="login">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header bg-dark text-white">
+                    <h2 class="bi bi-person-fill">
+                        User Login
+                    </h2>
+                    <button class="btn btn-close btn-close-white" data-bs-dismiss="modal">
+                    </button>
+                </div>
+
+                <div class="modal-body">
+                    <dl>
+                        <dt>User Name</dt>
+                        <dd>
+                            <input type="text" class="form-control">
+                        </dd>
+                        <dt>Password</dt>
+                        <dd>
+                            <input type="password" class="form-control">
+                        </dd>
+                    </dl>
+
+                    <dl>
+                        <dt>User Name</dt>
+                        <dd>
+                            <input type="text" class="form-control">
+                        </dd>
+                        <dt>Password</dt>
+                        <dd>
+                            <input type="password" class="form-control">
+                        </dd>
+                    </dl>
+
+                    <dl>
+                        <dt>User Name</dt>
+                        <dd>
+                            <input type="text" class="form-control">
+                        </dd>
+                        <dt>Password</dt>
+                        <dd>
+                            <input type="password" class="form-control">
+                        </dd>
+                    </dl>
+
+                    <dl>
+                        <dt>User Name</dt>
+                        <dd>
+                            <input type="text" class="form-control">
+                        </dd>
+                        <dt>Password</dt>
+                        <dd>
+                            <input type="password" class="form-control">
+                        </dd>
+                    </dl>
+
+                    <dl>
+                        <dt>User Name</dt>
+                        <dd>
+                            <input type="text" class="form-control">
+                        </dd>
+                        <dt>Password</dt>
+                        <dd>
+                            <input type="password" class="form-control">
+                        </dd>
+                    </dl>
+
+                    <dl>
+                        <dt>User Name</dt>
+                        <dd>
+                            <input type="text" class="form-control">
+                        </dd>
+                        <dt>Password</dt>
+                        <dd>
+                            <input type="password" class="form-control">
+                        </dd>
+                    </dl>
+                </div>
+
+                <div class="modal-footer">
+                    <button class="btn btn-primary">
+                        Login
+                    </button>
+                    <button class="btn btn-danger" data-bs-dismiss="modal">
+                        Cancel
+                    </button>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
+
+
+3. Collapse:
+
+	- It is used to show or hide any content in page dynamically.
+
+| Word     | Meaning      |
+| -------- | ------------ |
+| Collapse | Hide/close   |
+| Show     | Display/open |
+| Toggle   | Switch state |
+
+
+| Class       | Notes                                                      |
+| ----------- | ---------------------------------------------------------- |
+| `.collapse` | Hides content initially and enables collapse functionality |
+| `.show`     | Displays collapse content initially                        |
+
+Syntax:
+	<div class="collapse show" id=""> </div>
+
+Attributes:
+	data-bs-target
+	data-bs-toggle
+
+Ex.
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Offers</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+</head>
+
+<body class="container-fluid">
+
+    <button data-bs-toggle="modal" data-bs-target="#offers" class="btn btn-primary mt-3">
+        offers
+    </button>
+
+    <div class="modal fade" id="offers">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>Limited Offers</h2>
+                    <button class="btn btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="./image/a1.jpg" width="100" height="100">
+                    <img src="./image/a2.jpg" width="100" height="100">
+                    <img src="./image/a3.jpg" width="100" height="100">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+
+Ex.Netflix collapse eg
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collapse</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+</head>
+
+<body class="container-fluid">
+    <button class="btn btn-dark w-100 mt-3" data-bs-toggle="collapse" data-bs-target="#q1">What is Netflix ?</button>
+    <div class="collapse show bg-dark p-3 mt-2 text-white" id="q1">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam libero adipisci
+            non nostrum, corporis laborum accusamus porro eligendi aspernatur earum molestiae
+            ducimus maxime perspiciatis eos quam voluptates sed quae culpa .
+        </p>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dignissimos deserunt
+            error reprehenderit illum dolore veniam eius quasi dicta facilis tenetur, quos ullam,
+            temporibus rem provident quaerat eligendi et non debitis .
+        </p>
+    </div>
+</body>
+
+</html>
+
+
+4. Accordion 
+
+- It is a combination of multiple items using "Mutex" mechanism. 
+- You can select one item to open and show, where all other items will close.
+- Accordion is a group of collapsible items.
+- Only one item stays open at a time.
+- When one item opens, other items close automatically.
+- This mechanism is called : Mutex (Mutual Exclusion)
+
+| Class                 | Notes                               |
+| --------------------- | ----------------------------------- |
+| `.accordion`          | Main accordion container            |
+| `.accordion-item`     | Single accordion item               |
+| `.accordion-header`   | Header/title section                |
+| `.accordion-body`     | Main content area                   |
+| `.accordion-collapse` | Expand/collapse container           |
+| `.accordion-button`   | Clickable button to open/close item |
+
+
+Syntax:
+	<div class="accordion" id="">
+		<div class="accordion-item">
+		... header, body with collapse ...
+		</div>
+		<div class="accordion-item">
+		
+		</div>
+	</div>
+
+Attribute:
+	data-bs-target
+	data-bs-toggle
+	data-bs-parent	: It is defined for all accordion-collapse items.
+					  It refers to ID of accordion.
+
+	<div class="accordion-collapse collapse" id="q1" data-bs-parent="#faqs">
+
+
+Ex.
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accordion</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+</head>
+
+<body class="container-fluid">
+    <h1 class="text-center">Frequently Asked Questions</h1>
+    <div class="accordion" id="faqs">
+        <div class="accordion-item">
+
+            <div class="accordion-header">
+
+                <button data-bs-target="#q1" data-bs-toggle="collapse" class="btn btn-dark w-100">
+                    What is Netflix ?
+                </button>
+
+                <div class="accordion-collapse collapse" id="q1" data-bs-parent="#faqs">
+
+                    <div class="accordion-body">
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rem quos, dolor minima eaque quas
+                            cupiditate vel vitae incidunt saepe illum, voluptatem officia, quod porro ratione fugit?
+                            Saepe
+                            ad temporibus fuga.</p>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rerum at deleniti, blanditiis eos
+                            dolorem totam ipsam possimus? Est natus praesentium facere libero corporis delectus
+                            perferendis,
+                            in sit distinctio beatae. Aperiam.</p>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    <button data-bs-target="#q2" data-bs-toggle="collapse" class="btn btn-danger w-100">How much does
+                        Netflix cost ?</button>
+                </div>
+                <div class="accordion-collapse collapse" id="q2" data-bs-parent="#faqs">
+                    <div class="accordion-body">
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti cumque est perferendis
+                            veniam
+                            atque vero maiores voluptates ullam. A consequatur magni unde hic exercitationem enim porro
+                            dicta. Mollitia, maiores incidunt!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+</body>
+
+</html>
+
+-------------------------------------------------------------------------------------------------------
+
+									Lecture-33
+
+Carousel
+- It configures sliding and fading content in page.
+
+Basic Carousel Classes:
+
+| Class             | Notes                             |
+| ----------------- | --------------------------------- |
+| `.carousel`       | Main carousel container           |
+| `.carousel-inner` | Holds all carousel items          |
+| `.carousel-item`  | Single slide/item inside carousel |
+
+Important  :
+
+	.carousel-item must have: active :: otherwise carousel starts blank.
+
+- In carousel item you can put anything like paragraph,image,form etc
+
+Syntax:
+	<div class="carousel">
+		<div class="carousel-inner">
+			<div class="carousel-item">
+			</div>
+			... multiple items ...
+		</div>
+	</div>
+	
+- Make sure that any one carousel item is active. You have to use ".active" class.	
+	
+	<div class="carousel-item active"> </div>
+
+- Carousel don't have any default animation, you have to define animation by using the
+  attribute "data-bs-ride". It is used to start animation.
+
+	<div class="carousel" data-bs-ride="carousel">
+	
+- Carousel can have 2 types of animation styles
+
+		.carousel-fade
+		.slide
+
+	<div class="carousel slide">
+	<div class="carousel carousel-fade">	
+	
+Ex.
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carousel</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+</head>
+
+<body class="container-fluid">
+    <div class="carousel carousel-fade" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active" >
+                <img src="../public/image/slide-1.jpg" alt="slide-1" class="w-100" height="300">
+            </div>
+            <div class="carousel-item">
+                <img src="../public/image/slide-2.jpg" alt="slide-1" class="w-100" height="300">
+            </div>
+            <div class="carousel-item">
+                <img src="../public/image/slide-3.jpg" alt="slide-1" class="w-100" height="300">
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
+
+	
+Carousel Controls:
+
+	- Controls allows to navigate between items.
+	- It includes previous and next item.	
+	
+| Class                         | Notes                         |
+| ----------------------------- | ----------------------------- |
+| `.carousel-control-prev`      | Creates previous slide button |
+| `.carousel-control-prev-icon` | Displays previous arrow icon  |
+| `.carousel-control-next`      | Creates next slide button     |
+| `.carousel-control-next-icon` | Displays next arrow icon      |
+	
+Attributes:
+	data-bs-slide="prev | next"
+	data-bs-target="carousel id"	
+	
+- You can apply dark controls by using
+
+	.carousel-dark			[ old version]
+	data-bs-theme="dark"    [ new version]	
+	
+Ex.
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carousel</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+</head>
+
+<body class="container-fluid">
+    <div class="carousel carousel-fade" data-bs-theme="dark" data-bs-ride="carousel" id="banners">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="../public/image/slide-1.jpg" alt="slide-1" class="w-100" height="300">
+            </div>
+            <div class="carousel-item">
+                <img src="../public/image/slide-2.jpg" alt="slide-1" class="w-100" height="300">
+            </div>
+            <div class="carousel-item">
+                <img src="../public/image/slide-3.jpg" alt="slide-1" class="w-100" height="300">
+            </div>
+        </div>
+        <button class="carousel-control-prev" data-bs-slide="prev" data-bs-target="#banners">
+            <span class="carousel-control-prev-icon"></span>
+        </button>
+
+        <button class="carousel-control-next" data-bs-slide="next" data-bs-target="#banners">
+            <span class="carousel-control-next-icon"></span>
+        </button>
+    </div>
+</body>
+
+</html>	
+	
+	
+Carousel Indicators:
+	- You can implement random navigation using indicators.
+	- They allow to navigate to any specific item directly.
+
+Class:
+	.carousel-indicators
+
+Attributes:
+	data-bs-slide-to="indexNumber"		[O is first item]
+	data-bs-target="carousel id"
+
+- Make sure that any one indicator is active, always keep the item and indicator
+	synchronized means if your first banner is active then first indicator should also active
+
+Ex.
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carousel</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+</head>
+
+<body class="container-fluid">
+    <div class="carousel carousel-fade" data-bs-theme="dark" data-bs-ride="carousel" id="banners">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="../public/image/slide-1.jpg" alt="slide-1" class="w-100" height="300">
+            </div>
+            <div class="carousel-item">
+                <img src="../public/image/slide-2.jpg" alt="slide-1" class="w-100" height="300">
+            </div>
+            <div class="carousel-item">
+                <img src="../public/image/slide-3.jpg" alt="slide-1" class="w-100" height="300">
+            </div>
+        </div>
+        <button class="carousel-control-prev" data-bs-slide="prev" data-bs-target="#banners">
+            <span class="carousel-control-prev-icon"></span>
+        </button>
+
+        <button class="carousel-control-next" data-bs-slide="next" data-bs-target="#banners">
+            <span class="carousel-control-next-icon"></span>
+        </button>
+
+        <div class="carousel-indicators">
+            <button class="active" data-bs-slide-to="0" data-bs-target="#banners"></button>
+            <button data-bs-slide-to="1" data-bs-target="#banners"></button>
+            <button data-bs-slide-to="2" data-bs-target="#banners"></button>
+
+        </div>
+    </div>
+
+</body>
+
+</html>
+
+- You can control the timing of every item using the attribute
+	"data-bs-interval=1000"	=> 1000ms = 1sec
+
+	<div class="carousel-item" data-bs-interval="2000">
+
+Ex.
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carousel</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+</head>
+
+<body class="container-fluid">
+    <div class="carousel carousel-fade" data-bs-theme="dark" data-bs-ride="carousel" id="banners">
+        <div class="carousel-inner">
+            <div class="carousel-item active" data-bs-interval="3000">
+                <img src="../public/image/slide-1.jpg" alt="slide-1" class="w-100" height="300">
+            </div>
+            <div class="carousel-item" data-bs-interval="3000">
+                <img src="../public/image/slide-2.jpg" alt="slide-1" class="w-100" height="300">
+            </div>
+            <div class="carousel-item" data-bs-interval="3000">
+                <img src="../public/image/slide-3.jpg" alt="slide-1" class="w-100" height="300">
+            </div>
+        </div>
+        <button class="carousel-control-prev" data-bs-slide="prev" data-bs-target="#banners">
+            <span class="carousel-control-prev-icon"></span>
+        </button>
+
+        <button class="carousel-control-next" data-bs-slide="next" data-bs-target="#banners">
+            <span class="carousel-control-next-icon"></span>
+        </button>
+
+        <div class="carousel-indicators">
+            <button class="active" data-bs-slide-to="0" data-bs-target="#banners"></button>
+            <button data-bs-slide-to="1" data-bs-target="#banners"></button>
+            <button data-bs-slide-to="2" data-bs-target="#banners"></button>
+        </div>
+    </div>
+
+</body>
+
+</html>
+
+
+Ex.
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carousel</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+</head>
+
+<body class="container-fluid">
+    <div class="carousel carousel-fade" data-bs-theme="dark" data-bs-ride="carousel" id="banners">
+        <div class="carousel-inner">
+            <div class="carousel-item active" data-bs-interval="3000">
+                <img src="../public/image/slide-1.jpg" alt="slide-1" class="w-100" height="300">
+            </div>
+            <div class="carousel-item" data-bs-interval="3000">
+                <img src="../public/image/slide-2.jpg" alt="slide-1" class="w-100" height="300">
+            </div>
+
+            <div class="carousel-item" data-bs-interval="4000">
+                <div style="height: 300px;" class="d-flex justify-content-center align-items-center">
+                    <div class="w-50">
+                        <form class="input-group">
+                            <input type="text" class="form-control" placeholder="Search on Amazon">
+                            <button class=" bi bi-search btn btn-warning"> </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            
+            <div class="carousel-item" data-bs-interval="3000">
+                <img src="../public/image/slide-3.jpg" alt="slide-1" class="w-100" height="300">
+            </div>
+        </div>
+        <button class="carousel-control-prev" data-bs-slide="prev" data-bs-target="#banners">
+            <span class="carousel-control-prev-icon"></span>
+        </button>
+
+        <button class="carousel-control-next" data-bs-slide="next" data-bs-target="#banners">
+            <span class="carousel-control-next-icon"></span>
+        </button>
+
+        <div class="carousel-indicators">
+            <button class="active" data-bs-slide-to="0" data-bs-target="#banners"></button>
+            <button data-bs-slide-to="1" data-bs-target="#banners"></button>
+            <button data-bs-slide-to="2" data-bs-target="#banners"></button>
+            <button data-bs-slide-to="3" data-bs-target="#banners"></button>
+        </div>
+    </div>
+
+</body>
+
+</html>
+
+									Dropdown
+									
+- Bootstrap dropdown is good for a static list of items.
+- If list is not regularly changing and contains complex contents then better use a
+	bootstrap dropdown.
+
+Class
+
+| Class                 | Notes                                   |
+| --------------------- | --------------------------------------- |
+| `.dropdown`           | Main dropdown container                 |
+| `.dropend`            | Opens dropdown towards right side       |
+| `.dropstart`          | Opens dropdown towards left side        |
+| `.dropup`             | Opens dropdown upward                   |
+| `.dropdown-toggle`    | Button that opens dropdown              |
+| `.dropdown-menu`      | Container holding dropdown items        |
+| `.dropdown-item`      | Single menu item/link                   |
+| `.dropdown-item-text` | Normal text inside dropdown             |
+| `.dropdown-divider`   | Horizontal line separator between items |
+
+|.dropdown-menu-dark [obsolete] data-bs-theme="dark" [new]		  |
+
+
+Ex.
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dropdown</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+</head>
+
+<body class="container-fluid">
+    <h1>Flipkart</h1>
+    <div class="dropend" id="menu">
+        <button data-bs-toggle="dropdown" data-bs-target="#menu" class="btn btn-dark dropdown-toggle">
+            <span class="bi bi-person-circle"></span> Sign in </button>
+        <ul class="dropdown-menu" data-bs-theme="dark">
+            <li class="dropdown-item">
+                <a href="#" class=" link-light text-decoration-none">
+                    <span class="dropdown-item-text"> </span>
+                    <span class="bi bi-heart"></span>
+                    Wishlist
+                </a>
+                </span>
+            </li>
+
+            <li class="dropdown-item">
+                <a href="#" class="link-light text-decoration-none">
+                    <span class="dropdown-item-text"></span>
+                    <span class="bi bi-cart"></span>
+                    Order
+                </a>
+                </span>
+            </li>
+
+            <li class="dropdown-item">
+                <a href="#" class="link-light text-decoration-none">
+                    <span class="dropdown-item-text"></span>
+                    <span class="bi bi-gift-fill"></span>
+                    Gift Box
+                </a>
+                </span>
+            </li>
+
+            <li class="dropdown-divider"></li>
+
+            <li class="dropdown-item">
+                <a href="#" class="link-light text-decoration-none">
+                    <span class="dropdown-item-text"></span>
+                    <span class="bi bi-question-circle"></span>
+                    Helo
+                </a>
+                </span>
+            </li>
+
+        </ul>
+    </div>
+</body>
+
+</html>
+
+
+-------------------------------------------------------------------------------------------------------
+
+									Lecture-34
+									
+									Offcanvas
+									
+- It is similar to modal but have various directions.
+
+| Class               | Notes                    |
+| ------------------- | ------------------------ |
+| `.offcanvas`        | Main offcanvas container |
+| `.offcanvas-start`  | Opens from left side     |
+| `.offcanvas-end`    | Opens from right side    |
+| `.offcanvas-top`    | Opens from top           |
+| `.offcanvas-bottom` | Opens from bottom        |
+| `.offcanvas-header` | Top section/header       |
+| `.offcanvas-body`   | Main content area        |
+
+
+Syntax:
+	<div class="offcanvas offcanvas-start" id="menu">
+		<div class="offcanvas-header">
+		</div>
+		<div class="offcanvas-body">
+		</div>
+	</div>
+
+Attributes:
+	data-bs-target	: Defines which element/component should be targeted.
+	data-bs-toggle	: Defines what Bootstrap action/component should work.
+	
+| Code                        | Meaning        |
+| --------------------------- | -------------- |
+| `data-bs-toggle="offcanvas"`| Open offcanvas |
+| `data-bs-toggle="collapse"` | Open collapse  |
+| `data-bs-toggle="dropdown"` | Open dropdown  |
+	
+
+Ex.
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Offcanvas</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+</head>
+
+<body class="container-fluid">
+    <div class="btn-toolbar bg-dark p-2">
+        <button data-bs-target="#menu" data-bs-toggle="offcanvas" class="bi bi-justify btn btn-light"></button>
+    </div>
+
+    <div class="offcanvas offcanvas-start" id="menu">
+        <div class="offcanvas-header bg-dark text-white">
+            <h2>Amazon</h2>
+            <button class="btn btn-close-white btn-close " data-bs-dismiss="offcanvas"></button>
+        </div>
+        <div class="offcanvas-body">
+            <ul>
+                <li>Home</li>
+                <li>About</li>
+                <li>Contact</li>
+            </ul>
+        </div>
+    </div>
+
+</body>
+
+</html>
+
+								Nav with Tabs
+								
+- It is a dynamic navigation between tab based content in page.
+	
+| Class          | Notes                                                           |
+| -------------- | --------------------------------------------------------------- |
+| `.nav`         | Main navigation container                                       |
+| `.nav-tabs`    | Creates tab-style navigation                                    |
+| `.nav-pills`   | Creates pill/button style navigation                            |
+| `.nav-menu`    | Used for navigation menu (mostly custom/non-standard Bootstrap) |
+| `.nav-item`    | Single navigation item                                          |
+| `.nav-text`    | Displays normal text inside nav                                 |
+| `.nav-link`    | Navigation link styling                                         |
+| `.tab-content` | Container holding tab contents                                  |
+| `.tab-pane`    | Single tab content section                                      |
+| `.active`      | [ it is defined for nav-item ]								   |
+	
+Syntax:
+	<ul class="nav nav-tabs">
+		<li> <a href="#tab-id" data-bs-toggle="tab"> Item1 </a> </li>
+	</ul>
+	<div class="tab-content">
+		<div class="tab-pane" id="">
+		</div>
+	</div>	
+	
+Ex.
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nav Tabs</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+</head>
+
+<body class="container-fluid">
+    <h2>Tabs Demo</h2>
+    <ul class="nav nav-tabs">
+        <li class="nav-item"> <a href="#basic" data-bs-toggle="tab" class="nav-link active"> <span class="nav-text"> Basic Details</span> </a> </li>
+        <li class="nav-item"> <a href="#preview" data-bs-toggle="tab" class="nav-link"> <span class="nav-text">Preview</span> </a> </li>
+        <li class="nav-item"> <a href="#features" data-bs-toggle="tab" class="nav-link"> <span class="nav-text">Features</span> </a> </li>
+        <li class="nav-item"> <a href="#ratings" data-bs-toggle="tab" class="nav-link"> <span class="nav-text"> Ratings</span> </a> </li>
+    </ul>
+
+    <div class="mt-4 tab-content">
+        <div class="tab-pane active" id="basic">
+            <dl>
+                <dt>iPhone 15 [Black]</dt>
+                <dd> &#8377; 70,000/- </dd>
+            </dl>
+        </div>
+
+        <div class="tab-pane" id="preview">
+            <img src="./image/iphone-black.jpg" width="200" height="300">
+        </div>
+
+        <div class="tab-pane" id="features">
+            <ul>
+                <li>Feature-1</li>
+                <li>Feature-2</li>
+                <li>Feature-3</li>
+                <li>Feature-4</li>
+            </ul>
+        </div>
+
+        <div class="tab-pane" id="ratings">
+            <div class="fs-3">4.3 <span class="bi bi-star-fill text-success"> Ratings & 5600 reviews</span></div>
+        </div>
+    </div>
+
+
+</body>
+
+</html>
+												
+										Navbar
+										
+- It is used for responsive navigation.
+- It can change according to device width and orientation.	
+	
+| Class                  | Notes                                                  |
+| ---------------------- | ------------------------------------------------------ |
+| `.navbar`              | Main navbar container                                  |
+| `.navbar-brand`        | Website/logo/brand name                                |
+| `.navbar-toggler`      | Button to open collapsed menu                          |
+| `.navbar-toggler-icon` | Hamburger menu icon ( triple equal to sign )           |
+| `.navbar-expand-lg`    | Navbar expands on large screens                        |
+| `.navbar-expand-sm`    | Navbar expands on small screens                        |
+| `.navbar-nav`          | Container for nav links                                |
+| `.nav-menu`            | Navigation menu (mostly custom/non-standard Bootstrap) |
+| `.nav-item`            | Single navigation item                                 |
+| `.nav-link`            | Navigation link styling                                |
+| `.nav-text`            | Plain text inside navbar                               |
+| `.navbar-collapse`     | Collapsible navbar content                             |
+| `.navbar-dark`         | Dark text/icon support                                 |
+| `.navbar-light`        | Light text/icon support                                |
+| `.bg-{contextual}`     | Background colors                                      |
+	
+	
+Note: To make responsive always use "container-fluid" for your content.	
+	
+Syntax:
+
+	<nav class="navbar navbar-expnd-Ig navbar-dark bg-dark">
+		<div class="container-fluid">
+			<button class="navbar-toggler"> </button>
+		</div>
+		<div class="navbar-collapse">
+			<ul class="navbar-nav">
+			</ul>
+		</div>
+	</nav>	
+	
+Ex.
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navbar</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <button class="navbar-toggler" data-bs-target="#menu" data-bs-toggle="collapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-brand">Shopper .</div>
+            <div class="navbar-collapse collapse" id="menu">
+                <ul class="navbar-nav">
+                    <li class="nav-item"> <a href="" class="nav-link"> <span class="nav-text"> Home </span></a> </li>
+                    <li class="nav-item"> <a href="../public/shopper-template.html" target="bodyframe" class="nav-link"> <span
+                                class="nav-text"> Shop </span></a> </li>
+                    <li class="nav-item"> <a href="" class="nav-link"> <span class="nav-text"> Blog </span></a> </li>
+                    <li class="nav-item"> <a href="" class="nav-link"> <span class="nav-text"> Contact </span></a> </li>
+                    <li class="nav-item">
+                        <div class="input-group">
+                            <input type="text" placeholder="Enter your Email" class="form-control">
+                            <button class="btn btn-danger ms-1">Get Started <span
+                                    class="bi bi-chevron-right"></span></button>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="mt-4">
+        <iframe name="bodyframe" class="w-100" height="400"></iframe>
+    </main>
+
+</body>
+
+</html>	
+	
+-------------------------------------------------------------------------------------------------------
+
+									Lecture-35
+									
+									
+									Pagination
+
+- Pagination is used to divide content into multiple pages.
+	
+| Class         | Notes                     |
+| ------------- | ------------------------- |
+| `.pagination` | Main pagination container |
+| `.page-item`  | Single page item          |
+| `.page-link`  | Styles page links/buttons |
+| `.active`     | Highlights current page   |
+| `.disabled`   | Disables page button      |
+	
+- disabled, checked, selected, readonly, required, active etc. are Boolean attributes.
+- Their presence means TRUE and absence means FALSE, so they don't need a value.
+
+Syntax:
+	<ul class="pagination">
+		<li class="page-item"> <a class="page-link"> </a> </li>
+	</ul>
+
+	.pagination-sm
+	.pagination-lg	
+	.active			] defined for page link
+	.disabled		]
+		
+Ex.
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagination</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+
+</head>
+
+<body class="container-fluid">
+    <h2>Pagination</h2>
+    <ul class="pagination">
+        <li class="page-item"><a class="page-link">&laquo;</a></li>
+        <li class="page-item"><a class="page-link">1</a></li>
+        <li class="page-item"><a class="page-link active">2</a></li>
+        <li class="page-item"><a class="page-link">3</a></li>
+        <li class="page-item"><a class="page-link disabled">4</a></li>
+        <li class="page-item"><a class="page-link">&raquo;</a></li>
+    </ul>
+</body>
+
+</body>
+
+</html>	
+	
+								Progress Bar
+								
+| Class                    | Notes                              |
+| ------------------------ | ---------------------------------- |
+| `.progress`              | Main progress bar container        |
+| `.progress-bar`          | Filled progress area               |
+| `.progress-bar-striped`  | Adds stripe design to progress bar |
+| `.progress-bar-animated` | Adds moving stripe animation       |
+| `.bg-{contextual}`       | Applies contextual colors          |
+
+Note: Value for every progress bar is defined with "style" width set in %.	
+	
+Syntax:
+	<div class="progress">
+		<div class="progress-bar" style="width:20%"> </div>
+		... you can have multiple progress bar ...
+	</div>	
+	
+Ex.
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Progress Bar</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+
+</head>
+
+<body class="container-fluid">
+    <h2>Progress Bar</h2>
+    <div class="progress">
+        <div class="progress-bar bg-success progress-bar-striped progress-bar-animated" style="width:30%"> 30% completed </div>
+        <div class="progress-bar bg-warning progress-bar-striped" style="width: 40%;"> 40% processing </div>
+        <div class="progress-bar bg-danger progress-bar-striped" style="width: 30%;"> 30% pending </div>
+    </div>
+</body>
+
+</html>	
+		
+								Spinners
+								
+
+| Class                | Notes                     |
+| -------------------- | ------------------------- |
+| `.spinner-border`    | Circular border spinner   |
+| `.spinner-grow`      | Growing/dot style spinner |
+| `.text-{contextual}` | Applies spinner color     |
+| `.spinner-border-sm` | Small border spinner      |
+| `.spinner-grow-sm`   | Small grow spinner        |
+
+Syntax:
+	<div class="spinner-border spinner-border-sm"> </div>
+	<span class="spinner grow text-danger"> </span>	
+		
+Ex.
+	<h2>Spinners</h2>
+    <button class="btn btn-primary"> <span class="spinner-border spinner-border-sm"></span> Loading </button>
+    <button class="btn btn-primary"> <span class="spinner-grow spinner-grow-sm"></span> Loading </button>
+	
+	
+									Containers
+
+- store webpage content
+- provide spacing and alignment
+- create responsive layouts
+- You can fit the content according to device.
+
+
+.container		 : default class
+.container-sm  	 : small screen devices [mobiles]
+.container-md	 : device like tab
+.container-lg	 : device like pc
+.container-xl	 : device like laptop
+.container-xxl	 : laptop wide screen
+.container-fluid : responsive
+
+- Always we can use container-fluid bcz it fit accoding device , other are we rearly use	
+- Every container have default margin and width.	
+	
+	
+									Breadcrumb
+									
+Breadcrumb is used to show:
+	navigation path
+	current page position
+	steps of a task
+	
+Real-Life Example
+	Home > Products > Mobiles > Samsung
+	
+Here:
+	Samsung is current page.	
+	
+| Class              | Notes                       |
+| ------------------ | --------------------------- |
+| `.breadcrumb`      | Main breadcrumb container   |
+| `.breadcrumb-item` | Single breadcrumb step/item |
+	
+Variable:
+	-- bs-breadcrumb-divider: '>'
+
+Syntax:
+	<ul class="breadcrumb" style="--bs-breadcrumb-divider:' > '">
+		<li class="breadcrumb-item"> </li>
+	</ul>	
+	
+Ex.
+
+<body class="container-fluid">
+    <h2>Amazon</h2>
+    <ul class="breadcrumb" style="--bs-breadcrumb-divider:' -- > '">
+        <li class="breadcrumb-item">Home</li>
+        <li class="breadcrumb-item">Electronics</li>
+        <li class="breadcrumb-item">Mobiles</li>
+        <li class="breadcrumb-item">iPhone</li>
+        <li class="breadcrumb-item">15 Pro</li>
+    </ul>
+</body>	
+	
+	
+							Multimedia in HTML
+
+- Multimedia is about audio, video and animations.
+- HTML elements for multi media are
+
+| Tag         | Purpose                               |
+| ----------- | ------------------------------------- |
+| `<marquee>` | Scrolls text or content automatically |
+| `<video>`   | Displays and plays video              |
+| `<audio>`   | Plays audio/music                     |
+| `<embed>`   | Embeds external multimedia files      |
+
+
+Marquee:
+- It is used to display scrolling and sliding content in page.
+
+Syntax:
+	<marquee>
+		... your content ...
+	</marquee>
+
+Attributes:
+
+scrollamount	: It sets marquee scrolling speed from 1 to 100
+direction		: left, right, up & down.
+behavior		: It sets "alternate" from scrolling to sliding	, scroll left to right
+loop			: It specifies number of times to display
+width / height	: dimensions for marquee area
+bgcolor			: background color	
+	
+Ex.
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marquee</title>
+    <style>
+        .container{
+            display: flex;
+        }
+    </style>
+</head>
+
+<body>
+    <marquee behavior="alternate" direction="left" scrollamount="50" loop="3">
+        Today offer is 20% discount on any product
+    </marquee>
+    <div class="container">
+        <marquee behavior="" direction="left" scrollamount="20">
+            <img src="./image/a1.jpg" alt="" width="100" height="100">
+            <img src="./image/a2.jpg" alt="" width="100" height="100">
+            <img src="./image/a3.jpg" alt="" width="100" height="100">
+            <img src="./image/a4.jpg" alt="" width="100" height="100">
+            <img src="./image/a5.jpg" alt="" width="100" height="100">
+        </marquee>
+        <marquee behavior="" direction="right" scrollamount="20">
+            <img src="./image/a6.jpg" alt="" width="100" height="100">
+            <img src="./image/a7.jpg" alt="" width="100" height="100">
+            <img src="./image/a8.jpg" alt="" width="100" height="100">
+            <img src="./image/a9.jpg" alt="" width="100" height="100">
+            <img src="./image/a10.jpg" alt="" width="100" height="100">
+        </marquee>
+    </div>
+</body>
+
+</html>	
+	
+								
+								Video & Audio
+								
+- You can embed video and audio files into web page.
+- Video files supported for web
+	.mp4, .mkv, .mov, .avi, .ogg
+- Audio files
+	.mp3, .midi, .wav	
+	
+- FPS stands for : Frames Per Second	
+	
+	30 FPS : 1 second -> 30 images displayed
+	60 FPS : 1 second -> 60 images displayed
+
+Syntax:
+	<video src="path" controls poster="thumb-nail.jpg"> </video>
+	<audio src="path" controls poster="" > </audio>
+	
+Ex:
+	<video src="../public/videos/js-function.mp4" poster="../public/images/java.jpg" controls
+	width="400" height="300"></video>
+
+
+
+
+
+
+
+
