@@ -1971,9 +1971,1823 @@ Ex:
 	width="400" height="300"></video>
 
 
+-------------------------------------------------------------------------------------------------------
+
+									Lecture-36
+									
+								Styles in CSS
+								
+- Styles provide a set of attributes to make HTML more interactive and responsive.
+- Style uses an object to refactor the code.
+- Object contains relative data and logic.
+- Style objects are used to make HTML interactive.
+- (attribute value are defined with colon " : " eg color : red )
+- Styles can defined for HTML elements in 3 ways
+
+	a) Inline Styles
+	b) Embedded Styles
+	c) External Style Sheet
+
+Inline Styles:
+- The style object is defined for every element individually using "style" attribute.
+- It is faster in rendering.
+- It is used when we give unique style for any one element
+- It is not good for reusability.
+
+Syntax:
+	<h2 style="attribute:value; attribute:value"> </h2>
+
+Eg.
+	<h2 style="color:red; font-family:Arial"> HTML </h2>
+
+
+Embedded Styles:
+
+- In embedded technique the style object is defined in a <style> container.
+- So that it is good for reusability and separation.
+- Embedded is good for extensibility.
+- "Good for extensibility" means:
+- You can easily add more CSS rules and styles for many elements within the same page.
+
+Syntax:
+
+<style>
+	selector
+	{
+		attribute:value;
+		attribute:value;
+	}
+</style>
+
+- It is slower than inline.
+- You can't access embedded styles from another page.
+- Embedded is only for the context of current page.
+
+FAQ's:
+1. Where to embed the <style> container, in <head> or in <body> ?
+A. You can embed in both sections.
+
+2. What is difference between styles in head and styles in body?
+A. Styles in head are used to save round-trip.
+   Styles in body are for one time rendering.
+   
+   Meaning of "save round-trip":
+   CSS is loaded along with the HTML page itself.
+   No separate CSS file request is needed.
+   So the browser doesn't need an extra trip (request) to fetch a CSS file.
+
+3. If styles are defined for element in both head and body then which set of attribute will
+   apply?
+A. If different attributes are used then all will apply.
+   If same attribute is used then the latest will apply. [LIFO]
+   means if you write style for element in head and body then latest is body then 
+   body section style will apply
+
+- this is not official 
+- if you write style tag outside the html section then it work as it is but it is not recommended
+
+4. What is the media type for embedded styles?
+A. Media type is used to define style for various media devices, which include
+	a) screen
+	b) print
+	c) speech
+
+Syntax:
+	<style media="all | screen | print | speech">
+
+	</style>
+
+Ex.
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Embedded Style</title>
+    <style media="screen">
+        .ticket{
+            border: 1px solid black;
+            padding: 5px;
+            background-color: yellow;
+        }
+        dt{
+            font-weight: bold;
+        }
+        dl{
+            display: grid;
+            grid-template-rows: 3fr 9fr;
+        }
+    </style>
+
+    <style media="print">
+        .ticket{
+            background-color: none;
+        }
+        button{
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="ticket">
+        <h2>Ticket</h2>
+        <dl>
+            <dt>Departure</dt>
+            <dd>Hyd</dd>
+            <dt>Destination</dt>
+            <dd>Delhi</dd>
+            <dt>Time</dt>
+            <dd>10:02 AMs</dd>
+        </dl>
+        <button onclick="window.print()">Print</button>
+    </div>
+</body>
+
+</html>
+
+5. What is the MIME type of styles?
+A. MIME is to define content type, so that browser can understand the object type.
+   The styles objects MIME type is "text/css".
+
+Syntax:
+	<style type="text/css" media="all">
+
+	</style>
+
+6. Is it mandatory to define MIME type of stylesheet linked with <link> element?
+A. No. It is not recommended.
+
+<link rel="stylesheet" href="some_path" type="text/css">	Not Good
+
+
+						External Style Sheets:
+
+- In this technique styles are defined in a separate style sheet that have extension
+  '.css".
+- So that you can reuse across pages.
+- Using an external style sheet will increase the number of requests to page and also
+  load time.
+- CSS refers to "Cascading Style Sheet"
+
+Ex:
+
+1. src/styles/ticket.css
+
+.ticket {
+	border: 1px solid black;
+	padding: 5px;
+	background-color: yellow;
+}
+
+dt{
+	font-weight: bold;
+}
+
+dl {
+	display: grid;
+	grid-template-columns: 3fr 9fr;
+}
+
+2. home.html
+
+
+
+<body>
+    <div class="ticket">
+        <h2>Ticket</h2>
+        <dl>
+            <dt>Departure</dt>
+            <dd>Hyd</dd>
+            <dt>Destination</dt>
+            <dd>Delhi</dd>
+            <dt>Time</dt>
+            <dd>10:02 AMs</dd>
+        </dl>
+        <button onclick="window.print()">Print</button>
+    </div>
+</body>
+
+
+-------------------------------------------------------------------------------------------------------
+
+									Lecture-37
+
+
+Summary
+	- Inline
+	- Embedded
+	- External Files [Style Sheet]
+	
+									Minification
+									
+
+- It is a coding technique where the size of CSS file can be reduced by removing line
+  breaks, optional code block, additional blank spaces, short references etc.
+- Minified files are used for production and un-minified files are used in development.
+- It is mainly used with external css file
+								
+Ex:
+1. Copy the actual CSS code
+2. Visit the website
+
+	https://www.toptal.com/developers/cssminifier
+
+3. Paste the actual code
+4. Click "Minify" button
+5. Copy the minified code
+6. Go to your project styles folder and add a new file
+	 ticket.min.css
+7. Paste the minified code and link the minified file to page.
+
+									CDN
+
+- CDN stands for Content Delivery Network						
+- It deliver content from server to your project
+- File is not present in our directory, it taken from another server 
+- It refers to Content Delivery Network.
+- Projects maintain a repository server [sandbox] where the css files are kept and
+  access directly from server.
+- You can use the styles across projects.
+
+Ex:
+<head>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@
+	1.11.3/font/bootstrap-icons.min.css">
+</head>
+
+
+
+									Bundling
+									
+- Bundling is a technique use for configuring a web application, so that you can map the
+resources without linking to page.
+- Bundling also reduces the number of requests to page.
+- You can access multiple files with one request.
+- The popular bundling tools are
+	a) Webpack
+	b) Parcel
+	c) Vite etc ..
+
+Q)Without linking CSS file that file work for a page ?
+-> through bundling it is possible
+
+
+FAQ's:
+1. If styles for element are defined using all 3 techniques then which set of effect will
+apply?
+A. If different styles are defined then all will apply.
+	If same styles are defined then it uses priority.
+		1st Inline
+		2nd Embedded
+		3rd External File
+	Priority can change according to placement order of embedded and external.
+	
+	<link rel="stylesheet" href="../src/styles/ticket.css">
+	<style>
+		h1 {
+			color:blue;
+		}
+	</style>										        - here embedded style sheet will apply
+
+	<style>
+		h1 {
+			color:blue;
+		}
+	</style>
+	<link rel="stylesheet" href="../src/styles/ticket.css">	- here external styles sheet will applied
+
+	- Which style is latest this style will apply
+
+2. If styles are defined embedded in <head> & <body> then which set will apply?
+A. Body set will apply.(bcz body is latest)
+
+3. If styles are defined in body & outside HTML scope then which set will apply?
+A. Outside HTML will apply.
+
+
+							Selectors in Style Object
+							
+- Object is a key and value collection.
+- It keeps all related data and logic together.
+- Style object is applied to HTML element using selectors.
+
+Syntax:
+
+	selector
+		{
+			color:red;
+			text-align:center;
+		}
+
+- CSS provides various types of selectors to select HTML elements.
+- We can categorize them into following groups
+
+	1. Primary Selectors
+	2. Rational Selectors
+	3. Attribute Selectors
+	4. Dynamic Pseudo classes
+	5. Structural Pseudo classes
+	6. Element state pseudo classes
+	7. Validation state pseudo classes
+	8. Universal selector
+	9. Language selector
+	10. Root selector etc ..
+
+Primary Selectors
+	1. Type Selector
+	2. Id Selector
+	3. Class Selector
+
+# Type Selector:
+
+- It refers to element token name.
+	h1, p, div, span, table, td, dt, etc ..
+- Type selector are good to apply at every occurrence of element in page.
+- You can't skip at any specific occurrence.
+	
+ Syntax:
+ 
+  h1{
+	color : red;
+  }
+
+# ID Selector:
+
+- Every element can have a reference "Id" [Identification]
+- CSS can access the ID using "#" reference and can define effects.
+- You can apply style to specific element.
+- HTML element can't have multiple "Id" references.
+- Hence you can't apply multiple categories of styles to one element using ID selectors.
+
+Syntax:
+	#text-style
+	{
+		color:red;
+	}
+
+	<div id="text-style">
+	<h1 id="text-style">
+
+# Class Selector:
+
+- It is defined by using "." and reference name.
+- It is accessed and applied to element using "class" attribute.
+- You can apply multiple classes to one element.
+
+Syntax:
+	.text-style { }
+	.bg-style {}
+
+	<div class="text-style bg-style">
+
+FAQ: If styles are applied to element using id, type & class then which set will apply?
+Ans: According to priority if same attributes are used.
+	1st	: Id
+	2nd	: Class
+	3rd	: Type
+	It can apply all if different attributes are used.
+
+Ex.
+
+<style>
+	h1 {
+		color: red;
+		border:1px solid red;
+	}
+	
+	#text-style {
+		color: green
+	}
+
+	.effect {
+		color: blue
+		padding: 20px;
+	}
+</style>
+
+<body>
+	<h1 class="effect" id="text-style">Web Technologies</h1>	
+</body>	
+
+
+-------------------------------------------------------------------------------------------------------
+
+									Lecture-38
+									
+
+								    CSS Selectors
+
+Primary Selectors
+	1. Type Selector
+	2. ID Selector
+	3. Class Selector
+
+Note: You can group selectors by using "," delimiter.
+
+	h2,.text-style {
+		color:red;
+	}
+
+	<h2> Welcome </h2>
+	<p class="text-style"> HTML </p>
+
+	p, div, dd {
+		color:red;
+	}
+
+
+Rational Selectors:
+
+	child selector			: parent child { }		: any child, any hierarchy
+	direct child selector	: parent > child { }	: only direct child
+	adjacent siblings		: element1+element2 {}	: first occurance element
+	general siblings		: element1~element2 {}	: all occurance within scope
+
+Ex.
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        nav>div{
+            color:  red;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div>Home</div>
+        <div>Detail</div>
+        <a><div>Contact</div></a>
+        <div>Shop</div>
+    </nav>
+</body>
+</html>
+
+Ex.
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* h1+div{
+            color:  red;
+        } */
+
+        h1~div{
+            color:  red;
+        }
+    </style>
+</head>
+<body> 
+    <h1>HTML</h1>
+    <div>Normal Element</div>
+    <div>Void Element</div>
+    <div>Row text Element</div>
+</body>
+</html>
+
+Attribute Selectors:
+- You can select element based on the attribute and configure styles dynamically.
+- HTML uses same element with various attributes to present different type of content,
+  hence you need an attribute selector.
+
+Syntax:
+
+	element [attribute] { }			select element that have attribute
+	element [attribute=value] { }	select element whose attribute value matches
+
+Ex.
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input[type="button"] {
+            background-color: yellow ;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>User Data</h2>
+    <dl>
+        <dt>UserName: </dt>
+        <dd><input type="text"></dd>
+        <dt>Age</dt>
+        <dd><input type="number" name="age" id="age"></dd>
+    </dl>
+    <input type="button" value="submit">
+    <input type="button" value="cancel">
+</body>
+
+</html>
+
+Ex.
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        p[id]{
+            color: goldenrod;
+        }
+    </style>
+</head>
+
+<body>
+   
+    <p>para-1</p>
+    <p id="p2">para-2</p>
+    <p>para-3</p>
+    <p id="p4">para-4</p>
+
+</body>
+
+</html>
+
+
+- Attribute selectors can use various operators
+
+		[attribute=value	: exact match
+		[attribute^=value]	: starts with
+		[attribute$=value]	: ends with
+		[attribute|=value]	: starts with and separated with "-"
+		[attribute~=value]  : any individual occurrence.
+
+Ex.
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* p[class="Effects"] {
+            color: red;
+        } */
+
+        /* p[class^="Effects"] {
+            color: red;
+        } */
+
+        /* p[class$="Effects"] {
+            color: red;
+        } */
+
+        /* p[class|="Effects"] {
+            color: red;
+        } */
+
+        p[class~="Effects"] {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+
+    <p class="Effects">Para-1</p>
+    <p class="Text Effects">Para-2</p>
+    <p class="Effects Text">Para-3</p>
+    <p class="Text Effects Para">Para-4</p>
+    <p class="Text-Effects">Para-5</p>
+    <p class="Effects-Text">Para-6</p>
+    <p class="Text Para Effects">Para-7</p>
+
+</body>
+
+</html>
+
+
+Dynamic Pseudo Classes:
+
+- Dynamic means change according to situation and pseudo means a false apperance.
+- Dynamic changes the behaviour of element according to state and situation.
+- Pseudo refers to a false appearance for element.
+- Class is a program template with sample data and logic, which you can implement and
+  customize according to requirements.			
+
+Element State Classes
+
+		:focus
+		:disabled
+		:read-only
+		:checked
+		:hover	[mouse over]
+		:active	[mouse down]
+		:target
+
+Validation State Classes
+
+		:required
+		:optional
+		:valid
+		:invalid
+		:in-range
+		:out-of-range
+
+Structural Pseudo Classes
+
+		:first-child
+		:last-child
+		:nth-child()		: specific number or 'even & odd' occurrences
+		:nth-of-type()		: every nth occurrence from top & starting with specific
+		:nth-last-of-type()	: every nth occurrence from bottom & start with specific
+
+Ex.
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Structure Pseudo Classes</title>
+    <style>
+        thead tr {
+            background-color: black;
+            color: white;
+        }
+
+        /* tbody tr:first-child{
+            background-color: greenyellow;
+        } */
+
+        /* tbody tr:nth-child(2){
+            background-color: greenyellow;
+        } */
+
+        /* tbody tr:nth-child(even){
+            background-color: greenyellow;
+        }
+
+        tbody tr:nth-child(odd){
+            background-color: lightgreen;
+        } */
+
+        /* tbody tr:nth-of-type(3n){
+            background-color: lightgreen;
+        } */
+
+        /* Every third child starting form 1 */
+        /* tbody tr:nth-of-type(3n+1) {    
+            background-color: lightgreen;
+        } */
+
+        /* Every 3rd occurance form last bottom */
+        tbody tr:nth-last-of-type(3n) {    
+            background-color: lightgreen;
+        }
+
+        /* tbody tr:last-child{
+            background-color: greenyellow;
+        } */
+    </style>
+</head>
+
+<body>
+    <table border="1" width="800">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+</html>
+
+-------------------------------------------------------------------------------------------------------
+
+									Lecture-39
+
+
+Occurance and Behavioural Classes :
+
+	:  means inheritance
+	:: means inheritance and implement, implement and extend
+
+| Pseudo-Element   | Purpose                           |
+| ---------------- | --------------------------------- |
+| `::first-letter` | Styles the first letter of text   |
+| `::first-line`   | Styles the first line of text     |
+| `::before`       | Inserts content before an element |
+| `::after`        | Inserts content after an element  |
+| `::selection`    | Styles selected/highlighted text  |
+| `::placeholder`  | Styles placeholder text in inputs |
+
+
+- They define certain functionality with a set of rules.
+- The classes "before & after" require a content to display.
+
+Syntax:
+	li::after {
+		content: ">";
+	}
+
+Ex.
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Style in CSS</title>
+    <style>
+        p::first-letter {
+            font-size: 20px;
+            color: grey;
+            font-family: cursive;
+            float: left;
+        }
+
+        p::first-line {
+            font-size: large;
+            font-family: Arial, Helvetica, sans-serif;
+            color: skyblue;
+        }
+
+        /* When you select any text it apply this style */
+        p::selection {
+            background-color: yellow;
+        }
+
+        input::placeholder {
+            color: greenyellow;
+            background-color: yellow;
+        }
+
+        ul {
+            list-style: none;
+            display: flex;
+        }
+
+        li::after {
+            content: " >> ";
+        }
+
+        li:last-child::after{
+            content: "";
+        }
+    </style>
+</head>
+
+<body>
+
+    <ul>
+        <li>Home</li>
+        <li>Electronic</li>
+        <li>Mobile</li>
+        <li>iPhone</li>
+    </ul>
+
+    <input type="text" placeholder="Name in block letter">
+    <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero, amet? Minima obcaecati sed quibusdam dolores
+        maiores expedita pariatur maxime facere dignissimos, quae nam sint, corporis aut est dolorum numquam ab!
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga quasi aut dolore, et, id deleniti eius quisquam
+        adipisci rem sapiente facilis commodi perferendis rerum, voluptate magni quibusdam non similique. Nesciunt?
+    </p>
+</body>
+
+</html>
+
+Root Selector:
+- It refers to root element in a shadow-DOM.
+- You can access the shadow-dom elements and configure styles.
+- It requires additional methods using JavaScript.
+
+Syntax:
+	:root{}
+
+Universal Selector:
+- It refers to all elements in page at any level of hierarchy.
+
+Syntax:
+	*{
+		font-family: Arial;
+		color:red;
+	}
+
+Language Selector:
+- It configures styles based on the content language type.
+- It is an globalization attribute.
+
+Syntax:
+	:lang[region}{
+	} 
+
+
+Summary:
+- CSS Integration
+- CSS Selectors
+- CSS Rules
+
+									CSS Inheritance
+									
+- Inheritance is a mechanism where the parent styles are auto implemented for child
+  elements. However all parent features are not inherited.
+- Developer can control the inheritance of any style by using following values
+
+	a) inherit	: It inherit the parent style
+	b) initial	: It remove inherited style
+	c) unset	: It remove default style
+
+
+Syntax:
+	child {
+		all : inherit;
+	}
+
+	child {
+		color:inherit;
+		font:initial;
+	}
+
+
+Ex.
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Inheritance</title>
+    <style>
+        .container{
+            border:  4px double red;
+            padding: 10px;
+            color: red;
+        }
+
+        h2{
+            border: inherit;
+            padding: inherit;
+            color: initial;
+
+            /* Here i want to remove bold style, bold style of h2 is not came from parent,
+            so it is default, so we need to unset that style 
+            */
+            font-weight: unset;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        Container
+        <h2>Title</h2>
+    </div>
+</body>
+</html>
+
+								CSS Units
+
+- Units are used to configure the dimensions and position of element.
+- Units are categorized into 2 types
+
+	a) Absolute Units
+	b) Relative Units
+
+- Absolute units have a fixed value they are not controlled dynamically by adjacent or
+  parent elements.
+
+- 1 cm = 37.8 px
+
+| Unit | Full Form          | Meaning                                  | Conversion                  |
+| ---- | ------------------ | ---------------------------------------- | --------------------------- |
+| `px` | Pixel              | Smallest screen measurement unit         | `1px = 1 pixel`             |
+| `pt` | Point              | Commonly used in printing and typography | `1pt = 1/72 inch = 1.333px` |
+| `pc` | Pica               | Printing unit                            | `1pc = 12pt = 16px`         |
+| `cm` | Centimeter         | Physical length unit                     | `1cm ≈ 37.8px`              |
+| `mm` | Millimeter         | Physical length unit                     | `1mm ≈ 3.78px`              |
+| `q`  | Quarter-millimeter | 1/4 of a millimeter                      | `1q = 0.25mm ≈ 0.945px`     |
 
 
 
 
+- Relative units are not defined with a fixed value it changes according to the parent.
 
+	em	: parent element size	] good for
+	rem	: root element size		] font size
+	vh	: view port height
+	VW	: view port width
+	%	: % of parent
+
+- em , rem is used for font sizes
+
+Ex.
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Units</title>
+    <style>
+        .container {
+            border: 4px double red;
+            padding: 10px;
+            color: red;
+            font-size: 40px
+        }
+
+        body{
+            font-size: 15px;
+        }
+
+        p {
+            /* font-size: 0.5em;   it apply as compared with parent element */
+            font-size: 2rem;    /* it apply as compate with parent- parent ie root element*/
+        }
+    </style>
+</head>
+
+<body>
+    Body Text
+    <div class="container">
+        Container
+        <p>Para Text</p>
+    </div>
+</body>
+
+</html>
+
+
+										CSS Colors
+
+- Color Name
+- Shade Name
+- Hexadecimal
+- rgb()
+- rgba()
+- hsl()
+- hsla()
+- linear-gradient() ] can apply only with background image
+- radial-gradient() ]
+
+Ex.
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Colors</title>
+    <style>
+        body {
+            height: 100vh;
+            background-image: linear-gradient(to top right, red, yellow, green);
+        }
+    </style>
+</head>
+
+<body>
+    Body Text
+    <div class="container">
+        Container
+        <p>Para Text</p>
+    </div>
+</body>
+
+</html>
+
+Ex.
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Colors</title>
+    <style>
+        body {
+            height: 100vh;
+            background-image: radial-gradient(red,yellow, green, red);/* toward the center*/
+        }
+    </style>
+</head>
+
+<body>
+    Body Text
+    <div class="container">
+        Container
+        <p>Para Text</p>
+    </div>
+</body>
+
+</html>
+
+-------------------------------------------------------------------------------------------------------
+
+									Lecture-40
+
+Summary
+	CSS Integration
+	CSS Selectors
+	CSS Rules
+	CSS Inheritance
+	CSS Colors
+
+
+									CSS Box Model
+
+1. Margin
+2. Padding
+3. Border
+4. Width
+5. Height
+
+		+-------------------------+
+		|        Margin           |
+		|  +-------------------+  |
+		|  |      Border       |  |
+		|  | +---------------+ |  |
+		|  | |   Padding     | |  |
+		|  | | +-----------+ | |  |
+		|  | | | Content   | | |  |
+		|  | | +-----------+ | |  |
+		|  | +---------------+ |  |
+		|  +-------------------+  |
+		+-------------------------+
+		
+Margin: The space outside an element's border that separates it from other elements.
+Padding: The space inside an element's border that creates distance between the content and the border.
+
+Margin Attributes:
+
+margin : short hand for all directions.
+		 [top, right, bottom, left]
+		 
+		{
+			margin: 0px 0px 0px Opx;	4 directions individual
+		}
+		
+		{
+			margin: 50px;				all direction same value
+		}
+
+	margin-left
+	margin-right
+	margin-top
+	margin-bottom
+
+Padding Attributes:
+
+	padding			: all directions : top, right, bottom, left
+	padding-left
+	padding-right
+	padding-top
+	padding-bottom
+
+
+Border Attributes:
+
+- In CSS, a border is a line that wraps around the outside of an HTML element's. 
+- It acts as a frame for the element.
+- border: 1px solid black;
+| Value   | Meaning                  |
+| ------- | ------------------------ |
+| `1px`   | Border width (thickness) |
+| `solid` | Border style             |
+| `black` | Border color             |
+
+
+	border			: It defines short hand for style, size and color
+	border-width	: Size
+	border-color	: color
+	border-style	: solid, dotted, double, dashed, groove
+
+
+	border-left			: left short hand with style, width, color
+	border-left-style
+	border-left-color
+	border-left-width
+
+	...similar for all directions ...
+
+Border Radius Attributes:
+
+	border-radius				: short hand for all directions
+	border-top-right-radius
+	border-top-left-radius
+	border-bottom-right-radius
+	border-bottom-left-radius
+
+Ex.
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Box Model</title>
+    <style>
+        p {
+            border: 1px solid black;
+            margin: 50px;
+            padding: 20px 5px 20px 10px;
+            border-left: 14px solid red;
+            border-top: 14px solid red;
+            border-right: 14px double blue;
+            border-bottom: 14px double blue;
+            border-top-right-radius: 40px;
+            border-bottom-left-radius: 40px;
+        }
+
+        button {
+            border-top-right-radius: 40px;
+            border-bottom-left-radius: 40px;
+            padding: 10px;
+            width: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <button>Register</button>
+    <p>
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corporis, architecto ullam enim sed, aliquam
+        voluptatum numquam assumenda doloribus quam magni ipsum. Error hic vel velit iure consequuntur assumenda iste
+        quae?
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur eos delectus, tenetur eum iusto, laboriosam
+        magnam possimus eligendi blanditiis officia eveniet ipsum. Vero facere libero alias, enim sapiente incidunt
+        aperiam!
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum deserunt, quod eaque voluptas nesciunt, impedit
+        accusantium voluptatum quaerat magni voluptatem earum asperiores, rem quas cupiditate cum. Accusantium dolor
+        vero quisquam.
+    </p>
+</body>
+
+</html>
+
+
+Border Image Attribute:
+
+- border is mandatory for border-image
+
+	border-image	: It sets image as border with size, offset, style
+
+Syntax:
+	{
+		border : 10px solid transparent;
+		border-image: url("path") stretch|space 1-100;	1-100 is offset 
+	}
+
+Note: You can't set border-image without the border attribute.
+
+Ex.
+
+	p {
+		border: 30px solid transparent;
+		border-image: url("./image/border.jpg") space 70;
+		margin: 50px;
+		padding: 20px 5px 20px 10px;
+	}
+
+	| Value     | Behavior                                        |
+	| --------- | ----------------------------------------------- |
+	| `stretch` | Stretch image to fill border                    |
+	| `repeat`  | Repeat image; last tile may be clipped          |
+	| `round`   | Repeat and resize image to fit perfectly        |
+	| `space`   | Repeat image and distribute extra space as gaps |
+
+
+Width & Height
+
+width	: size of element along X axis
+height	: size of element along Y axis
+
+							CSS Position Property
+							
+							
+The CSS position property determines how an element is placed on a page.
+
+Static → Default positioning.
+Relative → Moves relative to its original position.
+Absolute → Positioned relative to the nearest positioned ancestor.
+Fixed → Positioned relative to the viewport and remains fixed during scrolling.
+Sticky → Behaves like relative until a scroll point is reached, then acts like fixed.
+
+Static
+	- It keeps element according to the normal flow in document.
+	- It will not allow the element to change its position using top, left, right and bottom
+	  values.
+	- It is the default position for element.
+
+Ex.
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS</title>
+    <style>
+        div {
+            border: 1px solid black;
+        }
+
+        .offer {
+            background-color: yellow;
+            color: red;
+            width: 90px;
+            position: static;
+            right: 20px;/*It not move right bcz it position is static */
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corporis, architecto ullam enim sed, aliquam
+        voluptatum numquam assumenda doloribus quam magni ipsum. Error hic vel velit iure consequuntur assumenda iste
+        quae?
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur eos delectus, tenetur eum iusto, laboriosam
+        magnam possimus eligendi blanditiis officia eveniet ipsum. Vero facere libero alias, enim sapiente incidunt
+        aperiam!
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum deserunt, quod eaque voluptas nesciunt, impedit
+        accusantium voluptatum quaerat magni voluptatem earum asperiores, rem quas cupiditate cum. Accusantium dolor
+        vero quisquam.
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. A facere earum debitis esse molestiae voluptate
+        tenetur voluptas! Illo, quibusdam! Est laudantium quae dicta porro asperiores blanditiis suscipit reprehenderit
+        sed eum?
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, odio atque commodi, corrupti quis magnam tempora
+        tenetur deserunt, quas officia perferendis iste obcaecati ab placeat ex repellendus dicta? Ea, quidem?
+        <div class="offer">
+            Offer 50%
+        </div>
+    </div>
+</body>
+
+</html>
+
+
+Absolute:
+	- It removes element from the normal flow in document.
+	- It allows to keep at specified position using top, right, left and bottom.
+	- It keeps the element with regard to the content in page.
+	- It moves the element along with content.
+
+Ex.
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS</title>
+    <style>
+        div {
+            border: 1px solid black;
+			/* margin-top: 100px; */
+        }
+
+        .offer {
+            background-color: yellow;
+            color: red;
+            width: 90px;
+            position: absolute;
+            top: 50px;
+            right: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corporis, architecto ullam enim sed, aliquam
+        voluptatum numquam assumenda doloribus quam magni ipsum. Error hic vel velit iure consequuntur assumenda iste
+        quae?
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur eos delectus, tenetur eum iusto, laboriosam
+        magnam possimus eligendi blanditiis officia eveniet ipsum. Vero facere libero alias, enim sapiente incidunt
+        aperiam!
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum deserunt, quod eaque voluptas nesciunt, impedit
+        accusantium voluptatum quaerat magni voluptatem earum asperiores, rem quas cupiditate cum. Accusantium dolor
+        vero quisquam.
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. A facere earum debitis esse molestiae voluptate
+        tenetur voluptas! Illo, quibusdam! Est laudantium quae dicta porro asperiores blanditiis suscipit reprehenderit
+        sed eum?
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. A facere earum debitis esse molestiae voluptate
+        tenetur voluptas! Illo, quibusdam! Est laudantium quae dicta porro asperiores blanditiis suscipit reprehenderit
+        sed eum?
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, odio atque commodi, corrupti quis magnam tempora
+        tenetur deserunt, quas officia perferendis iste obcaecati ab placeat ex repellendus dicta? Ea, quidem?
+        <div class="offer">
+            Offer 50%
+        </div>
+    </div>
+</body>
+
+</html>
+
+
+Fixed:
+- It removes element from the normal flow in document.
+- It allows to change position.
+- It keeps the element with regard to browser window and not to content in page.
+- It will not move along with the content.
+
+
+Ex.
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS</title>
+    <style>
+        div {
+            border: 1px solid black;
+        }
+
+        .offer {
+            background-color: yellow;
+            color: red;
+            width: 90px;
+            position: fixed;
+            top: 50px;
+            right: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corporis, architecto ullam enim sed, aliquam
+        voluptatum numquam assumenda doloribus quam magni ipsum. Error hic vel velit iure consequuntur assumenda iste
+        quae?
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur eos delectus, tenetur eum iusto, laboriosam
+        magnam possimus eligendi blanditiis officia eveniet ipsum. Vero facere libero alias, enim sapiente incidunt
+        aperiam!
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum deserunt, quod eaque voluptas nesciunt, impedit
+        accusantium voluptatum quaerat magni voluptatem earum asperiores, rem quas cupiditate cum. Accusantium dolor
+        vero quisquam.
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. A facere earum debitis esse molestiae voluptate
+        tenetur voluptas! Illo, quibusdam! Est laudantium quae dicta porro asperiores blanditiis suscipit reprehenderit
+        sed eum?Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corporis, architecto ullam enim sed, aliquam
+        voluptatum numquam assumenda doloribus quam magni ipsum. Error hic vel velit iure consequuntur assumenda iste
+        quae?
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur eos delectus, tenetur eum iusto, laboriosam
+        magnam possimus eligendi blanditiis officia eveniet ipsum. Vero facere libero alias, enim sapiente incidunt
+        aperiam!
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum deserunt, quod eaque voluptas nesciunt, impedit
+        accusantium voluptatum quaerat magni voluptatem earum asperiores, rem quas cupiditate cum. Accusantium dolor
+        vero quisquam.
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. A facere earum debitis esse molestiae voluptate
+        tenetur voluptas! Illo, quibusdam! Est laudantium quae dicta porro asperiores blanditiis suscipit reprehenderit
+        sed eum?Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corporis, architecto ullam enim sed, aliquam
+        voluptatum numquam assumenda doloribus quam magni ipsum. Error hic vel velit iure consequuntur assumenda iste
+        quae?
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur eos delectus, tenetur eum iusto, laboriosam
+        magnam possimus eligendi blanditiis officia eveniet ipsum. Vero facere libero alias, enim sapiente incidunt
+        aperiam!
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum deserunt, quod eaque voluptas nesciunt, impedit
+        accusantium voluptatum quaerat magni voluptatem earum asperiores, rem quas cupiditate cum. Accusantium dolor
+        vero quisquam.
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. A facere earum debitis esse molestiae voluptate
+        tenetur voluptas! Illo, quibusdam! Est laudantium quae dicta porro asperiores blanditiis suscipit reprehenderit
+        sed eum?Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corporis, architecto ullam enim sed, aliquam
+        voluptatum numquam assumenda doloribus quam magni ipsum. Error hic vel velit iure consequuntur assumenda iste
+        quae?
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur eos delectus, tenetur eum iusto, laboriosam
+        magnam possimus eligendi blanditiis officia eveniet ipsum. Vero facere libero alias, enim sapiente incidunt
+        aperiam!
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum deserunt, quod eaque voluptas nesciunt, impedit
+        accusantium voluptatum quaerat magni voluptatem earum asperiores, rem quas cupiditate cum. Accusantium dolor
+        vero quisquam.
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. A facere earum debitis esse molestiae voluptate
+        tenetur voluptas! Illo, quibusdam! Est laudantium quae dicta porro asperiores blanditiis suscipit reprehenderit
+        sed eum?Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corporis, architecto ullam enim sed, aliquam
+        voluptatum numquam assumenda doloribus quam magni ipsum. Error hic vel velit iure consequuntur assumenda iste
+        quae?
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur eos delectus, tenetur eum iusto, laboriosam
+        magnam possimus eligendi blanditiis officia eveniet ipsum. Vero facere libero alias, enim sapiente incidunt
+        aperiam!
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum deserunt, quod eaque voluptas nesciunt, impedit
+        accusantium voluptatum quaerat magni voluptatem earum asperiores, rem quas cupiditate cum. Accusantium dolor
+        vero quisquam.
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. A facere earum debitis esse molestiae voluptate
+        tenetur voluptas! Illo, quibusdam! Est laudantium quae dicta porro asperiores blanditiis suscipit reprehenderit
+        sed eum?Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corporis, architecto ullam enim sed, aliquam
+        voluptatum numquam assumenda doloribus quam magni ipsum. Error hic vel velit iure consequuntur assumenda iste
+        quae?
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur eos delectus, tenetur eum iusto, laboriosam
+        magnam possimus eligendi blanditiis officia eveniet ipsum. Vero facere libero alias, enim sapiente incidunt
+        aperiam!
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum deserunt, quod eaque voluptas nesciunt, impedit
+        accusantium voluptatum quaerat magni voluptatem earum asperiores, rem quas cupiditate cum. Accusantium dolor
+        vero quisquam.
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. A facere earum debitis esse molestiae voluptate
+        tenetur voluptas! Illo, quibusdam! Est laudantium quae dicta porro asperiores blanditiis suscipit reprehenderit
+        sed eum?
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. A facere earum debitis esse molestiae voluptate
+        tenetur voluptas! Illo, quibusdam! Est laudantium quae dicta porro asperiores blanditiis suscipit reprehenderit
+        sed eum?
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, odio atque commodi, corrupti quis magnam tempora
+        tenetur deserunt, quas officia perferendis iste obcaecati ab placeat ex repellendus dicta? Ea, quidem?
+        <div class="offer">
+            Offer 50%
+        </div>
+    </div>
+</body>
+
+</html>
+
+Relative:
+- It defined for parent element to keep all child elements relative to parent.
+
+Ex.
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <style>
+        #badge{
+            position: absolute;
+            top: -10px;
+            right: -10px;
+        }
+
+        button{
+            position: relative;
+        }
+
+    </style>
+</head>
+
+<body class="container-fluid">
+    <h1>Position</h1>
+    <button class="btn  bg-warning">
+        <span class="bi bi-cart4"></span>
+        <span>Your Cart</span>
+        <span id="badge" class="badge bg-danger rounded rounded-circle">2</span>
+    </button>
+</body>
+
+</html>
+
+Sticky:
+- It keeps element according to the normal flow in document.
+- It can scroll along with content in page.
+- However it can stick to browser at specified position.
+
+Ex.
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS</title>
+    <style>
+        div {
+            border: 1px solid black;
+        }
+
+        .offer {
+            background-color: yellow;
+            color: red;
+            width: 90px;
+            position: sticky;
+            top: 0px;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corporis, architecto ullam enim sed, aliquam
+        voluptatum numquam assumenda doloribus quam magni ipsum. Error hic vel velit iure consequuntur assumenda iste
+        quae?
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur eos delectus, tenetur eum iusto, laboriosam
+        magnam possimus eligendi blanditiis officia eveniet ipsum. Vero facere libero alias, enim sapiente incidunt
+        aperiam!
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum deserunt, quod eaque voluptas nesciunt, impedit
+        accusantium voluptatum quaerat magni voluptatem earum asperiores, rem quas cupiditate cum. Accusantium dolor
+        vero quisquam.
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. A facere earum debitis esse molestiae voluptate
+        tenetur voluptas! Illo, quibusdam! Est laudantium quae dicta porro asperiores blanditiis suscipit reprehenderit
+        sed eum?Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corporis, architecto ullam enim sed, aliquam
+        voluptatum numquam assumenda doloribus quam magni ipsum. Error hic vel velit iure consequuntur assumenda iste
+        quae?
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur eos delectus, tenetur eum iusto, laboriosam
+        magnam possimus eligendi blanditiis officia eveniet ipsum. Vero facere libero alias, enim sapiente incidunt
+        aperiam!
+        <div class="offer">
+            Offer 50%
+        </div>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum deserunt, quod eaque voluptas nesciunt, impedit
+        accusantium voluptatum quaerat magni voluptatem earum asperiores, rem quas cupiditate cum. Accusantium dolor
+        vero quisquam.
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. A facere earum debitis esse molestiae voluptate
+        tenetur voluptas! Illo, quibusdam! Est laudantium quae dicta porro asperiores blanditiis suscipit reprehenderit
+        sed eum?Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corporis, architecto ullam enim sed, aliquam
+        voluptatum numquam assumenda doloribus quam magni ipsum. Error hic vel velit iure consequuntur assumenda iste
+        quae?
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur eos delectus, tenetur eum iusto, laboriosam
+        magnam possimus eligendi blanditiis officia eveniet ipsum. Vero facere libero alias, enim sapiente incidunt
+        aperiam!
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum deserunt, quod eaque voluptas nesciunt, impedit
+        accusantium voluptatum quaerat magni voluptatem earum asperiores, rem quas cupiditate cum. Accusantium dolor
+        vero quisquam.
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. A facere earum debitis esse molestiae voluptate
+        tenetur voluptas! Illo, quibusdam! Est laudantium quae dicta porro asperiores blanditiis suscipit reprehenderit
+        sed eum?Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corporis, architecto ullam enim sed, aliquam
+        voluptatum numquam assumenda doloribus quam magni ipsum. Error hic vel velit iure consequuntur assumenda iste
+        quae?
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur eos delectus, tenetur eum iusto, laboriosam
+        magnam possimus eligendi blanditiis officia eveniet ipsum. Vero facere libero alias, enim sapiente incidunt
+        aperiam!
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum deserunt, quod eaque voluptas nesciunt, impedit
+        accusantium voluptatum quaerat magni voluptatem earum asperiores, rem quas cupiditate cum. Accusantium dolor
+        vero quisquam.
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. A facere earum debitis esse molestiae voluptate
+        tenetur voluptas! Illo, quibusdam! Est laudantium quae dicta porro asperiores blanditiis suscipit reprehenderit
+        sed eum?Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corporis, architecto ullam enim sed, aliquam
+        voluptatum numquam assumenda doloribus quam magni ipsum. Error hic vel velit iure consequuntur assumenda iste
+        quae?
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur eos delectus, tenetur eum iusto, laboriosam
+        magnam possimus eligendi blanditiis officia eveniet ipsum. Vero facere libero alias, enim sapiente incidunt
+        aperiam!
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum deserunt, quod eaque voluptas nesciunt, impedit
+        accusantium voluptatum quaerat magni voluptatem earum asperiores, rem quas cupiditate cum. Accusantium dolor
+        vero quisquam.
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. A facere earum debitis esse molestiae voluptate
+        tenetur voluptas! Illo, quibusdam! Est laudantium quae dicta porro asperiores blanditiis suscipit reprehenderit
+        sed eum?Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corporis, architecto ullam enim sed, aliquam
+        voluptatum numquam assumenda doloribus quam magni ipsum. Error hic vel velit iure consequuntur assumenda iste
+        quae?
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur eos delectus, tenetur eum iusto, laboriosam
+        magnam possimus eligendi blanditiis officia eveniet ipsum. Vero facere libero alias, enim sapiente incidunt
+        aperiam!
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum deserunt, quod eaque voluptas nesciunt, impedit
+        accusantium voluptatum quaerat magni voluptatem earum asperiores, rem quas cupiditate cum. Accusantium dolor
+        vero quisquam.
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. A facere earum debitis esse molestiae voluptate
+        tenetur voluptas! Illo, quibusdam! Est laudantium quae dicta porro asperiores blanditiis suscipit reprehenderit
+        sed eum?
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. A facere earum debitis esse molestiae voluptate
+        tenetur voluptas! Illo, quibusdam! Est laudantium quae dicta porro asperiores blanditiis suscipit reprehenderit
+        sed eum?
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, odio atque commodi, corrupti quis magnam tempora
+        tenetur deserunt, quas officia perferendis iste obcaecati ab placeat ex repellendus dicta? Ea, quidem?
+
+    </div>
+</body>
+
+</html>
+
+
+| Position   | Easy Meaning                     | Memory Trick           |
+| ---------- | -------------------------------- | ---------------------- |
+| `static`   | Normal position (default)        | **Stay where you are** |
+| `relative` | Move from your original position | **Move yourself**      |
+| `absolute` | Move relative to parent          | **Follow parent**      |
+| `fixed`    | Stay fixed on screen             | **Stick to screen**    |
+| `sticky`   | Scroll normally, then stick      | **Scroll → Stick**     |
+
+- 10-Second Interview Answer
+
+CSS provides five position values:
+
+	Static → Default position.
+	Relative → Moves from its original position.
+	Absolute → Positioned relative to its parent.
+	Fixed → Fixed to the browser screen.
+	Sticky → Scrolls normally and then sticks during scrolling.
+	
+Super Short Memory Formula
+
+	Static   = Stay
+	Relative = Move Yourself
+	Absolute = Follow Parent
+	Fixed    = Stick to Screen
+	Sticky   = Scroll Then Stick
+
+This formula is easy to remember and works well in interviews.
+
+
+Here are some common **CSS Position Interview Questions** with short answers:
+
+---
+
+### 1. What is the default position of an HTML element?
+
+✅ **Answer:**
+
+> The default position is `static`.
+
+---
+
+### 2. How many position values are available in CSS?
+
+✅ **Answer:**
+
+> Five: `static`, `relative`, `absolute`, `fixed`, and `sticky`.
+
+---
+
+### 3. What is `position: relative`?
+
+✅ **Answer:**
+
+> It positions an element relative to its original position while keeping its original space reserved.
+
+---
+
+### 4. What is `position: absolute`?
+
+✅ **Answer:**
+
+> It positions an element relative to its nearest positioned parent and removes it from the normal document flow.
+
+---
+
+### 5. What is `position: fixed`?
+
+✅ **Answer:**
+
+> It positions an element relative to the browser viewport and keeps it visible during scrolling.
+
+---
+
+### 6. What is `position: sticky`?
+
+✅ **Answer:**
+
+> It behaves like `relative` initially and becomes fixed when a specified scroll position is reached.
+
+---
+
+### 7. What is the difference between `relative` and `absolute`?
+
+✅ **Answer:**
+
+> `Relative` keeps its original space and moves from its original position.
+> `Absolute` removes the element from the normal flow and positions it relative to its parent.
+
+---
+
+### 8. What is the difference between `absolute` and `fixed`?
+
+✅ **Answer:**
+
+> `Absolute` is positioned relative to its parent.
+> `Fixed` is positioned relative to the browser window and does not move on scroll.
+
+---
+
+### 9. What is the difference between `sticky` and `fixed`?
+
+✅ **Answer:**
+
+> `Fixed` is always fixed on the screen.
+> `Sticky` becomes fixed only after reaching a specified scroll position.
+
+---
+
+### 10. Which position value is used for a WhatsApp chat button?
+
+✅ **Answer:**
+
+> `position: fixed`.
+
+---
+
+### 11. Which position value is used for a notification badge on an icon?
+
+✅ **Answer:**
+
+> `position: absolute`.
+
+---
+
+### 12. Why do we use `top`, `left`, `right`, and `bottom`?
+
+✅ **Answer:**
+
+> They are used to move positioned elements (`relative`, `absolute`, `fixed`, `sticky`).
+
+---
+
+### 13. Do `top`, `left`, `right`, and `bottom` work with `position: static`?
+
+✅ **Answer:**
+
+> No, they do not work with `static`.
+
+---
+
+### 14. What happens if an absolute element has no positioned parent?
+
+✅ **Answer:**
+
+> It is positioned relative to the page (the initial containing block).
+
+---
+
+### 15. Give one real-world example of each position.
+
+| Position | Example                 |
+| -------- | ----------------------- |
+| Static   | Normal paragraph        |
+| Relative | Slightly shifted button |
+| Absolute | Notification badge      |
+| Fixed    | WhatsApp/chat button    |
+| Sticky   | Sticky navbar/header    |
+
+---
+
+### Interview Rapid-Fire
+
+**Q:** Default position?
+**A:** Static
+
+**Q:** Which position follows the parent?
+**A:** Absolute
+
+**Q:** Which position sticks to the screen?
+**A:** Fixed
+
+**Q:** Which position scrolls first and then sticks?
+**A:** Sticky
+
+**Q:** Which position keeps its original space?
+**A:** Relative
+
+These are exactly the kind of questions frequently asked in HTML/CSS fresher interviews.
 
