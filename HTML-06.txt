@@ -1,0 +1,668 @@
+
+								Lecture-51
+								
+- Here we do not use form element bcz 
+	- form element is generic element
+	- by default it submit data to the server	
+	- so, here click event will not work
+	- If you use form tag make sure that button type is ordinary , non-generic button
+
+Form Input Elements
+
+Ex- input box, select, label
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.css">
+    <script src="../../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+    <script>
+        function SubmitClick() {
+            document.getElementById("lblId").innerHTML = document.getElementById("txtId").value;
+            document.getElementById("1blName").innerHTML = document.getElementById("txtName").value;
+            document.getElementById("lblPrice").innerHTML = document.getElementById("txtPrice").value;
+            document.getElementById("lblCity").innerHTML = document.getElementById("lstCities").value;
+
+            stock = "";
+            stockCheckBox = document.getElementById("optStock");
+
+            if (stockCheckBox.checked) {
+                stock = "Available";
+            }
+            else {
+                stock = "Out of Stock";
+            }
+
+            document.getElementById("lblStock").innerHTML = stock;
+        }
+    </script>
+</head>
+
+<body class="container-fluid">
+    <div id="registerContainer">
+        <h2>Register Product</h2>
+        <dl class="w-25">
+            <dt>Product Id</dt>
+            <dd><input type="number" id="txtId" class="form-control"></dd>
+            <dt>Name</dt>
+            <dd><input type="text" id="txtName" class="form-control"></dd>
+            <dt>Price</dt>
+            <dd><input type="number" id="txtPrice" class="form-control"></dd>
+            <dt>Shipped To</dt>
+            <dd>
+                <select id="lstCities" class="form-select">
+                    <option>Select City</option>
+                    <option>Delhi</option>
+                    <option>Hyd</option>
+                </select>
+            </dd>
+            <dt>Stock</dt>
+            <dd class="form-switch">
+                <input type="checkbox" id="optStock" class="form-check-input"> <label> Available </label>
+            </dd>
+            <button onclick="SubmitClick()" data-bs-toggle="modal" data-bs-target="#details"
+                class="btn btn-primary w-100">Submit</button>
+        </dl>
+    </div>
+
+    <div class="modal fade" id="details">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>Product Details</h2>
+                </div>
+                <div class="modal-body">
+                    <dl>
+                        <dt>Product Id</dt>
+                        <dd id="lblId"></dd>
+                        <dt>Name</dt>
+                        <dd id="1blName"></dd>
+                        <dt>Price</dt>
+                        <dd id="lblPrice"></dd>
+                        <dt>Shipping City</dt>
+                        <dd id="lblCity"></dd>
+                        <dt>Stock</dt>
+                        <dd id="lblStock"></dd>
+                    </dl>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" data-bs-dismiss="modal"> OK </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+
+
+										JavaScript Language
+
+1. Variables
+2. Data Types
+3. Operators
+4. Statements
+5. Functions
+6. OOP
+
+
+											Variables
+											
+- Variables are storage locations in memory where you can store a value and use it as a
+  part of any expression.
+- Variable uses a temporary memory, which can vary its value according to state and situation.
+- Variable have same reference name but varying values.
+- Variable configuration have 3 phases
+
+	a) Declaration
+	b) Assignment
+	c) Initialization
+	
+	
+- Declaration comprises of specification about behaviour, scope and reference name.
+- If JavaScript is not in strict mode, then declaration is not mandatory.
+- If JavaScript is in strict mode, then you have to declare a variable by using the
+keywords:
+	a) var
+	b) let
+	c) const
+
+Syntax:
+
+	var x;			// declaring
+	let price;		// declaring
+
+
+- Assignment is the process of storing a value into variable reference after declaring.
+
+	var x;		// declaring
+	x = 10;		// assigning
+	x = 20;		// assigning
+
+- Initialization is the process of storing a value into variable reference while declaring a
+  variable.
+
+	var x = 10;		// initialization
+	x = 20;			// assignment	
+
+
+FAQ: What is difference between var, let & const?
+
+var
+- It configures a function scope variable.
+- A function scope variable can be declared in any block of a function and can be
+  accessed from any another block inside function.
+- It allows declaring, initialization and assignment.
+
+Ex.
+
+<script>
+    function f1() {
+        var x;              // declaration
+        x = 10;             // assignment
+        if (x == 10) {
+            var y = 20;     // intialization
+        }
+        document.write("x=" + x + "<br>" + "y=" + y);
+    }
+    f1();
+
+</script>	
+	
+- It allows shadowing.
+- Shadowing is the process of re-declaring or re-initializing same name identifier within
+  the scope.
+
+	var x = 10;		// initialization
+	x = 20;			// assignment
+	var x = 30:		// shadowing
+
+- It allows hoisting.
+- It is a mechanism of configuring the declaration of variable at any location in function,
+  there is no order dependency in declaring and using a variable.
+- It allows to use and later declare or initialize.
+
+Ex.
+
+<script>
+    "use strict"
+    function f1() {
+        x = 10;
+        document.write("X = " + x);
+        var x;                          //hoisting
+    }
+    f1();
+
+</script>	
+	
+	
+let:
+- It configures a block scope variable.
+- It is accessible only in the block where it is declared and its inner blocks.
+- It supports declaring, assignment and initialization.
+- It will not support shadowing & hoisting.	
+	
+- Closer : Member of outer block are accessible to inner block
+
+eg. 
+	{
+		let x = 10;
+		var x = 10;		//invalid bcz shadowing not allowed in let
+	}
+	
+---- How to completely remove software from PC. -> Remove from window registery ---
+
+-----------------------------------------------------------------------------------------------------------
+
+								Lecture-52
+
+- Keywords
+	a) var
+	b) let
+
+const:
+- It is a block scope constant.
+- It allows only initialization.
+- It will not allow declaring and assigning.
+
+	const x;		// invalid
+	x = 10;			// invalid
+
+	const x = 10; 	// valid
+	x=20;			// invalid
+
+- It will not support shadowing and hoisting.
+
+- Read-only: Once initialized, it cannot be modified, even after restarting the program
+- Const: Its value remains constant during program execution. To change it, you must 
+  modify the code and recompile/restart the program.
+
+Global Scope:
+- A global scope allows access from any function in a module.
+- You can declare or initialize values in global scope. So that you can access from
+  various function or components.
+- You can declare or initialize global variables using var, let or const.
+
+Ex.
+
+<script>
+    // module scope
+    let x = 10;
+    var y = 20;
+    const z = 30;
+    function f1() {
+        document.write("F1 x=" + x + "y=" + y + "z=" + z + "<br>");
+    }
+    function f2() {
+        document.write("F2 x=" + x + "y=" + y + "z=" + z + "<br>");
+    }
+    f1();
+    f2();
+
+</script>
+
+- You can configure a variable inside function and make it global by using "window"
+  reference. But it is possible for JavaScript only when it is used in browser.
+  [window is a browser object]
+
+Ex.
+
+<script>
+    "use strict";
+    // module scope
+    let x = 10;
+    var y = 20;
+
+    function f1() {
+        window.z = 40;
+        document.write("F1 x=" + x + "y=" + y + "z=" + z + "<br>");
+    }
+</script>
+
+
+Naming Rules:
+- Variable name must start with an alphabet.
+- It can start with underscore " " but not recommended.
+- It can be alpha numeric but can't start with number.
+- Don't use special chars in variable name.
+- It can max 255 chars long.
+- It can't be a keyword.
+
+var class;		// invalid
+var class2;		// valid
+var Class;		// valid
+
+- It must speak what it is.
+
+
+FAQ's:
+
+1. var x, y, z;		is it a valid syntax?
+A. Yes.
+
+2. var x = 10, y, z; what is the value of y & z?
+A. undefined
+
+3. const x, y, z=20; is it valid?
+A. No. x & y are not initialized.
+   const x = 10, y = 20 , z = 30; valid
+
+- In Strict mode var x = y = z = 10; invalid 
+	bcz when we assign x = y , so here y is not intialized in stict mode me require declare or intialized 
+	before use
+	
+- Without Stict mode , var x = y = z = 10; valid
+
+	var [x,y,z] = 20; 			invalid
+	var [x,y,z] = [20]  		valid   x = 20 , y and z are undefined
+	var [x,y,z] = [10,20,30]	valid 	x = 10 y = 20 z = 30	This is called destructuring
+
+4. var x = y = z = 20; is it valid?
+A. Yes if it is not in strict mode.
+
+5. What is difference between
+A.
+
+	var x, y, z;		// declaring 3 individual variables
+	var [x,y,z];		// declaring one collection with 3 references
+
+6. What is result of given
+
+	var [x, y, z] = 20;		// invalid 20 is not an iterator.
+
+7. What is result of given
+
+	var [x,y,z] = [20];		// x = 20, y=undefined, z=undefine
+	
+	
+						JavaScript Data Types
+						
+- In computer programming data type defines the data structure.
+- Data type refers to the structure of data in memory.
+- Data structure comprises of variable details about data, which include
+	a) type
+	b) range
+	c) behaviour etc ..
+- JavaScript is a not a strongly typed language.
+- JavaScript is implicitly typed or dynamic typed.
+- The data type will be determined according to the value assigned.
+
+	var x = 10;		x is number
+	x= "A";			x is string
+	x= true;		x is boolean
+
+- JavaScript types are classified into 2 groups
+
+	1. Primitive Data Types
+	2. Non Primitive Data Types
+
+
+-----------------------------------------------------------------------------------------------------------
+
+								Lecture-53
+
+- immutables means structure can't change.
+
+Primitive Types
+- Primitive types are immutable types.
+- They have a fixed data structure, which can't change dynamically.
+- They also have a fixed range for values.
+- They are stored in memory stack.
+- Stack uses LIFO [Last-in First-out].	
+- JavaScript primitive types are
+
+	1. number
+	2. string
+	3. boolean
+	4. null
+	5. undefined
+	6. symbol	
+	7. bigint	
+	
+								Number
+								
+- Number in JavaScript represents a numeric value, which can be any one of the
+  following.
+
+	Signed Integer			-30
+	Unsigned Integer		30
+	Floating Point			30.45
+	Double					240.36
+	Decimal					35000.36 [29 places]
+	Exponent				2e3[2000] 2 X 10^3
+	Hexadecimal				0x7545
+	Binary					0x1010 [10]
+	Octa					0o745
+	Bigint					9846868486135216n
+	
+- JavaScript allows numeric strings in various calculations.
+- But a numeric string must be converted into number by using the methods
+
+	a) parselnt()
+	b) parseFloat()
+
+- A numeric string must start with number and enclosed in quotes.
+- It can have number with chars, but it reads only up to the numeric occurrence in a
+  string.		
+	
+	
+	var x = "10AB";
+	var y = 20;
+
+	parselnt(x) + y => 30
+
+	var x = "10AB20";
+	var y = 30;
+	parselnt(x) + y => 40
+
+	var x = "20":
+	var y = 20;
+	x + y;				= 2020
+	parselnt(x) + y		= 40
+
+EX:
+	<script>
+		var age = parselnt(prompt("Enter Age"));
+		document.write("You will be " + (age+1) + " next year");
+	</script>	
+		
+
+- You have to use "parseFloat()" for values like double, decimal and float.
+	
+Ex:
+	<script>
+		var rate = parseFloat(prompt("Enter Interest Rate"));
+		document.write("Next year interest rate " + (rate+1) +"increased by 1");
+	</script>	
+		
+ 	
+- JavaScript provides methods to convert a number into string.
+
+	a) toString()			: It converts into a numeric string.
+	b) toLocaleString()		: It converts into a local string, which can use the
+							  regional formats. [Globalization, Localization]	
+	
+Syntax:
+	var price = 45000;
+
+	price.toLocaleString();			45,000;
+
+	price.toLocaleString('en-us');
+
+	price.toLocaleString('en-in', {style:"currency", currency:"INR"});
+
+Ex:
+
+	<script>
+		var price = 545000.55;
+		document.write("Price=" + price.toLocaleString('en-in', {style:"currency",
+			currency:"INR"}));
+	</script>			
+	
+	
+- You can check number input using "isNaN()" method. It returns true if input value is
+  not a number.
+
+Syntax:
+	var age = "A";
+
+	if(isNaN(age))						=> it returns Boolean true
+	{
+		alert("Age must be number");
+	}
+	
+
+Ex	
+		
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS</title>
+    <script>
+        function submitButton(){
+            var age = document.getElementById('age').value;
+            if(isNaN(age)){
+                alert('Invalid Age')
+            }else{
+                document.write("Your Age is ", age);
+            }
+        }
+    </script>
+</head>
+<body >
+    Your Age : <input type="text" id="age"> <button onclick="submitButton()">Submit</button>
+</body>
+</html>
+	
+	
+- JavaScript supports various manipulations on numeric values with operators and built-
+  in functions.
+- JavaScript operators to handle numeric values
+
+	+	Addition
+	-	Subtraction
+	*	Multiplication
+	/	Division
+	%	Modulus
+	**	Exponent [Power]	2**3 = 8
+	++	Increment			x++  		x = x + 1
+	--	Decrement			x--			y = y + 1
+				
+	
+Ex.
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS</title>
+    <script>
+        function submitButton() {
+            var num = parseInt(document.getElementById('num').value);
+            if (num % 2 == 0) {
+                document.write("Valid Number.....");
+            } else {
+                alert("Enter Valid Number")
+            }
+        }
+    </script>
+</head>
+
+<body>
+    Enter a Even No. : <input type="text" id="num"> <button onclick="submitButton()">Submit</button>
+</body>
+
+</html>
+	
+		
+- Increment : It increases the current value by one and assigns to the current reference.
+
+	a) Post Increment	: It will assign then later increments.	
+	
+	var x = 10;
+	var y = x++;	x=11, y=10
+
+	b) Pre Increment	: It will increment and later assign
+		
+	var x = 10;
+	var y = ++X;	X=11, y=11
+	
+- Decrement : It decrease the current value by one and assigns to the current reference
+
+	a) Post Decrement
+
+	var x = 10;
+	var y = x --;	x=9, y=10
+
+	b) Pre Decrement
+
+	var x = 10;
+	var y = -- X;	x=9, y=9	
+		
+- JavaScript provides a "Math" library to handle various math operations.
+
+	Math.pow()
+	Math.sqrt()
+	Math.Pl
+	Math.random()
+	Math.round()
+	Math.sin()
+	Math.cos()
+	Math.tan()
+	Math.floor() etc ...	
+	
+		
+	
+	
+	
+		
+	
+	
+	
+		
+	
+	
+		
+	
+	
+	
+		
+	
+	
+	
+		
+	
+	
+		
+	
+	
+	
+		
+	
+	
+	
+		
+	
+	
+		
+	
+	
+	
+		
+	
+	
+	
+		
+	
+	
+		
+	
+	
+	
+		
+	
+	
+	
+		
+	
+	
+		
+	
+	
+	
+		
+	
+	
+	
+		
+	
+	
+		
+	
+	
+	
+		
+	
+	
+	
+		
+	
+	
+		
+	
+	
+	
+		
+	
+	
+	
+	

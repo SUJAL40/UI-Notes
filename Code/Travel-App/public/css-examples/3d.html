@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> CSS Transitions</title>
+    <link rel="stylesheet" href="../../../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <style>
+        body {
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            height: 100vh;
+        }
+
+        div {
+            transform: rotate(0deg);
+            transition-duration: 10s;
+            transition-timing-function: linear;
+        }
+
+        div:hover {
+            transform: rotate(360deg);
+            transition-duration: 10s;
+            transition-timing-function: linear;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bi bi-star-fill" style="color: red; font-size: 150px;"></div>
+</body>
+
+</html>

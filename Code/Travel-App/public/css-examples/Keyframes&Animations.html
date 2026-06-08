@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keyframes & Animations </title>
+    <link rel="stylesheet" href="../../../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <style>
+        @keyframes Spin {
+            from {
+                transform: rotate(0deg) scale(0.2);
+                opacity: 0;
+            }
+
+            to {
+                transform: rotate(360deg) scale(1.5);
+                opacity: 1;
+            }
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .pic-1 {
+            border-top-right-radius: 150px;
+            border-bottom-left-radius: 150px;
+        }
+
+        .pic-2 {
+            border-top-left-radius: 150px;
+            border-bottom-right-radius: 150px;
+        }
+
+        .pic-3 {
+            border-top-left-radius: 150px;
+            border-bottom-right-radius: 150px;
+            transform: rotate(180deg);
+        }
+
+        .pic-4 {
+            border-top-right-radius: 150px;
+            border-bottom-left-radius: 150px;
+            transform: rotate(180deg);
+
+        }
+
+        #banner-1 {
+            animation-name: Spin;
+            animation-duration: 5s;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+        }
+
+        #banner-2 {
+            animation-name: Spin;
+            animation-duration: 5s;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+            animation-direction: reverse;
+        }
+    </style>
+</head>
+
+<body>
+    <div style="display: flex;">
+        <div id="banner-1" style="margin-right: 200px;">
+            <div>
+                <img src="../../image/women-fashion.jpg" alt="women" class="pic-1" width="200" height="200">
+                <img src="../../image/men-fashion.jpg" alt="women" class="pic-2" width="200" height="200">
+            </div>
+
+            <div>
+                <img src="../../image/kids-fashion.jpg" alt="women" class="pic-3" width="200" height="200">
+                <img src="../../image/men-fashion.jpg" alt="women" class="pic-4" width="200" height="200">
+            </div>
+        </div>
+        <div id="banner-2">
+            <div>
+                <img src="../../image/women-fashion.jpg" alt="women" class="pic-1" width="200" height="200">
+                <img src="../../image/men-fashion.jpg" alt="women" class="pic-2" width="200" height="200">
+            </div>
+
+            <div>
+                <img src="../../image/kids-fashion.jpg" alt="women" class="pic-3" width="200" height="200">
+                <img src="../../image/men-fashion.jpg" alt="women" class="pic-4" width="200" height="200">
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

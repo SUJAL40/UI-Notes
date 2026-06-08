@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../../../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <style>
+        nav {
+            background-color: black;
+            color: white;
+            padding: 10px;
+            font-size: 20px;
+            font-family: arial;
+        }
+
+        button {
+            background-color: white;
+            color: black;
+            font-size: 25px;
+        }
+
+        @media screen and (orientation: landscape) {
+            nav {
+                display: flex;
+                justify-content: space-between;
+            }
+
+            .menu span {
+                margin-right: 50px;
+            }
+
+            button {
+                visibility: hidden;
+            }
+        }
+
+        @media screen and (orientation: portrait) {
+            nav {
+                display: flex;
+                justify-content: space-between;
+            }
+
+            .menu span {
+                visibility: hidden;
+            }
+
+            button {
+                visibility: visible;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div>Amazon</div>
+        <div class="menu">
+            <span>Home</span>
+            <span>Shop</span>
+            <span>Pages</span>
+            <span>Blog</span>
+        </div>
+        <button class="bi bi-justify"></button>
+    </nav>
+</body>
+
+</html>

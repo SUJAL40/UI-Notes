@@ -4,108 +4,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CSS</title>
+    <title>CSS Transformation</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
     <style>
-        div {
-            border: 1px solid black;
+        .card {
+            width: 300px;
+            height: 400px;
+            background-image: url("./image/bag-1.jpg");
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: end;
+            align-items: center;
+            overflow: hidden;
+            transition: 1s;
         }
 
-        .offer {
-            background-color: yellow;
-            color: red;
-            width: 90px;
-            position: fixed;
-            top: 0px;
+        .short-cuts span:hover {
+            background-color: red;
+            color: white;
+        }
 
+        .short-cuts span {
+            background-color: white;
+            border-radius: 20px;
+            padding: 10px;
+            margin-right: 20px;
+        }
+
+        .short-cuts {
+            transform: translateY(40px);
+            -webkit-transform: translateY(40px);
+            -moz-transform: translateY(40px);
+            -o-transform: translateY(40px);
+            -ms-transform: translateY(40px);
+            transition: 1s;
+        }
+
+        .card:hover {
+            background-image: url("./image/bag-2.jpg");
+            background-size: cover;
+            transition: 1s;
+        }
+
+        .card:hover .short-cuts {
+            transform: translateY(-40px);
+            transition: 1s;
         }
     </style>
 </head>
 
 <body>
-    <div>
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corporis, architecto ullam enim sed, aliquam
-        voluptatum numquam assumenda doloribus quam magni ipsum. Error hic vel velit iure consequuntur assumenda iste
-        quae?
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur eos delectus, tenetur eum iusto, laboriosam
-        magnam possimus eligendi blanditiis officia eveniet ipsum. Vero facere libero alias, enim sapiente incidunt
-        aperiam!
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum deserunt, quod eaque voluptas nesciunt, impedit
-        accusantium voluptatum quaerat magni voluptatem earum asperiores, rem quas cupiditate cum. Accusantium dolor
-        vero quisquam.
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. A facere earum debitis esse molestiae voluptate
-        tenetur voluptas! Illo, quibusdam! Est laudantium quae dicta porro asperiores blanditiis suscipit reprehenderit
-        sed eum?Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corporis, architecto ullam enim sed, aliquam
-        voluptatum numquam assumenda doloribus quam magni ipsum. Error hic vel velit iure consequuntur assumenda iste
-        quae?
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur eos delectus, tenetur eum iusto, laboriosam
-        magnam possimus eligendi blanditiis officia eveniet ipsum. Vero facere libero alias, enim sapiente incidunt
-        aperiam!
-        <div class="offer">
-            Offer 50%
+    <div class="card">
+        <div class="short-cuts">
+            <span class="bi bi-eye"></span>
+            <span class="bi bi-cart"></span>
+            <span class="bi bi-heart"></span>
         </div>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum deserunt, quod eaque voluptas nesciunt, impedit
-        accusantium voluptatum quaerat magni voluptatem earum asperiores, rem quas cupiditate cum. Accusantium dolor
-        vero quisquam.
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. A facere earum debitis esse molestiae voluptate
-        tenetur voluptas! Illo, quibusdam! Est laudantium quae dicta porro asperiores blanditiis suscipit reprehenderit
-        sed eum?Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corporis, architecto ullam enim sed, aliquam
-        voluptatum numquam assumenda doloribus quam magni ipsum. Error hic vel velit iure consequuntur assumenda iste
-        quae?
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur eos delectus, tenetur eum iusto, laboriosam
-        magnam possimus eligendi blanditiis officia eveniet ipsum. Vero facere libero alias, enim sapiente incidunt
-        aperiam!
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum deserunt, quod eaque voluptas nesciunt, impedit
-        accusantium voluptatum quaerat magni voluptatem earum asperiores, rem quas cupiditate cum. Accusantium dolor
-        vero quisquam.
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. A facere earum debitis esse molestiae voluptate
-        tenetur voluptas! Illo, quibusdam! Est laudantium quae dicta porro asperiores blanditiis suscipit reprehenderit
-        sed eum?Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corporis, architecto ullam enim sed, aliquam
-        voluptatum numquam assumenda doloribus quam magni ipsum. Error hic vel velit iure consequuntur assumenda iste
-        quae?
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur eos delectus, tenetur eum iusto, laboriosam
-        magnam possimus eligendi blanditiis officia eveniet ipsum. Vero facere libero alias, enim sapiente incidunt
-        aperiam!
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum deserunt, quod eaque voluptas nesciunt, impedit
-        accusantium voluptatum quaerat magni voluptatem earum asperiores, rem quas cupiditate cum. Accusantium dolor
-        vero quisquam.
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. A facere earum debitis esse molestiae voluptate
-        tenetur voluptas! Illo, quibusdam! Est laudantium quae dicta porro asperiores blanditiis suscipit reprehenderit
-        sed eum?Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corporis, architecto ullam enim sed, aliquam
-        voluptatum numquam assumenda doloribus quam magni ipsum. Error hic vel velit iure consequuntur assumenda iste
-        quae?
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur eos delectus, tenetur eum iusto, laboriosam
-        magnam possimus eligendi blanditiis officia eveniet ipsum. Vero facere libero alias, enim sapiente incidunt
-        aperiam!
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum deserunt, quod eaque voluptas nesciunt, impedit
-        accusantium voluptatum quaerat magni voluptatem earum asperiores, rem quas cupiditate cum. Accusantium dolor
-        vero quisquam.
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. A facere earum debitis esse molestiae voluptate
-        tenetur voluptas! Illo, quibusdam! Est laudantium quae dicta porro asperiores blanditiis suscipit reprehenderit
-        sed eum?Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corporis, architecto ullam enim sed, aliquam
-        voluptatum numquam assumenda doloribus quam magni ipsum. Error hic vel velit iure consequuntur assumenda iste
-        quae?
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur eos delectus, tenetur eum iusto, laboriosam
-        magnam possimus eligendi blanditiis officia eveniet ipsum. Vero facere libero alias, enim sapiente incidunt
-        aperiam!
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum deserunt, quod eaque voluptas nesciunt, impedit
-        accusantium voluptatum quaerat magni voluptatem earum asperiores, rem quas cupiditate cum. Accusantium dolor
-        vero quisquam.
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. A facere earum debitis esse molestiae voluptate
-        tenetur voluptas! Illo, quibusdam! Est laudantium quae dicta porro asperiores blanditiis suscipit reprehenderit
-        sed eum?
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. A facere earum debitis esse molestiae voluptate
-        tenetur voluptas! Illo, quibusdam! Est laudantium quae dicta porro asperiores blanditiis suscipit reprehenderit
-        sed eum?
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, odio atque commodi, corrupti quis magnam tempora
-        tenetur deserunt, quas officia perferendis iste obcaecati ab placeat ex repellendus dicta? Ea, quidem?
-
     </div>
 </body>
 
 </html>
-
-
-
-
-
-

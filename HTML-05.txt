@@ -1,0 +1,2929 @@
+									
+									Lecture-41
+
+CSS Positions
+
+	Static
+	Absolute
+	Relative
+	Sticky
+	Fixed
+
+									CSS Z-Index
+									
+- It controls the placement of overlapping contents in page.
+- You can send backward or back.(backword one step back, back means behind all)
+- You can bring forward or front.(forward means one step forward , front on top of all)
+- It uses index number starting with "0" bottom of all elements in a stack.
+
+Syntax:
+	{
+		z-index:0;
+	}
+
+Ex.
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Z-Index</title>
+    <style>
+        div {
+            width: 500px;
+            height: 300px;
+            border-radius: 20px;
+            position: absolute;
+        }
+
+        .women-fashion {
+            background-image: url("../../image/women-fashion.jpg");
+            background-size: 100%;
+            z-index: 2;
+
+        }
+
+        .men-fashion {
+            background-image: url("../../image/men-fashion.jpg");
+            background-size: 100%;
+            margin-left: 700px;
+            margin-top: 400px;
+            z-index: 1;
+        }
+
+        .kids-fashion {
+            background-image: url("../../image/kids-fashion.jpg");
+            background-size: 100%;
+            margin-left: 300px;
+            margin-top: 250px;
+            z-index: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="women-fashion"></div>
+    <div class="kids-fashion"></div>
+    <div class="men-fashion"></div>
+</body>
+
+</html>
+
+							CSS Background Properties 
+
+- Background properties are used to control the background of an element.
+
+	background-color → sets color						: color
+	background-image → sets image						: url()
+	background-size → controls image size				: contain, cover, [width, height]
+	background-position → controls image position		: top, center, bottom, left, right [x, y]
+	background-repeat → controls repetition				: no-repeat, repeat, repeat-x, repeat-y
+	background-attachment → controls scrolling behavior : fixed, scroll
+	background-clip → controls background area			: content-box, padding-box
+
+- background-clip
+	| Value         | Meaning                                   |
+	| ------------- | ----------------------------------------- |
+	| `border-box`  | Background extends under border (default) |
+	| `padding-box` | Background stops at padding               |
+	| `content-box` | Background only inside content area       |
+
+
+- text-align: justify; in CSS : it justify aligns text evenly on both the left and right sides of a container.
+
+HW : https://colorlib.com/wp/template/academia/
+
+- below some code of website other you do when got time
+
+Ex.
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academia Website</title>
+    <link rel="stylesheet" href="../../../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../../../node_modules/bootstrap/dist/css/bootstrap.css">
+    <style>
+        body {
+            background-image: url("../../image/collage-girl-study.jpg");
+            background-size: cover;
+            background-attachment: fixed;
+            padding: 5px
+        }
+
+        header {
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            color: black;
+            font-size: 20px;
+            font-family: Arail;
+        }
+
+        header span {
+            padding-right: 20px;
+        }
+
+        .title {
+            font-size: 35px;
+            font-weight: bold;
+        }
+
+        .sub-title {
+            font-size: 15px;
+        }
+
+        nav {
+            padding: 20px;
+            display: flex;
+            justify-content: space-around;
+            background-color: rgba(0, 0, 0, 0.158);
+            font-size: 20px;
+            font-family: Arial;
+        }
+
+        main {
+            font-family: Arial;
+            width: 600px;
+            padding-left: 100px;
+            padding-top: 100px;
+            padding-bottom: 100px;
+        }
+
+        .main-title {
+            font-size: 40px;
+            font-width: bold;
+            padding-bottom: 20px;
+        }
+
+        .main-subtitle {
+            font-size: 20px;
+            padding-bottom: 10px;
+        }
+
+        .main-text {
+            font-size: 18px;
+            width: 500px;
+            padding-top: 20px;
+        }
+
+        .main-buttons {
+            margin-top: 30px;
+            border: none;
+        }
+
+        main button {
+            padding: 20px;
+            font-size: 16px;
+        }
+
+        section {
+            display: grid;
+            grid-template-columns: 6fr 6fr;
+            background-color: white;
+            height: 800px;
+        }
+
+        .section-content {
+            padding: 30px;
+            font-family: Arial;
+        }
+
+        .section-title {
+            font-weight: bold;
+            font-size: 50px;
+        }
+
+        .section-data {
+            display: grid;
+            grid-template-columns: 2fr 10fr;
+            background-color: aliceblue;
+            width: 600px;
+            padding: 15px;
+            margin: 5px;
+        }
+
+        .section-data:hover {
+            background-color: greenyellow;
+        }
+
+        .bi-laptop {
+            color: green;
+        }
+
+        .section-icons span {
+            display: block;
+            font-size: 65px;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .section-data-title {
+            padding-top: 10px;
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        .section-data-subtitle {
+            padding-top: 20px;
+            color: grey;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div>
+            <div class="title">ACADEMIA</div>
+            <div class="sub-title">ONLINE EDUCATION & LEARNING</div>
+        </div>
+        <div>
+            Monday-Friday
+        </div>
+        <div>
+            <aside>
+                <span class="bi bi-facebook"></span>
+                <span class="bi bi-twitter"></span>
+                <span class="bi bi-instagram"></span>
+            </aside>
+        </div>
+    </header>
+
+    <nav>
+        <span>Home</span>
+        <span>All Courses</span>
+        <span>About</span>
+        <span>Team</span>
+        <span>Pricing</span>
+        <span>Journal</span>
+    </nav>
+
+    <main>
+        <div class="main-subtitle">Welcome to Academia</div>
+        <div class="main-title">Best Online Education Expertise</div>
+        <div class="main-text">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia,
+            there live
+            the blind
+            texts.
+        </div>
+
+        <div class="main-buttons">
+            <button style="background-color: white;"><span>Get Started Now</span> <span
+                    class="bi bi-arrow-right"></span> </button>
+            <button style="background-color: rgba(255, 255, 255, 0);"><span>View All Courses</span> <span
+                    class="bi bi-arrow-right"></span> </button>
+        </div>
+    </main>
+
+    <section>
+        <div>
+            <img src="../../image/collage-girl-study.jpg" width="100%" height="750px" style="padding: 10px;">
+        </div>
+
+        <div class="section-content">
+            <div
+                style="color: rgb(26, 224, 26); padding-top: 50px; font-weight: bold; font-family: Arial, Helvetica, sans-serif;">
+                LEARN ANYTHING
+
+            </div>
+            <div class="section-title">
+                Benefits About Online Learning Expertise
+            </div>
+            <div>
+                <div class="section-data">
+                    <div class="section-icons"><span class="bi bi-laptop"></span></div>
+                    <div>
+                        <div class="section-data-title">Online Course</div>
+                        <div class="section-data-subtitle">Far far away, behind the word mountains, far from the
+                            countries Vokalia and Consonantia,
+                            there live the blind texts.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-data">
+                    <div class="section-icons"><span class="bi bi-award"></span></div>
+                    <div>
+                        <div class="section-data-title">Earn A Certificates
+                        </div>
+                        <div class="section-data-subtitle">Far far away, behind the word mountains, far from the
+                            countries Vokalia and Consonantia,
+                            there live the blind texts.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-data">
+                    <div class="section-icons"><span class="bi bi-person-video3"></span></div>
+                    <div>
+                        <div class="section-data-title">Learn with Expert
+                        </div>
+                        <div class="section-data-subtitle">Far far away, behind the word mountains, far from the
+                            countries Vokalia and Consonantia,
+                            there live the blind texts.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
+
+
+- You can set multiple background images.
+
+Syntax:
+	{
+		background-image: url(""), url(""), ...;
+		background-size: first-size, second-size;
+		background-repeat: first-repeat, second-repeat;
+	}
+
+Ex.
+	body{
+		height: 100vh;
+		background-image: url("../public/images/a1.jpg"), url("../public/images/a12.jpg");
+		background-repeat: no-repeat, repeat;
+		background-position: center center;
+		background-size: 300px 200px, 200px 200px;
+	}
+	
+
+								CSS Display
+
+- Display can control various display styles for element in page.
+
+	display:none	: 	It hides the element in page and removes the allocated
+						space on page.
+
+FAQ: What is difference between display:none & visibitily:hidden ?
+Ans: display:none removes the allocated space after hiding.
+	 visibility:hidden keeps the allocated space.
+
+	display:block   :	It will not allow to wrap any content beside.
+	display:inline	:	It allows to wrap the content beside.
+
+
+Q) When should we use inline and when should we use flex?
+
+A) inline is used when an element should take only the required width and stay in the same line.
+   flex is used on a parent container to align and arrange its child elements horizontally or vertically.
+	
+Note: Block allows to modify the size and position of element. It will not allow content beside.
+
+	display:inline-block	: It allows to modify size and keep inline.
+	
+display: inline-block in CSS
+inline-block combines the features of inline and block elements.
+Behavior
+- Appears on the same line (like inline)
+- Allows width, height, margin, and padding (like block)
+	
+-------------------------------------------------------------------------------------------------------------
+
+								Lecture-42
+								
+
+								Display Flex
+
+- It is used for container that comprises of elements.
+- Elements in container can be displayed in 2 orientations
+	a) Row
+	b) Column
+- Flexible row contains elements with alignment that is responsive with regard to screen
+and parent.
+
+Syntax:
+	{
+		display:flex;
+		flex-direction : row | column;
+	}
+
+- Flex wrap will control the wrapping of elements.
+
+Syntax:
+	{
+		flex-wrap: warp | no-wrap;
+	}
+
+Q) flex-wrap: wrap; in CSS
+A. flex-wrap is used with Flexbox. It decides whether flex items should stay in one line 
+   or move to the next line when there isn't enough space.
+  
+Q: What is flex-wrap: wrap?
+A: flex-wrap: wrap allows flex items to move onto multiple lines when there isn't enough space
+   in the flex container. Without it, all flex items try to stay on a single line
+  (nowrap is the default behavior).
+  
+- Alignment can be defined using
+
+	a) justify-content
+	b) align-items
+
+Syntax:
+	{
+		justify-content: space-between | space-around | space-evenly | center;
+		align-items: start | end | center | baseline
+	}
+
+- align-items row-wise orientation keeps content top, center or bottom.
+- align-items column orientation keeps left, center, right.
+
+					top, left		: baseline
+					center			: center
+					right, bottom	: end		
+								
+- if we want keep item Horizontal and vertically center 			
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            display: flex;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Amazon</h1>
+    <button>Signin</button>
+</body>
+
+</html>
+</html>
+
+						Display Grid
+
+- It is used to create responsive layout.
+- You can change the placement of any content using grid-row or grid-column.
+- Grid allows dynamic placements using media queries.
+- You can change the complete page layout according to the device.
+
+Attribute
+
+| Property                | Purpose                         |
+| ----------------------- | ------------------------------- |
+| `display: grid`         | Creates a grid container        |
+| `grid-template-columns` | Defines column sizes            |
+| `grid-row`              | Controls row placement/span     |
+| `grid-column`           | Controls column placement/span  |
+| `gap`                   | Adds spacing between grid items |
+
+Ex.
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layout-Grid</title>
+    <style>
+        header,nav,main,aside,footer{
+            border: 1px solid black;
+            padding: 10px;
+            margin: 5px;
+            font-size: 20px;
+        }
+
+        main{
+            height: 400px; 
+        }
+
+        body{
+            display: grid;
+            grid-template-columns: 2fr 8fr 2fr;
+        }
+
+        header{
+            grid-row: 1;
+            grid-column: 1/4; /* 4 is not included ie 1 to 3*/
+        }
+
+        nav{
+            grid-row: 2;
+            grid-column: 1;
+        }
+
+        main{
+            grid-row: 2;
+            grid-column: 2;
+        }
+
+        aside{
+            grid-row: 2;
+            grid-column: 3;
+        }
+
+        footer{
+            grid-row: 3;
+            grid-column: 1/4;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        Header
+    </header>
+    <nav>Nav</nav>
+    <main>Main</main>
+    <aside>Aside</aside>
+    <footer>
+        Footer
+    </footer>
+</body>
+</html>
+
+- Media Queries are required to change the layout dynamically.
+
+	@media type and (attributes)
+	{
+
+	}
+	
+type		=> screen, print, speech
+attributes	=> orientation, width, min-width, max-width
+orientation => landscape, portrait
+
+Syntax:
+	@media screen and (orientation:landscape)
+	{
+	}
+
+	width		: exactly specified units
+	min-width	: starting from specified units up to end
+	max-width	: from starting up to specified units.
+
+Ex. Layout.html
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layout-Grid</title>
+    <style>
+        header,
+        nav,
+        main,
+        aside,
+        footer {
+            border: 1px solid black;
+            padding: 10px;
+            margin: 5px;
+            font-size: 20px;
+        }
+
+        main {
+            height: 400px;
+        }
+
+        @media screen and (orientation: landscape) {
+            body {
+                display: grid;
+                grid-template-columns: 2fr 8fr 2fr;
+            }
+
+            header {
+                grid-row: 1;
+                grid-column: 1/4;
+                /* 4 is not included ie 1 to 3*/
+            }
+
+            nav {
+                grid-row: 2;
+                grid-column: 1;
+            }
+
+            main {
+                grid-row: 2;
+                grid-column: 2;
+            }
+
+            aside {
+                grid-row: 2;
+                grid-column: 3;
+            }
+
+            footer {
+                grid-row: 3;
+                grid-column: 1/4;
+            }
+        }
+
+        @media screen and (orientation: portrait) {
+            body{
+                display: grid;
+                grid-template-columns: 12fr;
+            }
+
+            header{
+                grid-row: 1;
+            }
+
+            nav{
+                grid-row: 2;
+            }
+
+            main{
+                grid-row: 3;
+            }
+
+            aside{
+                grid-row: 4F;
+            }
+
+            footer{
+                grid-row: 5;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+    <header>
+        Header
+    </header>
+    <nav>Nav</nav>
+    <main>Main</main>
+    <aside>Aside</aside>
+    <footer>
+        Footer
+    </footer>
+</body>
+
+</html>
+
+Ex.
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Query</title>
+    <style>
+        @media screen and (max-width:599px),(orientation: portrait)
+        {
+            body{
+                background-color: yellow;
+            }
+        }
+
+        @media screen and (min-width:600px)
+        {
+            body{
+                background-color: yellowgreen;
+            }
+        }    
+    </style>
+</head>
+<body>
+    
+</body>
+</html>
+
+Ex.
+
+Grid Layout - Resposive
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../../../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <style>
+        nav {
+            background-color: black;
+            color: white;
+            padding: 10px;
+            font-size: 20px;
+            font-family: arial;
+        }
+
+        button {
+            background-color: white;
+            color: black;
+            font-size: 25px;
+        }
+
+        @media screen and (orientation: landscape) {
+            nav {
+                display: flex;
+                justify-content: space-between;
+            }
+
+            .menu span {
+                margin-right: 50px;
+            }
+
+            button {
+                visibility: hidden;
+            }
+        }
+
+        @media screen and (orientation: portrait) {
+            nav {
+                display: flex;
+                justify-content: space-between;
+            }
+
+            .menu span {
+                visibility: hidden;
+            }
+
+            button {
+                visibility: visible;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div>Amazon</div>
+        <div class="menu">
+            <span>Home</span>
+            <span>Shop</span>
+            <span>Pages</span>
+            <span>Blog</span>
+        </div>
+        <button class="bi bi-justify"></button>
+    </nav>
+</body>
+
+</html>
+
+-------------------------------------------------------------------------------------------------------------
+
+								Lecture-43
+								
+
+							CSS Text & Font Styles
+
+font-size
+font-style
+font-weight
+font-variant : [uppercase | lowercase]
+font-family
+color
+text-align
+text-transform: [upper, lower, capitalize]
+text-decoration : [style, size, color] => underline, overline, line through ...
+text-indent
+text-overflow
+line-height
+letter-spacing
+word-spacing
+word-wrap
+white-space
+overflow
+word-break
+
+| Property          | Purpose                     | Example                                | 
+| ----------------- | --------------------------- | -------------------------------------- | 
+| `font-style`      | Makes text italic           | `font-style: italic;`                  | 
+| `font-size`       | Changes text size           | `font-size: 20px;`                     | 
+| `font-weight`     | Makes text bold/light       | `font-weight: bold;`                   |
+| `font-variant`    | Small capital letters       | `font-variant: small-caps;`            | 
+| `font-family`     | Changes font type           | `font-family: Arial;`                  | 
+| `color`           | Changes text color          | `color: red;`                          | 
+| `text-align`      | Aligns text                 | `text-align: center;`                  | 
+| `text-transform`  | Changes case                | `uppercase`, `lowercase`, `capitalize` | 
+| `text-decoration` | Underline, overline, strike | `text-decoration: underline;`          | 
+| `text-indent`     | Space before first line     | `text-indent: 30px;`                   | 
+| `text-overflow`   | Handles hidden text         | `text-overflow: ellipsis;`             |
+| `line-height`     | Space between lines         | `line-height: 30px;`                   | 
+| `letter-spacing`  | Space between letters       | `letter-spacing: 2px;`                 | 
+| `word-spacing`    | Space between words         | `word-spacing: 10px;`                  | 
+| `word-wrap`       | Breaks long words           | `word-wrap: break-word;`               | 
+| `white-space`     | Controls spaces/new lines   | `white-space: nowrap;`                 | 
+| `overflow`        | Handles extra content       | `overflow: hidden;`                    | 
+| `word-break`      | Breaks words if needed      | `word-break: break-all;`               |
+
+| Property          | Common Values                                   |
+| ----------------- | ----------------------------------------------- |
+| `font-weight`     | `normal`, `bold`, `100-900`                     |
+| `font-style`      | `normal`, `italic`                              |
+| `text-align`      | `left`, `center`, `right`, `justify`            |
+| `text-transform`  | `uppercase`, `lowercase`, `capitalize`          |
+| `text-decoration` | `underline`, `overline`, `line-through`, `none` |
+| `overflow`        | `visible`, `hidden`, `scroll`, `auto`           |
+| `white-space`     | `normal`, `nowrap`, `pre`                       |
+ 
+ 
+- white-space: normal;	Default value. Text wraps to the next line when it reaches the container width.
+
+.box{
+    width: 200px;
+    white-space: normal;
+}
+
+Output:
+
+This is a long
+sentence that
+automatically
+moves to the
+next line.
+
+- white-space: nowrap;
+
+- Prevents wrapping.
+
+.box{
+    width: 200px;
+    white-space: nowrap;
+}
+
+Output:
+
+This is a long sentence that automatically moves...
+
+Text stays on a single line and may overflow.
+
+------------------------------------------------
+
+word-wrap: break-word;
+
+Breaks very long words if they don't fit.
+
+Without it:
+
+Supercalifragilisticexpialidociousabcdefghijk
+
+Output:
+
++----------+
+|Supercalifragilisticexpialidociousabcdefghijk|
++----------+
+
+The word overflows outside the box.
+
+With:
+
+word-wrap: break-word;
+
+Output:
+
++----------+
+|Supercalif|
+|ragilistic|
+|expialidoc|
+|iousabcdef|
+|ghijk     |
++----------+
+
+The word wraps inside the box.
+
+| Property                | Behavior                    |
+| ----------------------- | --------------------------- |
+| `word-wrap: break-word` | Break only when needed      |
+| `word-break: break-all` | Break aggressively anywhere |
+
+
+							CSS List Style
+
+list-style-type
+list-style-image
+list-style [short hand]
+list-style-position [inside, outside]
+
+| Property              | Purpose               | Example         |
+| --------------------- | --------------------- | --------------- |
+| `list-style-type`     | Changes bullet style  | `square`        |
+| `list-style-image`    | Uses image as bullet  | `url(star.png)` |
+| `list-style-position` | Bullet inside/outside | `inside`        |
+| `list-style`          | Shorthand property    | `square inside` |
+
+
+Ex.
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List Style</title>
+    <style>
+        ol{
+            list-style-image: url('../public/icons/star-icon.gif');
+            list-style-position: inside;
+        }
+
+        li{
+            font-size: 30px;
+            border: 1px solid black;
+            width: 300px;
+        }
+    </style>
+</head>
+<body>
+    <ol>
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JS</li>
+    </ol>
+</body>
+</html>
+
+						CSS Transforms
+						
+- Transform allows to change the position, size and orientation of element.
+- Without disturbing existing content of page if we control element then use transform.
+- Transform provides
+	a) 2D [2 Dimensional] methods
+	b) 3D [3 Dimensional] methods
+
+Transform 2D:
+- It controls element along X & Y axis.
+
+	a) translate()
+	b) scale()
+	c) rotate()
+	d) skew()
+	e) matrix()
+
+| Function      | Purpose                | Example                 | Easy Memory          |
+| ------------- | ---------------------- | ----------------------- | -------------------- |
+| `translate()` | Move element           | `translate(50px, 20px)` | **Transport = Move** |
+| `scale()`     | Increase/Decrease size | `scale(2)`              | **Scale = Zoom**     |
+| `rotate()`    | Rotate element         | `rotate(45deg)`         | **Rotate = Turn**    |
+| `skew()`      | Tilt element           | `skew(20deg)`           | **Skew = Slant**     |
+| `matrix()`    | Combine all transforms | `matrix(1,0,0,1,50,20)` | **Master Transform** |
+
+
+							Translate:
+							
+- It moves the element along X and Y axis.
+
+	a) translate()
+	b) translateX()
+	c) translateY()
+
+Syntax:
+	{
+		transform: translate(200px, 100px);
+	}
+
+Ex.
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Transformation</title>
+    <style>
+        img{
+            transform:translate(0px ,0px);
+            transition: 4s; 
+        }
+        img:hover{
+            transform: translate(200px,100px);
+            translate: 2s;
+        }
+    </style>
+</head>
+<body>
+    <img src="./image/women-fashion.jpg" alt="women-fashion" width="200px" height="300px">
+</body>
+</html>
+
+2. Scale()
+- It changes the size of element.
+- You can scale along X and Y axis.
+
+	a) scale()
+	b) scaleX()
+	c) scaleY()
+
+Syntax:
+	{
+		transform:scale(2, 3);	1=100%
+	}
+
+Ex.
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Transformation</title>
+    <style>
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        img {
+            transform: scale(1,1);
+            transition: 3s;
+        }
+
+        img:hover {
+            transform: scale(2,2);
+            transition: 2s;
+        }
+    </style>
+</head>
+
+<body>
+    <img src="./image/women-fashion.jpg" alt="women-fashion" width="200px" height="300px">
+</body>
+
+</html>
+
+3. Skew()
+- It can tilt image by specified angle.
+
+	a) skew()
+	b) skewX()
+	c) skewY()
+
+Syntax:
+	{
+		transform: skewX(20deg);
+	}
+
+Ex.
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Transformation</title>
+    <style>
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        img{
+            margin: 5px;
+        }
+
+        .pic-1{
+            transform: skewY(-40deg);
+        }
+
+        .pic-2{
+            transform: skewY(40deg);
+        }
+        
+    </style>
+</head>
+
+<body>
+    <img class="pic-1" src="./image/women-fashion.jpg" alt="women-fashion" width="200px" height="200px">
+    <img class="pic-2" src="./image/women-fashion.jpg" alt="women-fashion" width="200px" height="200px">
+</body>
+
+</html>
+
+4. Roate()
+- It rotates elements by specified angle.
+
+	a) rotate()
+	b) rotateX()
+	c) rotateY()
+
+Syntax:
+	{
+		transform: rotateX(120deg);
+	}
+
+Note: You can apply multiple transforms in short hand style. But not as a stack.
+      Stack always follows LIFO.
+	  
+	  eg.
+	transform: scale(2) rotate(45deg) translateX(100px);
+	Browser execution order:
+
+	1. translateX(100px)
+	2. rotate(45deg)
+	3. scale(2)
+
+	The last transform written executes first.
+
+Ex.
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Transformation</title>
+    <style>
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        img {
+            margin: 5px;
+        }
+
+        .pic-1 {
+            transform: skewY(-40deg);
+        }
+
+        .pic-2 {
+            transform: skewY(40deg);
+        }
+
+        .pic-3 {
+            transform: rotateX(180deg) skewY(40deg);
+        }
+
+        .pic-4 {
+            transform: rotateX(180deg) skewY(-40deg);
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <div>
+            <img class="pic-1" src="./image/women-fashion.jpg" alt="women-fashion" width="200px" height="200px">
+            <img class="pic-2" src="./image/women-fashion.jpg" alt="women-fashion" width="200px" height="200px">
+        </div>
+        <div>
+            <img class="pic-1" src="./image/women-fashion.jpg" alt="women-fashion" width="200px" height="200px">
+            <img class="pic-2" src="./image/women-fashion.jpg" alt="women-fashion" width="200px" height="200px">
+        </div>
+    </div>
+</body>
+
+</html>
+
+Ex.
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Transformation</title>
+    <style>
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        img {
+            transform: rotate(0deg) scale(1);
+            transition: 2s;
+            margin: 5px;
+        }
+
+        img:hover {
+            transform: rotate(360deg) scale(2);
+            transition: 2s;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <img class="pic-1" src="./image/women-fashion.jpg" alt="women-fashion" width="200px" height="200px">
+    </div>
+</body>
+
+</html>
+
+5. matrix()
+- It provides options for handling multiple transforms.
+
+Syntax:
+	{
+		transform: matrix(scaleX(), skewX(), skewY(), scaleY(), translateX(), translateY());
+	}
+
+	scale()		=> 1 = 100%
+	skew()		=> 1 = 10deg
+	translate() => 100 = 100px
+
+Ex.
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Transformation</title>
+    <style>
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        img {
+            transform: matrix(1,0,0,1,0,0);
+            transition: 4s;
+            margin: 5px;
+        }
+
+        img:hover {
+            transform: matrix(1.5,0.2,0.3,1,100,100);
+            transition: 2s;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <img class="pic-1" src="./image/women-fashion.jpg" alt="women-fashion" width="200px" height="200px">
+    </div>
+</body>
+
+</html>
+
+-------------------------------------------------------------------------------------------------------------
+
+								Lecture-44
+
+
+Q: What does background-size: cover do?
+A: It resizes the background image so that the entire container is covered.
+
+- Here we create image when over it change backgroung-image and like modern style 
+
+Ex.
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Transformation</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <style>
+        .card{
+            width:300px;
+            height: 400px;
+            background-image: url("./image/bag-1.jpg");
+            background-size: cover;
+            display: flex;
+            flex-direction:column;
+            justify-content: end;
+            align-items:center;
+            overflow:hidden;
+            transition: 1s;
+        }
+
+        .short-cuts span:hover{
+            background-color: red;
+            color: white;
+        }
+
+        .short-cuts span{
+            background-color:white;
+            border-radius: 20px;
+            padding: 10px;
+            margin-right: 20px;
+        }
+
+        .short-cuts{
+            transform: translateY(40px);
+            transition: 1s;
+        }
+
+        .card:hover{
+            background-image: url("./image/bag-2.jpg");
+            background-size: cover;
+            transition: 1s;
+        }
+
+        .card:hover .short-cuts{
+            transform:translateY(-40px);
+            transition:1s;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="card">
+        <div class="short-cuts">
+            <span class="bi bi-eye"></span>
+            <span class="bi bi-cart"></span>
+            <span class="bi bi-heart"></span>
+        </div>
+    </div>
+</body>
+
+</html>
+
+
+						CSS 3D Transforms
+						
+- 3 Dimensional Transforms comprises of X, Y & Z axis.
+- 3D requires a perspective to view the content.
+
+a) Translate3D
+	translateX()
+	translateY()
+	translateZ()
+
+b) Sclae3D
+	scaleX()
+	scaleY()
+	scaleZ()
+
+c) Rotate3D
+
+d) Skew3D
+
+Note: Transforms are not supported across all browsers, hence you need various CSS
+	  plugins to configure.
+
+	-webkit		: -webkit-transform
+	-moz		: -moz-transform
+	-0			: -o-transform
+	-ms			: -ms-transform
+
+Syntax:
+	{
+		transform:scaleX(200px);
+		-webkit-transform:scaleX(200px);
+		-moz-transform:scaleX(200px);
+		-0-transform:scaleX(200px);
+		-ms-transform:scaleX(200px);
+	}
+
+Ex.
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Transform</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        img {
+            margin: 30px;
+            width: 200px;
+            transform: scale3d(1, 1, 1);
+            transition: 2s;
+        }
+
+        img:hover {
+            transform: scale3d(1.5, 1.5, 2);
+            transition: 2s;
+            box-shadow: 10px 10px 2px black;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <img src="../../image/women-fashion.jpg" width="100" height="200">
+        <img src="../../image/men-fashion.jpg" width="100" height="200">
+        <img src="../../image/kids-fashion.jpg" width="100" height="200">
+    </div>
+</body>
+
+</html>
+</html>
+
+Ex.
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Transform</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        img {
+            position: absolute;
+        }
+
+        .pic-1 {
+            transform: scale3d(1, 1, 1);
+            transition: 2s;
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-image: url('../../image/women-fashion.jpg');
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .pic-2 {
+            opacity: 0.3;
+        }
+
+        .pic-2:hover {
+            transform: scale3d(2, 2, 2);
+            transition: 2s;
+            box-shadow: 12px 12px 12px grey;
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="pic-1">
+        <img class="pic-2" src="../../image/women-fashion.jpg" width="100" height="100">
+    </div>
+</body>
+
+</html>
+
+						CSS Transitions
+						
+transition					: short hand for all effects
+transition-duration			: time take to complete the transform
+transition-delay			: the delay time for starting transform
+transition-property			: the properties that use the timings and effects
+transition-timing-function	: pre-defined transition effects
+
+Ex.
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> CSS Transitions</title>
+    <style>
+        div {
+            width: 50px;
+            height: 50px;
+            border-radius: 50px;
+            background-color: red;
+            transition-duration: 5s;
+            transition-delay: 1s;	 /*It indicate how much time it take to start*/
+            transition-property: width;
+            transition-timing-function: steps(4);
+        }
+
+        div:hover {
+            width: 1000px;
+            background-color: yellow;
+            transition-duration: 2s;
+            transition-delay: 1s;
+            transition-property: width;
+            transition-timing-function: steps(4);
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+</body>
+
+</html>
+
+Ex.
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> CSS Transitions</title>
+    <link rel="stylesheet" href="../../../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <style>
+        body {
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            height: 100vh;
+        }
+
+        div {
+            transform: rotate(0deg);
+            transition-duration: 10s;
+            transition-timing-function: linear;
+        }
+
+        div:hover {
+            transform: rotate(360deg);
+            transition-duration: 10s;
+            transition-timing-function: linear;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bi bi-star-fill" style="color: red; font-size: 150px;"></div>
+</body>
+
+</html>
+
+-------------------------------------------------------------------------------------------------------------
+
+								Lecture-45
+								
+								
+								Keyframes & Animations
+
+
+Keyframes & Animations
+- Keyframe is a container with element that changes according to state and situation.
+- Animation is created with a set of keyframes.
+- Keyframe animation comprises of
+	a) Initial State
+	b) Final State
+	c) Steps
+
+Syntax:
+
+	@keyframes	TransitionName
+	{	
+		from { }
+		50% { }
+		to { }
+	}
+
+- Keyframes are assigned to any element by using animation properties
+
+animation-name
+animation-duration
+animation-property
+animation-delay
+animation-direction
+animation-iteration-count
+animation-timing-function
+
+| Property                      | Purpose                                        | Interview Answer                                                    | Real Developer Usage                              | Example                                   |
+| ----------------------------- | ---------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------- | ----------------------------------------- |
+| **animation-name**            | Defines which `@keyframes` animation will run. | Connects an element with a keyframe animation.                      | Used when multiple animations exist in a project. | `animation-name: slide;`                  |
+| **animation-duration**        | Sets animation running time.                   | Specifies how long an animation takes to complete one cycle.        | Common values: `0.3s`, `0.5s`, `1s`, `2s`.        | `animation-duration: 1s;`                 |
+| **animation-delay**           | Waits before animation starts.                 | Delays the start of an animation.                                   | Useful for staggered effects and loaders.         | `animation-delay: 2s;`                    |
+| **animation-direction**       | Controls animation movement direction.         | Determines whether animation runs forward, backward, or alternates. | Creates smooth back-and-forth effects.            | `animation-direction: alternate;`         |
+| **animation-iteration-count** | Number of times animation repeats.             | Specifies how many times animation runs.                            | Loaders often use `infinite`.                     | `animation-iteration-count: infinite;`    |
+| **animation-timing-function** | Controls animation speed curve.                | Defines speed variation during animation.                           | Makes animation feel natural.                     | `animation-timing-function: ease-in-out;` |
+| **animation-fill-mode**       | Controls styles before/after animation.        | Decides whether keyframe styles persist.                            | Useful for keeping final state.                   | `animation-fill-mode: forwards;`          |
+| **animation-play-state**      | Starts or pauses animation.                    | Controls running or paused state.                                   | Often used on hover.                              | `animation-play-state: paused;`           |
+
+Syntax:
+	element {
+		animation-name: KeyFrameName;
+		animation-duration: 2s;
+		animation-iteration-count: 2 | infinite;
+		animation-direction: reverse | alternate;
+		animation-timing-function: ease-in;
+	}
+
+
+Ex.
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keyframes & Animations</title>
+    <link rel="stylesheet" href="../../../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <style>
+        @keyframes Blink {
+            from {
+                transform: scale(1);
+            }
+            10%{
+                transform: scale(0.3);
+            }
+            70%{
+                transform: scale(0.6);
+            }
+            to {
+                transform: scale(1.5);
+            }
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .title {
+            font-size: 40px;
+            color: red;
+        }
+
+        #heart {
+            animation-name: Blink;
+            animation-duration: 1s;     /*here we control speed of animation*/
+            animation-iteration-count: infinite;
+            display: inline-block;
+            padding-right: 20px;
+            width: 30px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="title">
+        <span class="bi bi-heart-pulse-fill" id="heart"></span> MEDLIFE
+    </div>
+</body>
+
+</html>
+
+- animation-timing-function: linear;	: this give smooth animation (linera style)
+
+Ex. Spinners
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keyframes & Animations - spinner</title>
+    <link rel="stylesheet" href="../../../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <style>
+        @keyframes Spin {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        #spinner {
+            border-top: 10px solid black;
+            border-right: 10px solid transparent;
+            border-bottom: 10px solid black;
+            border-left: 10px solid transparent;
+            width: 100px;
+            height: 100px;
+            border-radius: 100px;
+            animation-name: Spin;
+            animation-duration: 1s;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear; 
+            animation-direction: alternate;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="spinner"></div>
+</body>
+
+</html>
+
+Ex.	Animation of rotate flower like image
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keyframes & Animations </title>
+    <link rel="stylesheet" href="../../../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <style>
+        @keyframes Spin {
+            from {
+                transform: rotate(0deg) scale(0.2);
+                opacity: 0;
+            }
+
+            to {
+                transform: rotate(360deg) scale(1.5);
+                opacity: 1;
+            }
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .pic-1 {
+            border-top-right-radius: 150px;
+            border-bottom-left-radius: 150px;
+        }
+
+        .pic-2 {
+            border-top-left-radius: 150px;
+            border-bottom-right-radius: 150px;
+        }
+
+        .pic-3 {
+            border-top-left-radius: 150px;
+            border-bottom-right-radius: 150px;
+            transform: rotate(180deg);
+        }
+
+        .pic-4 {
+            border-top-right-radius: 150px;
+            border-bottom-left-radius: 150px;
+            transform: rotate(180deg);
+
+        }
+
+        #banner-1 {
+            animation-name: Spin;
+            animation-duration: 5s;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+        }
+
+        #banner-2 {
+            animation-name: Spin;
+            animation-duration: 5s;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+            animation-direction: reverse;
+        }
+    </style>
+</head>
+
+<body>
+    <div style="display: flex;">
+        <div id="banner-1" style="margin-right: 200px;">
+            <div>
+                <img src="../../image/women-fashion.jpg" alt="women" class="pic-1" width="200" height="200">
+                <img src="../../image/men-fashion.jpg" alt="women" class="pic-2" width="200" height="200">
+            </div>
+
+            <div>
+                <img src="../../image/kids-fashion.jpg" alt="women" class="pic-3" width="200" height="200">
+                <img src="../../image/men-fashion.jpg" alt="women" class="pic-4" width="200" height="200">
+            </div>
+        </div>
+        <div id="banner-2">
+            <div>
+                <img src="../../image/women-fashion.jpg" alt="women" class="pic-1" width="200" height="200">
+                <img src="../../image/men-fashion.jpg" alt="women" class="pic-2" width="200" height="200">
+            </div>
+
+            <div>
+                <img src="../../image/kids-fashion.jpg" alt="women" class="pic-3" width="200" height="200">
+                <img src="../../image/men-fashion.jpg" alt="women" class="pic-4" width="200" height="200">
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+
+HW : Create animation like https://cssloaders.github.io/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-------------------------------------------------------------------------------------------------------------
+
+								Lecture-46
+								
+							JavaScript
+
+- JavaScript is light weight interpreted and JIT compiled programming language.
+- Light weight allows to run on device or in environment with less memory.
+- Interpreted allows line by line translation.
+- Compiler allows translation of all lines simultaneously at the same time.
+- There are 2 types of compiling techniques
+	a) JIT
+	b) AOT
+- JIT is "Just-in-Time", which compiles the code only when it is requested.
+- AOT is "Ahead-of-Time", which compiles the code at application level before it is
+requested.
+- JavaScript is a language that supports various programming techniques and
+approaches like
+	a) Structural Programming
+	b) Imperative Programming
+	c) Functional Programming
+	d) Object Oriented Programming etc ..
+
+Note: JavaScript is not an OOP language. It supports only few features of OOP.
+
+- JavaScript have various application areas, it is used
+
+	a) Client Side		: HTML
+	b) Server Side		: Node JS
+	c) Database			: MongoDB
+	d) Animation Tools	: CAD, Flash 2D, 3D etc ..
+
+FAQ: What is the purpose of JavaScript client side?
+Ans : A client side script is used to reduce burden on server.
+It saves round trips.
+
+FAQ: What are the activities managed by JavaScript client side?
+Ans:
+	1. Browser Interactions [BQM]
+		- window
+		- location
+		- navigator
+		- history
+		- document
+	2. DOM Manipulations
+		- Adding elements
+		- Removing elements
+		- Databinding
+		- Style Binding
+		- Class Binding
+		- Event Binding
+	3. Client side Validations
+		- Verifying user input
+		- Restricting contradictory values
+		- Authorizing values etc ..
+
+Evolution of JavaScript:
+
+	- CERN labs introduced ECMA Script, which is known as the base for all scripts in the
+	  world.
+	- Internet started with a browser called Mosaic, which uses ECMA script & HTML.
+	- Netscape communications started a browser called Netscape Communicator in 1995.
+	- Netscape appointed "Brendan Eich" to develop a script for their browser.
+	- He designed a script by name "Moca", later renamed as "Live Script".
+	- Netscape given the responsibility of Live Script to Sun Micro Systems. [Java]
+	- Sun Micro Systems and Netscape together name the script as "JavaScript".
+	- In 2000 Netscape stopped its services and given the responsibility of JavaScript to
+	  ECMA.
+	- Latest version of JavaScript is ESNext [Alpha], the stable and standard versions used
+	  in companies
+	  
+		ECMA 2015	ES5
+		ECMA 2016	ES6
+		...
+		ECMA 2022
+
+-------------------------------------------------------------------------------------------------------------
+
+								Lecture-47
+
+
+Q) Difference between strictly typed and strongly typed ?
+A. Strict typing means a variable must follow its declared data type.
+   Strong typing means different data types cannot be mixed automatically.
+   For example, in TypeScript a number variable cannot store a string, 
+   and in Python you cannot add a string and a number without conversion.
+
+- Javascript standard are maintained by tool ESLint.(It verify language standards)
+- Bable is a js compiler
+
+Issues with JavaScript:
+
+- JavaScript is not strongly typed.
+- No restriction for type of data to store in a reference.
+	x = 10;		x is number
+	X = "A";	x changes to string
+	x = true;	x changes to Boolean
+- You need lot of validations to restrict a value type.
+- JavaScript is not implicitly strictly typed.
+- It allows to write without following the rules of programming.
+- It leads to lot of code inconsistency.
+- It is not an OOP language.
+- It is not easy to extend.
+- It is not good in code level security.
+
+Solution:
+- TypeScript
+- It is just an alternative for JavaScript and not replacement.
+- Browser can understand only JavaScript and not TypeScript.
+
+Various Integration Techniques:
+1. Inline
+2. Embedded
+3. External File
+
+1.Inline Script:
+- In this technique JavaScript functions are configured directly in the element.
+- It is faster.
+- It is not good for reusing the functions across elements.
+
+Syntax:
+	<button onclick="window.print()"> Print </button>
+
+Ex.
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <h2>Ticket</h2>
+        <dl>
+            <dt>FROM</dt>
+            <dd>Ichal</dd>
+            <dt>TO</dt>
+            <dd>Pune</dd>
+        </dl>
+        <button onclick="window.print()">Print</button>
+    </div>
+</body>
+</html>
+
+2.Embedded Script:
+- In this technique the JavaScript functions are configured in a <script> container.
+- You can embed script in head or body.
+- Configure a function in script container
+
+	function Name()
+	{
+	}
+
+- Access the function from any element and reuse across multiple requests.
+
+	<button onclick="Name()"> </button>
+
+- JavaScript MIME type is "text/javascript" for interpreter.
+- JavaScript MIME can be "text/babel" for external compiler like "babel".
+- JavaScript MIME can be "text/module" when it is using a module system.
+
+Syntax:
+	<script type="text/javascript">		// new
+	<script language="javascript">		// old
+
+Ex.
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+        function PrintPage(){
+            window.print();
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <h2>Ticket</h2>
+        <dl>
+            <dt>FROM</dt>
+            <dd>Ichal</dd>
+            <dt>TO</dt>
+            <dd>Pune</dd>
+        </dl>
+        <button onclick="PrintPage()">Print</button>
+    </div>
+</body>
+</html>
+
+3. JavaScript in External File
+- You can write JavaScript functions in external script file.
+- Script file have extension ".js"
+- You can link the script file to HTML page by using <script> container.
+- You can reuse the functions across pages.
+- Using an external file will increase the number of requests for page and also the page
+  load time.
+
+Ex:
+1. Go to "src/scripts" folder
+2. Add a new file "ticket.js"
+
+	function PrintPage()
+	{
+		window.print();
+	}
+
+3. Link to HTML page
+
+	<script src="../src/scripts/ticket.js" type="text/javascript"> </script>
+
+	<button onclick="PrintPage()"> Print </button>
+
+- The production files are created by using "Minification".
+- Minification means compressing code and making it ready for production.
+
+	<script src="../src/scripts/ticket.min.js" type="text/javascript"> </script>
+
+	https://www.toptal.com/developers/javascript-minifier
+
+- You can turn on Strict mode for developers by using the statement
+	"use strict";
+
+
+Syntax:
+	<script>
+		x = 10;						// valid
+		document.write("x="+x);
+	</script>
+
+	<script>
+		"use strict";
+		x = 10;						// invalid - x is not defined
+		document.write("x=" +x);
+	</script>
+
+- To add rules for programming in JavaScript you can setup "ESLint" in project.
+- It is language analysis tool, used to find and fix problems of JavaScript.
+- It is also used to configure JavaScript for a project.
+- Configure ESLint for project
+
+	> npm init @eslint/config@latest	
+
+- when using node for run code - then you use js server side
+- now we are use js client side use browser to run code
+	
+- JavaScript functions are not suitable for legacy browsers, if written using new syntax.
+Hence we can target JavaScript for legacy browsers by enclose JavaScript functions in
+HTML comments.
+
+
+Sytax: 
+	<script>
+		<!--
+			//function
+		-->
+	</script>
+
+Ex.
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script text="type/javascript">
+        <!--
+        function PrintPage() {
+             window.print();
+        }    
+        -->
+    </script>
+</head>
+
+<body>
+    <div>
+        <h2>Ticket</h2>
+        <dl>
+            <dt>FROM</dt>
+            <dd>Ichal</dd>
+            <dt>TO</dt>
+            <dd>Pune</dd>
+        </dl>
+        <button onclick="PrintPage()">Print</button>
+    </div>
+</body>
+
+</html>
+
+-------------------------------------------------------------------------------------------------------------
+
+								Lecture-48
+- Summary 
+
+	- Inline
+	- Embedded
+	- External File
+	- Strongly Typed
+	- Strictly Typed
+	- "use strict";
+	- MIME Type
+	- Minification
+	- Code for Legacy Browsers
+	  <!-- -- >
+
+- Strongly typed is about data type restriction (ie. what type of data we can store).
+- Strictly typed is about rules we not allow to developer to voilet the rules when write code.
+
+- onload() when page load which action we perform on page.
+
+#) Various JavaScript reference techniques to access HTML elements:
+
+	1. JavaScript can refer HTML elements in page by using DOM hierarchy.
+
+	- It is the native method used by browser.
+	- It is faster.
+	- Referring to index number in DOM requires change of index in code every time when
+	  element position changes in UI.
+
+	Syntax:
+		window.document.images[]
+		window.document.forms[].elements[]
+
+Ex.
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Mnipulation</title>
+    <script>
+        function dom() {
+            window.document.images[0].src = "../image/women-fashion.jpg";
+            window.document.forms[0].elements[2].value = "Login";
+            window.document.forms[1].elements[1].value = "Register";
+
+        }
+    </script>
+</head>
+
+<body onload="dom()">
+    <div>
+        <img width="200" height="300">
+    </div>
+    <div>
+        <form>
+            <h2>User Login</h2>
+            <dl>
+                <dt>User Name</dt>
+                <dd><input type="text"></dd>
+                <dt>Password</dt>
+                <dd><input type="password"></dd>
+            </dl>
+            <input type="button">
+        </form>
+
+        <form>
+            <h2>Register Login</h2>
+            <dl>
+                <dt>Mobile Number</dt>
+                <dd><input type="number"></dd>
+            </dl>
+            <input type="button">
+
+        </form>
+    </div>
+</body>
+
+</html>
+
+
+- generic child means li that came in ol or ul (generic child fixed parent)
+
+2. JavaScript can refer elements by using "name"
+
+	- Every HTML element can have a reference name in UI.
+	- JavaScript can use the reference name to access element.
+	- You can't refer a child element directly with name. It is always required to access child
+	  through the parent.
+
+Syntax:
+	
+	<div> <img name="poster"> </div>
+	
+	poster.src = "path"
+
+	<form name="form">
+		<input type="button" name="btn">
+	</form>
+
+	btn.value ="Login";		// invalid
+	form.btn.value="Login";	// valid
+
+- "name" attribute can have same value for multiple elements. JavaScript fails in this
+	scenario.
+
+Ex.
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Mnipulation</title>
+    <script>
+        function dom() {
+            poster.src = "../image/men-fashion.jpg"
+            frmLogin.btnLogin.value = "Login";
+            frmRegitste.btnRegister.value = "Register";
+        }
+    </script>
+</head>
+
+<body onload="dom()">
+    <div>
+        <img name="poster" width="200" height="300">
+    </div>
+    <div>
+        <form name="frmLogin">
+            <h2>User Login</h2>
+            <dl>
+                <dt>User Name</dt>
+                <dd><input type="text"></dd>
+                <dt>Password</dt>
+                <dd><input type="password"></dd>
+            </dl>
+            <input name="btnLogin" type="button">
+        </form>
+
+        <form name="frmRegitste">
+            <h2>Register Login</h2>
+            <dl>
+                <dt>Mobile Number</dt>
+                <dd><input type="number"></dd>
+            </dl>
+            <input type="button" name="btnRegister">
+
+        </form>
+    </div>
+</body>
+
+</html>
+
+3. JavaScript can refer HTML elements by using ID reference
+
+	- Every HTML element can have a reference "id".
+	- "id" is used to define a unique reference for elements in page.
+	- You can access elements directly from any level of hierarchy.
+	- It used the document method "getElementByld()"
+
+Syntax:
+	<img id="poster">
+
+	document.getElementByld("poster").src = "path";
+
+- browsers allow the same ID on multiple elements in HTML, but it is invalid HTML
+- "id" is a reference used by CSS in page, where same "id" can be used for multiple
+  elements, JavaScript fails again in this scenario.
+
+Ex.
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Mnipulation</title>
+    <script>
+        function dom() {
+            document.getElementById('poster').src = "../image/kids-fashion.jpg";
+            document.getElementById('btnLogin').value = "Login  ";
+            document.getElementById('btnRegister').value = "Register"
+        }
+    </script>
+</head>
+
+<body onload="dom()">
+    <div>
+        <img id="poster" width="200" height="300">
+    </div>
+    <div>
+        <form name="frmLogin">
+            <h2>User Login</h2>
+            <dl>
+                <dt>User Name</dt>
+                <dd><input type="text"></dd>
+                <dt>Password</dt>
+                <dd><input type="password"></dd>
+            </dl>
+            <input id="btnLogin" type="button">
+        </form>
+
+        <form name="frmRegitste">
+            <h2>Register Login</h2>
+            <dl>
+                <dt>Mobile Number</dt>
+                <dd><input type="number"></dd>
+            </dl>
+            <input type="button" id="btnRegister">
+
+        </form>
+    </div>
+</body>
+
+</html>
+
+
+4. JavaScript can use CSS selectors to refer elements
+- CSS provides various selectors like type, id, class, rational, etc ..
+- JavaScript document object can use "querySelector()" method to access elements
+using CSS references.
+
+Syntax:
+	<img>
+	<input type="button" id="btnLogin">
+	<input type="button" class="btn-primary">
+
+	document.querySelector("img").src = "path";			=> type selector
+	document.querySelector("#btnLogin").value ="";		=> id selector
+	document.querySelector(".btn-primary").value =" ":	=> class selector
+	
+	document.querySelector("nav span");
+	document.querySelector("div>p");
+
+Ex.
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Mnipulation</title>
+    <script>
+        function dom() {
+            document.querySelector('img').src = "../image/kids-fashion.jpg";
+            document.querySelector('#btnLogin').value = "Login  ";
+            document.querySelector('#btnRegister').value = "Register"
+        }
+    </script>
+</head>
+
+<body onload="dom()">
+    <div>
+        <img width="200" height="300">
+    </div>
+    <div>
+        <form name="frmLogin">
+            <h2>User Login</h2>
+            <dl>
+                <dt>User Name</dt>
+                <dd><input type="text"></dd>
+                <dt>Password</dt>
+                <dd><input type="password"></dd>
+            </dl>
+            <input id="btnLogin" type="button">
+        </form>
+
+        <form name="frmRegitste">
+            <h2>Register Login</h2>
+            <dl>
+                <dt>Mobile Number</dt>
+                <dd><input type="number"></dd>
+            </dl>
+            <input type="button" id="btnRegister">
+
+        </form>
+    </div>
+</body>
+
+</html>
+
+Note: JavaScript provides various other methods to access multiple elements
+simultaneously at the same time.
+
+	document.getElementsByName()
+	document.getElementsByClassName()
+	document.getElementsByTagName()
+	etc ...
+
+						JavaScript Output Techniques
+						
+- In computer programming "output" is the concept of rendering result to console or GUI.
+- JavaScript provides various output properties and methods
+
+1. alert()
+2. confirm()
+3. document.write()
+4. innerText
+5. innerHTML
+6. outerHTML
+7. console methods
+	log()
+	warn()
+	error()
+	debug()
+	info() etc ..
+
+alert():
+- It is popup message box provided by browser.
+- It renders the output in browser window as a dialog.
+- It is an RC type dialog.
+- It will not allow backdrop.
+- You have to confirm only with OK.
+- There is no cancel.
+
+Syntax:
+	alert("message / expression");
+	alert("Welcome");
+	alert(20+30);
+	alert("Addition" + (20+30));
+	alert("line-1 \n line-2");			\n for line break.
+
+Ex.
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Mnipulation</title>
+    <script>
+        function deleteData() {
+            alert("Data Deleted Succesfully\nclick on OK button")
+        }
+    </script>
+</head>
+
+<body onload="dom()">
+    <button onclick="deleteData()">Delete</button>
+</body>
+
+</html>
+
+
+confirm():
+- It is similar to alert but allows to cancel.
+- It is a Boolean type method.
+- It returns
+
+	true	=> on OK click			
+	false	=> on Cancel click		
+
+Ex.
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Mnipulation</title>
+    <script>
+        function deleteData() {
+            result = confirm("Data Delete");
+            if(result){
+                alert('Data deleted Succesfully.....');
+            }else{
+                alert("Data not Deleted....")
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <button onclick="deleteData()">Delete</button>
+</body>
+
+</html>
+
+-------------------------------------------------------------------------------------------------------------
+
+								Lecture-49
+
+Output
+- alert()
+- confirm()
+
+3. document.write()
+- It prints output on a new screen of same page.
+- It supports complex string formats & markup.
+
+Syntax:
+	document.write("value / expression / markup");
+
+Ex.
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Mnipulation</title>
+    <script>
+        function deleteData() {
+            result = confirm("Data Delete");
+            if (result) {
+                document.write("<h2><font color='red'>Record Deleted Successfully ..</font></h2><a href='inline.html'>Back</a>");
+            } else {
+                alert("Data not Deleted....")
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <button onclick="deleteData()">Delete</button>
+</body>
+
+</html>
+
+4. innerText
+- It can display output in any HTML container.
+- You can use a semantic or non-semantic container that support text display.
+- You can't display complex formats for text.
+- It can display plain text content [alpha numeric and special chars].
+
+Syntax:
+	<div id="msg"> </div>
+
+	document.getElementByld("msg").innerText = "msg";
+
+5. innerHTML
+
+- It is similar to innerText but supports complex text formats using markup.
+
+Syntax:
+	document.getElementByld("msg").innerHTML ="<b> Msg </b>";
+
+- It can add new elements into the specified parent container.
+
+6. outerHTML
+
+- It can replace the parent container with new elements.
+
+Syntax:
+	document.querySelector("p").outerHTML ="<h2> Msg </h2>";
+
+Ex.
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Mnipulation</title>
+    <script>
+        function deleteData() {
+            result = confirm("Data Delete");
+            if (result) {
+                document.querySelector('.msg').outerHTML="<h1>Deleted ..</h1>";
+            } else {
+                alert("Data not Deleted....")
+            }
+        }
+    </script>
+    <style>
+        .msg{
+            color: red;
+            top: 10px;
+            right: 50px;
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+    <button onclick="deleteData()">Delete</button>
+    <div class="msg"></div>
+</body>
+
+</html>
+
+7. console methods [contextual]
+	log()
+	error()
+	info()
+	debug()
+	warn()
+- Developer use console as command line terminal for testing functions and tracking
+  performance of actions.
+- Developer can log various results into console by using contextual methods.
+- It is recommended only for design and testing, not for production.
+- All console methods are RC type.
+
+Syntax:
+	console.log("string | expression");
+	console.warn()
+	console.error()
+
+
+					JavaScript Input Techniques
+					
+1. QueryString
+
+- User can input from address bar of browser.
+- The values from address bar are allowed as Query String.
+- Query String comprises of Key and value.
+- Query String is appended to page in address bar using "?"
+
+Syntax:
+	http://server.com/page.html?key=value
+
+- You can access query string using "location.search", which is browser object property.
+
+	location.search;	=>	 ?key=value
+
+- You need various string handling methods to extract only value from query string.
+
+	indexOf()	: It returns the index number of character in a string.
+	slice()		: It extracts the chars between specified index.
+
+Ex.
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QueryString</title>
+    <script>
+        function bodyload() {
+            querystring = location.search;
+            equalPosition = querystring.indexOf("=");
+            val = querystring.slice(equalPosition + 1);
+            document.querySelector("p").innerHTML = "Searching For :" + val;
+        }
+    </script>
+</head>
+
+<body onload="bodyload()">
+    <p></p>
+</body>
+
+</html>
+
+
+Input from URL:
+	http://127.0.0.1:5500/JavaScript-Examples/input.html?search=Televisions
+
+Syntax:
+	document.querySelector("p").innerHTML = "Searching For :" +
+	location.search.slice(location.search.indexOf("=")+1);
+
+2. prompt()
+- It is an input box provided by browser window object.
+- It allows user to input a value dynamically.
+
+Syntax:
+	prompt("Message", "Default_Value_optional");
+
+- Prompt returns values results
+
+	null	: on cancel click
+	""		: on ok without value
+	"value"	: on ok with value
+	 
+Ex.
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Mnipulation</title>
+    <script>
+        function SearchClick() {
+            result = prompt('Enter Search String');
+            if (result =="") {
+                alert("Search string can't be empty");
+            } else if (result == null) {
+                alert('Search Cancelled')
+            } else {
+                document.querySelector("p").innerHTML = "Searching For: " + result;
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <button class="bi bi-search" onclick="SearchClick()">Search</button>
+    <p></p>
+</body>
+
+</html>
+
+
+-------------------------------------------------------------------------------------------------------------
+
+								Lecture-50
+
+JavaScript Input
+Query String
+prompt()
+
+3. Form Input Elements
+- You can use form elements to input a value.
+- The input elements include textbox, checkbox, radio, dropdown, number, range etc.
+- Form elements accept a "value" as input, which you can access and use in application.
+
+Syntax:
+	<input type="text" id="UserName">
+	<input type="password" id="Password">
+	<select id="Cities">
+	<input type="checkbox" id="Stock">
+	<button> Insert </button>
+	
+	document.getElementByld("UserName").value	=> textbox value
+	document.getElementByld("Cities").value		=> select - option value
+	document.getElementByld("Stock").value		=> ON
+	document.getElementByld("Stock").checked	=> true / false
+	document.querySelector("button").innerHTML	=> Insert
+	
+- innerHTML is used to get or set the HTML content inside an element.
+- Radio's submit "ON" as value.
+
+Ex. Inox movie select code
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Input - Inox</title>
+    <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <script src="../../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+
+    <script type="text/javascript">
+        function BookClick() {
+            document.querySelector('.btnContainer').style.display = "none";
+            document.getElementById("summaryContainer").style.display = "block";
+
+
+            document.getElementById('1blMovie').innerHTML =
+                document.getElementById('lstMovie').value;
+
+            document.getElementById('1blDate').innerHTML =
+                document.getElementById('lstDate').value;
+
+            document.getElementById('1blCinema').innerHTML =
+                document.getElementById('lstCinema').value;
+
+            document.getElementById('1blTime').innerHTML =
+                document.getElementById('lstTime').value;
+
+
+            poster = document.getElementById('imgPoster');
+            movieName = document.getElementById('lstMovie').value;
+
+            if (movieName == "CHANDU CHAMPION") {
+                poster.src = "../image/chandu-movie-image.jpg"
+            } else if (movieName == "INSIDE OUT 2") {
+                poster.src = "../image/inside-out-2-movie-image.jpg"
+            }
+        }
+
+        function ModifyClick(){
+            document.getElementById('title').innerHTML = "Modify Booking";
+            document.getElementById('bntBook').innerHTML = "Update";
+            document.getElementById('bntBook').className = "btn btn-success";
+        }
+
+    </script>
+
+</head>
+
+<body class="container-fluid">
+    <div class="btnContainer">
+        <button data-bs-target="#booking" data-bs-toggle="modal" class="btn btn-primary mt-3">Quick Booking</button>
+    </div>
+
+    <div id="summaryContainer" class="w-50 mt-4" style="display: none;">
+        <div class="bg-dark text-white p-2 d-flex justify-content-between">
+            <span class="fs-6">Booking Summary</span>
+            <span class="bi bi-ticket-fill"></span>
+        </div>
+        <div class="row my-3">
+            <div class="col-3">
+                <img src="" alt="" height="200" border="1" id="imgPoster">
+            </div>
+            <div class="col-9">
+                <dl class="row">
+                    <dt class="col-3">Movie</dt>
+                    <dd id="1blMovie" class="col-9"></dd>
+                    <dt class="col-3">Date</dt>
+                    <dd id="1blDate" class="col-9"></dd>
+                    <dt class="col-3">Cinema</dt>
+                    <dd id="1blCinema" class="col-9"></dd>
+                    <dt class="col-3">Show Time</dt>
+                    <dd id="1blTime" class="col-9"></dd>
+                </dl>
+            </div>
+        </div>
+        <button data-bs-target="#booking" data-bs-toggle="modal" 
+        class="btn btn-warning bi bi-pen-fill" onclick="ModifyClick()">
+            Modify Booking
+        </button>
+        <a href="form-input.html" class="btn btn-danger">Cancel Booking</a>
+    </div>
+
+    <div class="modal fade" id="booking">
+        <div class="modal-dialog modal-fullscreen">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 id="title">Quick Booking</h2>
+                    <button class="btn btn-close" data-bs-dismiss="modal"></button>
+                </div>
+
+                <div class="modal-body">
+                    <div class="d-flex justify-content-between bg-dark text-white p-2">
+                        <div>
+                            <select class="form-select" id="lstMovie">
+                                <option>Select Movie</option>
+                                <option>CHANDU CHAMPION</option>
+                                <option>INSIDE OUT 2</option>
+                            </select>
+                        </div>
+                        <div>
+                            <select class="form-select" id="lstDate">
+                                <option>Select Date</option>
+                                <option>Today, 14 Jun</option>
+                                <option>Tomorrow, 15 Jun</option>
+                            </select>
+                        </div>
+                        <div>
+                            <select class="form-select" id="lstCinema">
+                                <option>Select Cinema</option>
+                                <option>PVR Next Galleria </option>
+                                <option>PVR Panjagutta Hyderabad</option>
+                            </select>
+                        </div>
+                        <div>
+                            <select class="form-select" id="lstTime">
+                                <option>Select Timings</option>
+                                <option>09:20 AM </option>
+                                <option>12:30 AM</option>
+                            </select>
+                        </div>
+                        <div>
+                            <button onclick="BookClick()" id="bntBook" class="btn btn-danger" data-bs-dismiss="modal">Book</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+
+
+
+
+
+

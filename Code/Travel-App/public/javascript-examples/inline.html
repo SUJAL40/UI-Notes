@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Mnipulation</title>
+    <script>
+        function SearchClick() {
+            result = prompt('Enter Search String');
+            if (result =="") {
+                alert("Search string can't be empty");
+            } else if (result == null) {
+                alert('Search Canceled')
+            } else {
+                document.querySelector("p").innerHTML = "Searching For: " + result;
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <button class="bi bi-search" onclick="SearchClick()">Search</button>
+    <p></p>
+</body>
+
+</html>
