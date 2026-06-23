@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String</title>
+    <script>
+        function submitClick() {
+            var userName = document.getElementById("UserName").value;
+            var userError = document.getElementById("UserError");
+            if (userName.length == 0) {
+                userError.innerHTML = "User Name Required".fontcolor('red');
+            }
+            else {
+                if (userName.length < 4) {
+                    userError.innerHTML = "Name too short - Min 4 chars".fontcolor('goldenrod');
+                } else {
+                    document.write("Registered .. ");
+                }
+            }
+        }
+
+        function VerifyChars() {
+            var message = document.getElementById("Message").value;
+            var length = message.length;
+            var maxLength = 100;
+            document.getElementById("MsgStatus").innerHTML = `${maxLength - length} Chars Left`; 
+        }
+    </script>
+</head>
+
+<body>
+    <dl>
+        <dt>User Name</dt>
+        <dd><input type="text" id="UserName"></dd>
+        <dd id="UserError"></dd>
+        <dt>Your Message</dt>
+        <dd>
+            <textarea rows="4" onkeyup="VerifyChars()" id="Message" cols="40" maxlength="100"></textarea>
+        </dd>
+        <dd id="MsgStatus"></dd>
+
+    </dl>
+    <button onclick="submitClick()">Submit</button>
+</body>
+
+</html>

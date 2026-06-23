@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String Email Verification</title>
+    <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.css">
+    <script>
+        function VerifyEmail() {
+            var email = document.getElementById('Email').value;
+            var emailError = document.getElementById('EmailError');
+            if (email.indexOf('@') < 3) {
+                emailError.innerHTML = 'Invalid Email Please enter @ min after 2 chars'.fontcolor('red')
+            } else {
+                emailError.innerHTML = "Email verifed".fontcolor('green')
+            }
+        }
+
+    </script>
+</head>
+
+<body class="container-fluid">
+    <dl>
+        <dt>Your Email</dt>
+        <dd><input type="text" onblur="VerifyEmail()" id="Email"></dd>
+        <dd id="EmailError"></dd>
+    </dl>
+
+</body>
+
+</html>

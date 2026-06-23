@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI CALCULATOR</title>
+    <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <script src="../../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+    <script>
+        function bmiCalculate() {
+            var age = parseInt(document.getElementById('age').value);
+            var height = parseInt(document.getElementById('height').value);
+            var weight = parseInt(document.getElementById('weight').value);
+            if (isNaN(height) || isNaN(age) || isNaN(weight)) {
+                alert('Please fill missing');
+                
+            }
+            var bmi = (weight / Math.pow(height / 100, 2)).toFixed(2)
+            var result = document.getElementById('result')
+            result.innerText = bmi;
+            console.log(age, ' ', height, ' ', weight, ' ', bmi);
+            var bar = document.getElementById('status');
+            var pointer = 0;
+            if (bmi < 18.5) {
+                pointer = '80px'
+            } else if (bmi >= 18.5 && bmi <= 24.9) {
+                pointer = '250px'
+            } else if (bmi >= 25.0 && bmi <= 29.9) {
+                pointer = "450px"
+            } else {
+                pointer = "580px"
+            }
+            bar.style.marginLeft = pointer;
+        }
+    </script>
+</head>
+
+<body class="container-fluid">
+    <div class="m-2">
+        <div class="d-flex justify-content-between">
+            <h2>BMI calculator</h2>
+            <div>
+                <span class="bi bi-share me-2"></span>
+                <span class="bi bi-three-dots me-2"></span>
+            </div>
+        </div>
+        <hr>
+        <div class="d-flex justify-content-between">
+            <div class="d-flex ">
+                <div class="form-check w-50">
+                    <input type="radio" name="gender" id="male" checked class="form-check-input">
+                    <label for="male" class="form-check-label ">Male</label>
+                </div>
+                <div class="form-check w-25">
+                    <input type="radio" name="gender" id="female" class="form-check-input">
+                    <label for="female" class="form-check-label">Female</label>
+                </div>
+            </div>
+            <div>
+                <button class="btn border-1 rounded rounded-5">Imperial</button>
+                <button class="btn btn-primary rounded rounded-5">Metric</button>
+            </div>
+        </div>
+        <div>
+            <dl>
+                <dt> Age (1 year or above)* </dt>
+                <dd><input type="number" name="age" id="age" required></dd>
+            </dl>
+        </div>
+        <div>
+            <div class="d-flex">
+                <div class="col-6">
+                    <dl>
+                        <dt>Height *</dt>
+                        <dd><input type="number" id="height" required></dd>
+                    </dl>
+                </div>
+                <div>
+                    <dl>
+                        <dt class="col-6">Weight *</dt>
+                        <dd><input type="number" id="weight" required></dd>
+                    </dl>
+                </div>
+            </div>
+        </div>
+        <button onclick="bmiCalculate()" class="btn btn-success">Calculate</button>
+    </div>
+    <div>
+        <h1 id="result"></h1>
+
+        <div class=" mt-4 progress w-50 align-center">
+            <div class="progress-bar bg-dark me-1" style="width : 25%">Under Weight</div>
+            <div class="progress-bar bg-success me-1" style="width: 25%">Normal Weight</div>
+            <div class="progress-bar bg-warning me-1" style="width: 25%">Over Weight</div>
+            <div class="progress-bar bg-danger me-1" style="width : 25%">Obese</div>
+        </div>
+        <div class="bi bi-caret-up-fill" id="status"></div>
+    </div>
+</body>
+
+</html>

@@ -580,29 +580,736 @@ Ex.
 	Math.tan()
 	Math.floor() etc ...	
 	
+-----------------------------------------------------------------------------------------------------------
+
+								Lecture-54		
+	
+Number Types
+- Various Numeric Types
+- Conversion of Number to String
+- Conversion of String to Number
+- isNaN()
+- Operators
+- Math Functions	
+	Math.Pl
+	Math.sqrt()
+	Math.pow()
+	Math.random()
+	Math.round()
+	Math.floor()
+	etc ...
+		
+	
+Ex. Generate OTP
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generate OTP</title>
+    <script>
+        function generateOTP() {
+            var a = Math.round(Math.random() * 10);
+            var b = Math.round(Math.random() * 10);
+            var c = Math.round(Math.random() * 10);
+            document.getElementById('code').innerHTML = a + " " + b + " " + c;
+        }
+    </script>
+</head>
+
+<body onload="generateOTP()">
+    <div>
+        <dl>
+            <dt>UserName:</dt>
+            <dd><input type="text"></dd>
+            <dt>Password</dt>
+            <dd><input type="password"></dd>
+            <dt>Verify</dt>
+            <dd id="code"></dd>
+            <button>Submit</button>
+        </dl>
+    </div>
+</body>
+
+</html>	
+	
+		
+Ex. EMI CALCULATOR WITH LOGIC	
+	
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EMI CALCULATOR</title>
+    <link rel="stylesheet" href="../../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.css">
+    <style>
+        input[type="range"] {
+            width: 90%;
+        }
+    </style>
+    <script type="text/javascript">
+        function AmountChange() {
+            document.getElementById('txtAmount').value = document.getElementById('rangeAmount').value;
+        }
+
+        function YearChange() {
+            document.getElementById('txtYears').value = document.getElementById('rangeYears').value;
+        }
+
+        function RateChange() {
+            document.getElementById('txtRate').value = document.getElementById('rangeRate').value;
+        }
+
+        function CalculateClick() {
+            var P = parseInt(document.getElementById("txtAmount").value);
+            var r = parseFloat(document.getElementById("txtRate").value) / 12 / 100;
+            var n = parseInt(document.getElementById("txtYears").value) * 12;
+            var EMI = P * r * (Math.pow(1 + r, n)) / Math.pow(1 + r, n) - 1;
+            document.getElementById("result").innerHTML = "Your installement amount every month is <b>" + Math.round(EMI).toLocaleString('en-in',{style:'currency',currency:'INR'}) + "</b> for " + n + " months";
+        }
+    </script>
+</head>
+
+<body class="container-fluid bg-secondary">
+    <div class="bg-light text-dark p-4 m-4">
+        <div class="fs-4 text-center">Personal Loan EMI Calculator</div>
+        <div class="row my-3">
+            <div class="col">
+                Amount you need &#8377; <input type="text" size="16" id="txtAmount">
+            </div>
+            <div class="col">
+                for <input type="text" size="2" id="txtYears"> years
+            </div>
+            <div class="col">
+                Interest rate <input type="text" size="2" id="txtRate"> %
+            </div>
+        </div>
+        <div class="row my-3">
+            <div class="col">
+                <input type="range" onchange="AmountChange()" id="rangeAmount" min="100000" max="1000000"
+                    value="100000">
+                <div class="d-flex justify-content-between">
+                    <span>&#8377; 1,00,000</span>
+                    <span>&#8377; 10,00,000</span>
+                </div>
+            </div>
+            <div class="col">
+                <input type="range" onchange="YearChange()" id="rangeYears" min="1" max="5" value="1">
+                <div class="d-flex justify-content-between">
+                    <span>1</span>
+                    <span>5</span>
+                </div>
+            </div>
+            <div class="col">
+                <input type="range" onchange="RateChange()" id="rangeRate" min="10.45" max="18.45" value="10.45"
+                    step="0.1">
+                <div class="d-flex justify-content-between">
+                    <span>10.45%</span>
+                    <span>18.45%</span>
+                </div>
+            </div>
+        </div>
+        <div class="row my-4">
+            <div class="col text-end">
+                <button onclick="CalculateClick()" class="btn btn-primary">Calculate</button>
+            </div>
+        </div>
+
+        <div class="row my-4">
+            <div id="result" class="text-center fs-4"></div>
+        </div>
+    </div>
+</body>
+
+</html>		
+	
+HW : BMI Calculator
+		
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI CALCULATOR</title>
+    <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <script src="../../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+    <script>
+        function bmiCalculate() {
+            var age = parseInt(document.getElementById('age').value);
+            var height = parseInt(document.getElementById('height').value);
+            var weight = parseInt(document.getElementById('weight').value);
+            if (isNaN(height) || isNaN(age) || isNaN(weight)) {
+                alert('Please fill missing');
+                
+            }
+            var bmi = (weight / Math.pow(height / 100, 2)).toFixed(2)
+            var result = document.getElementById('result')
+            result.innerText = bmi;
+            console.log(age, ' ', height, ' ', weight, ' ', bmi);
+            var bar = document.getElementById('status');
+            var pointer = 0;
+            if (bmi < 18.5) {
+                pointer = '80px'
+            } else if (bmi >= 18.5 && bmi <= 24.9) {
+                pointer = '250px'
+            } else if (bmi >= 25.0 && bmi <= 29.9) {
+                pointer = "450px"
+            } else {
+                pointer = "600px"
+            }
+            bar.style.marginLeft = pointer;
+        }
+    </script>
+</head>
+
+<body class="container-fluid">
+    <div class="m-2">
+        <div class="d-flex justify-content-between">
+            <h2>BMI calculator</h2>
+            <div>
+                <span class="bi bi-share me-2"></span>
+                <span class="bi bi-three-dots me-2"></span>
+            </div>
+        </div>
+        <hr>
+        <div class="d-flex justify-content-between">
+            <div class="d-flex ">
+                <div class="form-check w-50">
+                    <input type="radio" name="gender" id="male" checked class="form-check-input">
+                    <label for="male" class="form-check-label ">Male</label>
+                </div>
+                <div class="form-check w-25">
+                    <input type="radio" name="gender" id="female" class="form-check-input">
+                    <label for="female" class="form-check-label">Female</label>
+                </div>
+            </div>
+            <div>
+                <button class="btn border-1 rounded rounded-5">Imperial</button>
+                <button class="btn btn-primary rounded rounded-5">Metric</button>
+            </div>
+        </div>
+        <div>
+            <dl>
+                <dt> Age (1 year or above)* </dt>
+                <dd><input type="number" name="age" id="age" required></dd>
+            </dl>
+        </div>
+        <div>
+            <div class="d-flex">
+                <div class="col-6">
+                    <dl>
+                        <dt>Height *</dt>
+                        <dd><input type="number" id="height" required></dd>
+                    </dl>
+                </div>
+                <div>
+                    <dl>
+                        <dt class="col-6">Weight *</dt>
+                        <dd><input type="number" id="weight" required></dd>
+                    </dl>
+                </div>
+            </div>
+        </div>
+        <button onclick="bmiCalculate()" class="btn btn-success">Calculate</button>
+    </div>
+    <div>
+        <h1 id="result"></h1>
+
+        <div class=" mt-4 progress w-50 align-center">
+            <div class="progress-bar bg-dark me-1" style="width : 25%">Under Weight</div>
+            <div class="progress-bar bg-success me-1" style="width: 25%">Normal Weight</div>
+            <div class="progress-bar bg-warning me-1" style="width: 25%">Over Weight</div>
+            <div class="progress-bar bg-danger me-1" style="width : 25%">Obese</div>
+        </div>
+        <div class="bi bi-caret-up-fill" id="status"></div>
+    </div>
+</body>
+
+</html>
+	
+	
+-----------------------------------------------------------------------------------------------------------
+
+								Lecture-55	
+	
+- Number in JavaScript provides methods for precision and fixed values.
+
+	a) toPrecision()	: It sets the length for number.
+	b) toFixed()		: It sets the fractions limit.
+			
+- document.write(n.toFixed(-1))   	  //toFixed() digits argument must be between 0 and 100
+- document.write(n.toPrecision(-1))   //toPrecision() argument must be between 1 and 100
+	
+Syntax:
+
+	var x = 300;
+	x.toFixed(2);		// 300.00	
+	
+	var x = 300.4478;
+	x.toFixed(2);		// 300.45
+	
+	var x = 300.4478;
+	x.toPrecision(6);	// 300.447
+	
+	
+							String Type
+							
+- String is a literal with group of characters enclosed with in
+	a) Double Quotes
+	b) Single Quotes
+	b) Backticks
+- String chars include alphabet, number and special chars.
+- Double and Single quotes are used for defining outer and inner string.
+
+Syntax:
+	var link = "<a href=' home.html '> Home </a>";
+
+	var link = '<a href=" home.html "> Home </a>';		
+	
+- Single and double quote requires lot of concatenation with dynamic data in string.	
+
+Syntax:
+	"string" + refName + "string" + (expression) + "string."
+
+- JavaScript ES5+ version provides backtick for string, which allows embedded data
+  binding expression.
+
+- JavaScript data binding expression is defined using "${}", which is allowed only with in
+  backtick string representation.
+
+Syntax:
+		string ${refName} string ${expression} string `;
+		
+Ex:
+	<script>
+		var uname = prompt("Enter Name");
+		var age = parselnt(prompt("Enter Age"));
+
+		var msg1 = "Hello !&nbsp;" + uname + "&nbsp;your age is&nbsp;" + age +
+		"&nbsp;and you will be&nbsp;" + (age+1) + "&nbsp;next year .< br>";
+
+		var msg2 = `Hello ! ${uname} your are is ${age} and you will be ${age+1} next year.`;
+
+		document.write(msg1);
+		document.write(msg2);
+	</script>		
+	
+EX:
+	<script>
+	var label title = prompt("Enter Label");
+	var input_type = prompt("Enter Input Type");
+	var button text = prompt("Enter Button Text");
+
+	var component = `
+	<label>${label_title}</label>
+	<div>
+	<input type=${input_type}>
+	<button>${button_text}</button>
+	</div>
+	`;
+	document.write(component);
+	</script>
+	
+- Several chars in a string representation can't print.
+- Translator ignores few chars in a string representation as they are internally used by
+  the translation system.
+- You have to explicitly print the non-printable chars by using "l".
+
+Syntax:
+	var path = "D:\lmages";			=> D:Images		
+	
+	var path = "D:\\Images";		=> D:\Images
+		
+Ex:
+	<script>
+		var path = "\"D:\\project\\images\\poster.jpg\"";
+		document.write(path);
+	</script>
+	
+- JavaScript provides various functions to format and to manipulate a string.
+
+String Formatting:
+- It is the process of applying formats to string dynamically.
+- The formats include text styles, font styles, font effects etc.	
+		
+	bold()
+	italics()
+	sup()
+	sub()
+	fontsize()
+	fontcolor()
+	strike()
+	toUpperCase()
+	toLowerCase()
+	etc ..
+	
+Ex:
+	<script>
+		var msg = "Welcome to JavaScript";
+		document.write(msg.bold().italics().fontcolor('green').toUpperCase());
+	</script>	
+		
+	onblur	: defines action when element lost focus.
+	onkeyup	: defines action when user key-in and release a char.
+		
+Ex.
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Mnipulation</title>
+    <script>
+        function ChangeCase() {
+            var username = document.getElementById("txtName").value;
+            document.getElementById("txtName").value = username.toUpperCase();
+        }
+    </script>
+</head>
+
+<body>
+    <fieldset>
+        <legend>Your Name</legend>
+        <input type="text" onblur="ChangeCase()" id="txtName" placeholder="Name in Block Letters">
+    </fieldset>
+</body>
+
+</html>	
+	
+Ex.
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Mnipulation</title>
+    <style>
+        dt {
+            font-weight: bold;
+        }
+
+        dd {
+            margin-bottom: 10px;
+        }
+    </style>
+    <script>
+        function ApplyClick() {
+            var size = document.getElementById("fontSize").value;
+            var color = document.getElementById("fontColor").value;
+
+            document.getElementById("msg").innerHTML = "Sample Text".fontsize(size).fontcolor(color);
+        }
+    </script>
+</head>
+
+<body>
+    <fieldset>
+        <legend>Format Text</legend>
+        <dl>
+            <dt>Font Size</dt>
+            <dd><input type="range" onchange="ApplyClick()" id="fontSize" min="1" max="7" value="1"></dd>
+            <dt>Font Color</dt>
+            <dd><input type="color" onchange="ApplyClick()" id="fontColor"></dd>
+            <dd>
+                <button onclick="ApplyClick()">Apply</button>
+            </dd>
+        </dl>
+        <p id="msg" align="center"></p>
+    </fieldset>
+
+</body>
+
+</html>	
+		
+	
+-----------------------------------------------------------------------------------------------------------
+
+								Lecture-56
+	
+String Type
+- Single Quote
+- Double Quote
+- Backtick
+- Data Binding Expression ${ }
+- Escape Character
+- String Formatting functions		
+	
+								String Manipulation
+								
+								
+1. length	: It is a property that returns the total count of chars in a string.		
+	
+Syntax:
+	var msg = "Welcome";
+	msg.length;				// 7
+		
+Ex.
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String</title>
+    <script>
+        function submitClick() {
+            var userName = document.getElementById("UserName").value;
+            var userError = document.getElementById("UserError");
+            if (userName.length == 0) {
+                userError.innerHTML = "User Name Required".fontcolor('red');
+            }
+            else {
+                if (userName.length < 4) {
+                    userError.innerHTML = "Name too short - Min 4 chars".fontcolor('goldenrod');
+                } else {
+                    document.write("Registered .. ");
+                }
+            }
+        }
+
+        function VerifyChars() {
+            var message = document.getElementById("Message").value;
+            var length = message.length;
+            var maxLength = 100;
+            document.getElementById("MsgStatus").innerHTML = `${maxLength - length} Chars Left`; 
+        }
+    </script>
+</head>
+
+<body>
+    <dl>
+        <dt>User Name</dt>
+        <dd><input type="text" id="UserName"></dd>
+        <dd id="UserError"></dd>
+        <dt>Your Message</dt>
+        <dd>
+            <textarea rows="4" onkeyup="VerifyChars()" id="Message" cols="40" maxlength="100"></textarea>
+        </dd>
+        <dd id="MsgStatus"></dd>
+
+    </dl>
+    <button onclick="submitClick()">Submit</button>
+</body>
+
+</html>		
+	
+2. charAt()	: It returns the character at specified index.
+
+Syntax:
+	var msg = "Welcome";
+	msg.charAt(1);			//e
+	msg.charAt(0);			//W
+
+3. charCodeAt()	: It returns the ASCII code of character at specified
+
+Syntax:
+	var name = "Ajay";
+	name.charCodeAt(0);		// 67	
+		
+	Chars Code
+	A=65, Z=90
+	a=97, z=122
+		
+Ex.
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String Chars</title>
+    <script>
+        function VerifyOTP() {
+            var otp = document.getElementById('otp').value;
+            var otpError = document.getElementById('otpError');
+            if (otp.charAt(0) == 6) {
+                document.write('Verified Succesfully.....')
+            } else {
+                otpError.innerHTML = 'Invalid OTP'.fontcolor('red')
+            }
+        }
+
+        function CheckUsername() {
+            var userName = document.getElementById('UserName').value;
+            var UserNameError = document.getElementById('UserNameError');
+            if (userName.charCodeAt(0) >= 65 && userName.charCodeAt(0) <= 90) {
+                UserNameError = "";
+            }else{
+                UserNameError.innerHTML = "InValid UserName".fontcolor('red');
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <dl>
+        <dt>User Name</dt>
+        <dd><input type="text" id="UserName" placeholder="First Name Should Capital" onblur="CheckUsername()"></dd>
+        <dd id="UserNameError"></dd>
+        <dt>OTP</dt>
+        <dd><input type="text" id="otp"></dd>
+        <dd id="otpError"></dd>
+    </dl>
+    <button onclick="VerifyOTP()">Submit</button>
+</body>
+
+</html>		
+	
+	
+4. startsWith()	: It returns true if the string starts with specified char(s)
+
+5. endsWith()	: It returns true if the string ends with specified char(s)	
+		
+Syntax:
+	var msg = "Welcome";
+	msg.startsWith("W");	// true
+	msg.endsWith("w");		// false
+	msg.endsWith("me");		// true	
+	meg.endsWith("e");		// true
+	
+Ex.
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String</title>
+    <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.css">
+    <script>
+        function VerifyCard() {
+            var card = document.getElementById('Card').value;
+            var pic = document.querySelector('img');
+            if (card.startsWith('44')) {
+                pic.src = '../image/visa.jpg'
+            } else {
+                pic.src = "../image/master.jpg"
+            }
+        }
+
+        function VerifySkypeId() {
+            var skyId = document.getElementById('Skype').value;
+            var skyIdError = document.getElementById('skypeError');
+            if (skyId.endsWith('outlook.com')) {
+                skyIdError.innerHTML = "Your Account is Verified".fontcolor('green');
+            } else {
+                skyIdError.innerHTML = "Invalid Skype Id".fontcolor('red')
+            }
+        }
+    </script>
+</head>
+
+<body class="container-fluid">
+    <div class="mt-4 w-25">
+        <dl>
+            <dt>Your Card Number </dt>
+            <dd class="input-group">
+                <input type="text" class="form-control" onblur="VerifyCard()" id="Card" maxlength="16">
+                <img class="input-group-text" width="80">
+            </dd>
+
+            <dt>Your Skype Id</dt>
+            <dd>
+                <input type="text" id="Skype" onblur="VerifySkypeId()" class="form-control">
+            </dd>
+            <dd id="skypeError"></dd>
+        </dl>
+    </div>
+</body>
+
+</html>	
+		
+	
+6. indexOf() :
+	
+  It returns the index number of specified character in a string.
+  It verifies the first occurrence of char in a string.
+  It returns -1 if character not found.	
+	
+7. lastindexOf() :
+
+ It returns the last occurrence index number of char in a string.		
+	
+	Syntax:
+		var msg = "Welcome";
+		msg.indexOf("e");		// 1
+		msg.lastlndexOf("e");	// 6
+		msg.indexOf("a");		// -1
+	
+Ex.
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String Email Verification</title>
+    <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.css">
+    <script>
+        function VerifyEmail() {
+            var email = document.getElementById('Email').value;
+            var emailError = document.getElementById('EmailError');
+            if (email.indexOf('@') < 3) {
+                emailError.innerHTML = 'Invalid Email Please enter @ min after 2 chars'.fontcolor('red')
+            } else {
+                emailError.innerHTML = "Email verifed".fontcolor('green')
+            }
+        }
+
+    </script>
+</head>
+
+<body class="container-fluid">
+    <dl>
+        <dt>Your Email</dt>
+        <dd><input type="text" onblur="VerifyEmail()" id="Email"></dd>
+        <dd id="EmailError"></dd>
+    </dl>
+
+</body>
+
+</html>	
+	
+	
+8. slice()		: It returns the chars between specified index. [uni-directional]
+
+9. substr()		: It returns the specified number of chars from given index.
+
+10. substring()	: It returns the chars between specified index bi-directional.		
+	
+Syntax:
+	slice(startIndex, endlndex)			// endIndex must be greater than start	
+	substr(startlndex, numberOfChars)
+	substring(startlndex, endlndex)		// endIndex can be any direction
+	
+-----------------------------------------------------------------------------------------------------------
+
+								Lecture-57	
 		
 	
 	
 	
-		
-	
-	
-	
-		
 	
 	
 		
 	
 	
 	
-		
-	
-	
-	
-		
-	
-	
-		
 	
 	
 	
@@ -610,21 +1317,12 @@ Ex.
 	
 	
 	
-		
 	
 	
 		
 	
 	
 	
-		
-	
-	
-	
-		
-	
-	
-		
 	
 	
 	
@@ -632,21 +1330,12 @@ Ex.
 	
 	
 	
-		
 	
 	
 		
 	
 	
 	
-		
-	
-	
-	
-		
-	
-	
-		
 	
 	
 	
@@ -654,10 +1343,94 @@ Ex.
 	
 	
 	
-		
 	
 	
 		
+	
+	
+	
+	
+	
+	
+		
+	
+	
+	
+	
+	
+		
+	
+	
+	
+	
+	
+	
+		
+	
+	
+	
+	
+	
+		
+	
+	
+	
+	
+	
+	
+		
+	
+	
+	
+	
+	
+		
+	
+	
+	
+	
+	
+	
+		
+	
+	
+	
+	
+	
+		
+	
+	
+	
+	
+	
+	
+		
+	
+	
+	
+	
+	
+		
+	
+	
+	
+	
+	
+		
+	
+	
+	
+	
+	
+		
+	
+	
+	
+	
+	
+		
+	
+	
 	
 	
 	

@@ -4,21 +4,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JS</title>
+    <title>Generate OTP</title>
     <script>
-        function submitButton() {
-            var num = parseInt(document.getElementById('num').value);
-            if (num % 2 == 0) {
-                document.write("Valid Number.....");
-            } else {
-                alert("Enter Valid Number")
-            }
+        function generateOTP() {
+            var a = Math.round(Math.random() * 10);
+            var b = Math.round(Math.random() * 10);
+            var c = Math.round(Math.random() * 10);
+            document.getElementById('code').innerHTML = a + " " + b + " " + c;
         }
     </script>
 </head>
 
-<body>
-    Enter a Even No. : <input type="text" id="num"> <button onclick="submitButton()">Submit</button>
+<body onload="generateOTP()">
+    <div>
+        <dl>
+            <dt>UserName:</dt>
+            <dd><input type="text"></dd>
+            <dt>Password</dt>
+            <dd><input type="password"></dd>
+            <dt>Verify</dt>
+            <dd id="code"></dd>
+            <button>Submit</button>
+        </dl>
+    </div>
 </body>
 
 </html>
