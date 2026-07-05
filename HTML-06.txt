@@ -1682,13 +1682,144 @@ Syntax:
 		
 - In other website do not directly login with google bcz then fetch all data form google (in googel we have huge information)
 		
+-----------------------------------------------------------------------------------------------------------
+
+								Lecture-59	
 	
 	
-	
-	
-	
-		
-	
+The IF Selector
+1. Forward Jump
+
+	if (condition){
+		statements on true;	
+	}
+
+- For input we need to use onBlur() and for dropdown we need to use onchange()		
+
+
+eg.
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>If Statement</title>
+    <script>
+        function VerifyCard() {
+            var cardNo = document.getElementById("Card").value;
+            if (cardNo === "1234567890") {
+                document.getElementById("Cvv").disabled = false;
+            }
+        }
+
+        function VerifyCvv() {
+            var cvv = document.getElementById("Cvv").value;
+            if (cvv === "123") {
+                document.getElementById("Expiry").disabled = false;
+            }
+        }
+
+        function VerifyExpiry() {
+            var expiry = document.getElementById("Expiry").value;
+            if(expiry==="2026"){
+                document.getElementById("btnPay").disabled = false;
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <fieldset>
+        <legend>Payment</legend>
+        <dl>
+            <dt>Card Number</dt>
+            <dd><input type="text" id="Card" maxlength="16" onblur="VerifyCard()"></dd>
+            <dt>CVV</dt>
+            <dd><input type="text" size="4" id="Cvv" disabled onblur="VerifyCvv()"></dd>
+            <dt>Expiry</dt>
+            <dd>
+                <select id="Expiry" disabled onchange="VerifyExpiry()">
+                    <option>Select Expiry</option>
+                    <option>2024</option>
+                    <option>2025</option>
+                    <option>2026</option>
+                </select>
+            </dd>
+        </dl>
+        <button id="btnPay" disabled>Pay</button>
+    </fieldset>
+</body>
+
+</html>
+
+eg.
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>If Statement</title>
+    <script>
+        function VerifyCard() {
+            var cardNo = document.getElementById("Card").value;
+            if (cardNo === "1234567890") {
+                document.getElementById("Cvv").disabled = false;
+                document.getElementById("CvvContainer").style.display = "block";
+            }
+        }
+
+        function VerifyCvv() {
+            var cvv = document.getElementById("Cvv").value;
+            if (cvv === "123") {
+                document.getElementById("Expiry").disabled = false;
+                document.getElementById("ExpiryContainer").style.display = "block";
+                
+            }
+        }
+
+        function VerifyExpiry() {
+            var expiry = document.getElementById("Expiry").value;
+            if (expiry === "2026") {
+                document.getElementById("btnPay").disabled = false;
+                document.getElementById("btnPay").style.display = "block";
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <fieldset>
+        <legend>Payment</legend>
+        <dl>
+            <dt>Card Number</dt>
+            <dd><input type="text" id="Card" maxlength="16" onblur="VerifyCard()"></dd>
+            <div style="display: none;" id="CvvContainer">
+                <dt>CVV</dt>
+                <dd><input type="text" size="4" id="Cvv" disabled onblur="VerifyCvv()"></dd>
+            </div>
+            <div style="display: none;" id="ExpiryContainer">
+                <dt>Expiry</dt>
+                <dd>
+                    <select id="Expiry" disabled onchange="VerifyExpiry()">
+                        <option>Select Expiry</option>
+                        <option>2024</option>
+                        <option>2025</option>
+                        <option>2026</option>
+                    </select>
+                </dd>
+            </div>
+        </dl>
+        <button id="btnPay" disabled style="display: none;">Pay</button>
+    </fieldset>
+</body>
+
+</html>
+
+stop 15:30
 	
 	
 	
