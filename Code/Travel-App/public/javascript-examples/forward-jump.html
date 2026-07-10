@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forward Jump - If</title>
+    <script>
+        function VerifyGender(){        
+            var maleOpt = document.getElementById("optMale");
+            var femaleOpt = document.getElementById("optFemale");
+            var para = document.querySelector("p");
+
+            if(maleOpt.checked){
+                para.innerHTML = `Gender : ${maleOpt.value}`;
+               
+            }
+
+            if(femaleOpt.checked){
+                para.innerHTML = `Gender : ${femaleOpt.value}`;
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <fieldset>
+        <legend>Gender</legend>
+        <input type="radio" name="gender" value="Male" id="optMale"> <label> Male </label>
+        <input type="radio" name="gender" value="Female" id="optFemale"> <label> Female</label>
+        <br><br>
+        <button onclick="VerifyGender()">Submit</button>
+        <p></p>
+    </fieldset>
+</body>
+
+</html>

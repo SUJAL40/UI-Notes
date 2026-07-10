@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi Level Pyment if-else Ex</title>
+    <script>
+        function VerifyPayment() {
+            console.log("verifypayrm");
+
+            var cardno = document.getElementById("cardNo").value;
+            var cvv = document.getElementById("cvv").value;
+            console.log("cvv",cvv);
+            
+            var expiry = document.getElementById("expiry");
+            var para = document.querySelector("p");
+
+            if (cardno == "") {
+                para.innerHTML = "Enter Card Number".fontcolor("red");
+            }
+            else {
+                if (cardno == "1234") {
+                    if (cvv == "") {
+                        para.innerHTML = "Enter CVV Number".fontcolor("red");
+                    }
+                    else {
+                        if (cvv === "123") {
+                            if (expiry.value == "-1") {
+                                para.innerHTML = "Enter Valid expiry Data".fontcolor("red");
+                            } 
+                            else {
+                                if (expiry.value == "") {
+                                    para.innerHTML = "Enter expiry Date".fontcolor("red");
+                                } else {
+                                    if (expiry.value === "2025") {
+                                        document.write(`<b>Payemnt Succesfull....</b>`);
+                                    }
+                                }
+                            }
+                        }
+                        else {
+                            para.innerHTML = "Enter Valid cvv".fontcolor("red");
+                        }
+                    }
+                }
+                else {
+                    para.innerHTML = "Enter Valid Card Number".fontcolor("red");
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div>
+        <dl>
+            <dt>CardNumber:</dt>
+            <dd><input type="text" id="cardNo"></dd>
+            <dt>Cvv</dt>
+            <dd><input type="text" id="cvv"></dd>
+            <dt>
+                Expiry Date
+            </dt>
+            <dd>
+                <select id="expiry">
+                    <option value="-1">Select</option>
+                    <option>2025</option>
+                    <option>2026</option>
+                    <option>2027</option>
+                </select>
+            </dd>
+        </dl>
+        <button onclick="VerifyPayment()">Submit</button>
+    </div>
+    <p></p>
+</body>
+
+</html>

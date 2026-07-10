@@ -11,6 +11,8 @@
             if (cardNo === "1234567890") {
                 document.getElementById("Cvv").disabled = false;
                 document.getElementById("CvvContainer").style.display = "block";
+            } else {
+                document.getElementById("CvvContainer").style.display = "none";
             }
         }
 
@@ -19,7 +21,9 @@
             if (cvv === "123") {
                 document.getElementById("Expiry").disabled = false;
                 document.getElementById("ExpiryContainer").style.display = "block";
-                
+
+            }else{
+                document.getElementById("ExpiryContainer").style.display = "none";
             }
         }
 
@@ -28,6 +32,8 @@
             if (expiry === "2026") {
                 document.getElementById("btnPay").disabled = false;
                 document.getElementById("btnPay").style.display = "block";
+            }else{
+                document.getElementById("btnPay").style.display = "none";
             }
         }
     </script>

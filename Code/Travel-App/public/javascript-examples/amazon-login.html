@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AMAZON</title>
+    <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.css">
+    <script>
+        var flag = "";
+
+        function ContinueClick() {
+            var userId = document.getElementById("textUserId").value;
+
+            function toggleContainer() {
+                document.getElementById("Id_Container").style.display = "none";
+                document.getElementById("Pwd_Container").style.display = "block";
+            }
+
+            //Implement with switch statement
+            switch (userId) {
+                case "sk@outlook.com":
+                    flag = `Your Email Verified Sucessfully - Activation link send to ${userId}`;
+                    toggleContainer();
+                    break;
+                case "1234567890":
+                    flag = `Your Mobile Number Verified Sucessfully - OTP send to ${userId}`;
+                    toggleContainer();
+                    break;
+                default:
+                    document.getElementById("UserId_Error").innerHTML = `${userId} doesn't exist`;
+                    break;
+            }
+
+            /*
+            if (userId === "sk@outlook.com") {
+                flag = `Your Email Verified Sucessfully - Activation link send to ${userId}`;
+                toggleContainer();                  //DRY : Dont Repeat Yourself
+            }
+            else if (userId === "1234567890") {
+                flag = `Your Mobile Number Verified Sucessfully - OTP send to ${userId}`;
+                toggleContainer();
+            }
+            else {
+                document.getElementById("UserId_Error").innerHTML = `${userId} doesn't exist`;
+            }
+                */
+        }
+
+        function LoginClick() {
+            var password = document.getElementById("textPassword").value;
+            if (password === "123") {
+                document.write(`<b> ${flag} </b>`)
+            } else {
+                document.getElementById("Password_Error").innerHTML = "Invalid Password".fontcolor("red");
+            }
+        }
+
+
+    </script>
+</head>
+
+<body class="d-flex justify-content-center align-items-center" style=" height: 100vh">
+    <div>
+        <div class="h2">Sign In</div>
+        <div id="Id_Container">
+
+            <label class="form-label fw-bold">Emial or Mobile Phone Number</label>
+            <div>
+                <input type="text" id="textUserId" class="form-control">
+                <div id="UserId_Error" class="text-danger"></div>
+            </div>
+            <div class="my-2">
+                <button class="btn btn-warning w-100" onclick="ContinueClick()">Continue</button>
+            </div>
+        </div>
+
+        <div id="Pwd_Container" style="display: none;">
+            <label class="form-label fw-bold">Password</label>
+            <div>
+                <input type="password" id="textPassword" class="form-control">
+                <div id="Password_Error"></div>
+            </div>
+            <div class="my-2">
+                <button class="btn btn-warning w-100" onclick="LoginClick()">Login</button>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>

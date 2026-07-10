@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi-Level Decision</title>
+    <script>
+        function VerifyLogin() {
+            console.log("inside verifylogin()");
+
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+            var para = document.querySelector("p");
+
+            if (username == "") {
+                para.innerHTML = "Enter username".fontcolor("red");               
+            } else {
+                if (username === "sk") {
+                    if (password == "") {
+                        para.innerHTML = "Enter Password".fontcolor("red");
+                    } else {
+                        if (password === "sk123") {
+                            document.write("Login Succesfully.....");
+                        } else {
+                            para.innerHTML = "Invalid Password".fontcolor("red");
+                        }
+                    }
+                } else {
+                    para.innerHTML = "Invalid Username".fontcolor("red");
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div>
+        <dl>
+            <dt>UserName:</dt>
+            <dd><input type="text" id="username"></dd>
+            <dt>Password</dt>
+            <dd><input type="password" id="password"></dd>
+            <br>
+            <button onclick="VerifyLogin()">Submit</button>
+        </dl>
+        <p></p>
+    </div>
+</body>
+
+</html>
