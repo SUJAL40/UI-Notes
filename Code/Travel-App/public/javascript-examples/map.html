@@ -1,0 +1,19 @@
+<script>
+    var values = [34000, 44000, 65000, 57000, 85000];
+    var result = values.find(function (val) {
+        return val > 50000;
+    });
+    document.write(`find() -> ${result}<br>`);
+
+    var resultArr = values.filter(function (val) {
+        return val > 50000;
+    })
+
+    document.write(`filter() -> ${resultArr}<br>`);
+
+    values.filter(function (val) {
+        return val > 50000;
+    }).map(function (val) {
+        document.write(`filter() : map() -> ${val}<br>`);
+    })
+</script>

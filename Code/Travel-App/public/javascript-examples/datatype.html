@@ -1,10 +1,12 @@
 <script>
-    var price;
-    if (price) {
-        document.write(`Price = ${price}`);
-    } else {
-        document.write("Please provide a value for price");
+    var values = [];
+    values[0] = 10;
+    values[1] = "A";
+    values["2"] = true;
+    // document.write(values);
 
+    for (var property in values) {
+        document.write(`${property}[${typeof property}] : ${values[property]} [${typeof values}] <br>`);
     }
 
 </script>
