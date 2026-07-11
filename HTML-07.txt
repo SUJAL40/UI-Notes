@@ -211,17 +211,150 @@ eg.
 
 </html>
 
+-----------------------------------------------------------------------------------------------------------
+
+								Lecture-62
+
+Number
+String
+Boolean Types
+	- Boolean Operators
+	- Conditional Statements
+	if, else, switch, case, default
+
+								Undefined Type
+								
+- Undefined is a value assigned to any reference if value is not defined.
+
+Syntax:
+	var x;
+	document.write("x=" +x);	x = undefined
+
+- You can use "undefined" keyword to verify value.
+
+	if(x === undefined)			=> returns true if x is undefined, but not good.
+
+	if(x)						=> returns true if x is defined, good code.
+	
+    if(x != undefined)			=> returns true if x is defined, not good code.
+
+eg.
+
+<script>
+    var price;
+    if (price) {
+        document.write(`Price = ${price}`);
+    } else {
+        document.write("Please provide a value for price");
+
+    }
+</script>
+
+- When you collect value at run time like prompt("Enter Value") and you not give any value then it return null
+
+								Null
+								
+- It is a type defined for reference when value is not provided at runtime.
+- You can verify by using "null" keyword.
+
+Syntax:
+	var price = prompt("Enter Price");
+	if(price == null)
+	{
+	}
+
+Summary
+- Number
+- String
+- Boolean
+- Null
+- Undefined
+- Symbol
+
+								Non Primitive Data Types
+
+- They are mutable types.
+- They don't have fixed range for values.
+- Value range varies according to memory available.
+- They are stored in memory heap.
+- Heap is memory which allows random access.
+- JavaScript non-primitive includes
+	a) Array
+	b) Object
+	c) Map
+	d) Set (obsolete)
+
+								Arrays
+
+- If someone ask what is an array we dont directly say :
+	it is collection of similar data type and store in continuous location 
+- bcz in js we store multiple datatype value in array
+	var values = [12,true,"Hello"]
+- Instead we can say , in java array is collection of similar data type and store in continuous location 
+
+- Computer Version
+	ENIAC : invented by charless babegge
+	EDSAC
+	PDP : Data used to store in magnet taps
+	PC
+- Charles Babbage -> "father of the computer"
+
+- Arrays are used to reduce overhead and complexity.
+- Arrays can reduce overhead by storing values in sequential order.
+- Arrays can reduce complexity by storing multiple values under the reference of one
+  name.
+- Array can handle various types of values in sequential order.
+- Array size can change dynamically.
+
+	Note: Several computing technologies can't handle different types of memory in
+	sequential order and can't change the memory size dynamically. Hence they
+	restrict array to similar data type and will not allow to change the size dynamically.
+	[C, C++, Java, C#, ... ]
+
+- JavaScript array size can change dynamically and can handle various types of values
+  in sequential order.
+
+Q. If i dont use array in my application then what problem i going to face ?
+A. Application lead to overhead ie memory can't allocated in order then it fail in saving your data 
+   It have memory but not use that memory, we sovlve that using defragment that memory 
+   Here, we move used momory one side and unused memory another side,to avoid we use array
+
+Configuring Array:
+- Array declaration comprises of keyword and reference name.
+- You can use var, let or const.
+
+Syntax:
+	var products;
+	let categories;
+
+- To allocate multiple memory you can initialize or assign memory using 2 techniques
+
+		a) Array meta character "[ ]"
+		b) Array Constructor "Array()"
 
 
+Syntax:
 
+	var products = [];				=> Initializing memory
+	var products = new Array();
 
+		(or)
+	var products;
+	products = [];					=> Assigning memory
 
+	var products;
+	products = new Array();
 
+- In computer new means dynamic memory allocating operator
+- Dynamic memory is good when we do discrite operation like ,means disconneted opration means open memeoty do operation distroy memory
+- again he need do operation distroy memory
+- Array meta character "[ ]" is used to allocate static memory, which defined memory for
+  first request and continue the same across any number of requests.
+- Array constructor is used to allocate a dynamic memory, which is a discreet memory.
+  Memory is newly allocated for every request.
 
-
-
-
-
+	Static	=> Continuous Memory
+	Dynamic => Discreet Memory
 
 
 
