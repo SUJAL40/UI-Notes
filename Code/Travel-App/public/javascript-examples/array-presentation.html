@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array</title>
+    <script>
+        var menu = ["Home", "Shop", "Blog", "Pages", "Docs", "Contact"];
+        function bodyLoad() {
+            menu.map(function (item) {
+                var li = document.createElement("li");
+                li.innerHTML = item;
+                document.querySelector("ol").appendChild(li);
+
+                var button = document.createElement("button");
+                button.type = "button";
+                button.innerHTML = item;
+                document.querySelector("nav").appendChild(button);
+
+                var option = document.createElement("option");
+                option.text = item;
+                option.value = item;
+                document.querySelector("select").appendChild(option);
+
+                var ul_li = document.createElement("li");
+
+                ul_li.innerHTML = `<input type="checkbox"> <label>${item}</label>`;
+
+                document.querySelector("ul").appendChild(ul_li);
+
+            })
+        }
+
+    </script>
+</head>
+
+<body onload="bodyLoad()">
+    <nav style="display: flex; justify-content: space-between; width: 50%;"> </nav>
+    <ol> </ol>
+    <select> </select>
+    <ul style="list-style: none;">
+        <!-- <li> <input type="checkbox"> <label> Home </label> </li> -->
+    </ul>
+</body>
+
+</html>

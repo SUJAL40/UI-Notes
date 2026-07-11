@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Element Load</title>
+    <script>
+        function LoadClick() {
+            var table = document.createElement("table");
+            table.width = "50%";
+            table.border = "1";
+             
+            var thead = document.createElement("thead");
+            var trHead = document.createElement("tr");
+            var trBody = document.createElement("tr");
+            var td = document.createElement("td");
+            var th = document.createElement("th");
+            var tBody = document.createElement("tbody");
+
+            th.innerHTML = "Product Name";
+            trHead.appendChild(th);
+            thead.appendChild(trHead);
+            table.appendChild(thead);
+
+            td.innerHTML = "Samsung TV";
+            td.style.textAlign = "center";
+            
+            trBody.appendChild(td);
+            tBody.appendChild(trBody);
+            table.appendChild(tBody);
+
+            document.getElementById("container").appendChild(table);
+
+
+        }
+    </script>
+</head>
+
+<body>
+    <button onclick="LoadClick()">Load Table</button>
+    <br><br>
+    <div id="container">
+
+    </div>
+</body>
+
+</html>
