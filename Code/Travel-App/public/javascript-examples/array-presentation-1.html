@@ -8,7 +8,10 @@
     <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.css">
     <script src="../../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
     <script>
-        var menu = ["Home", "Shop", "Blog", "Pages", "Docs"];
+        var menu = ["Home", "Shop", "Blog"];
+        menu.push("Contact");
+        menu.unshift("Amazon");
+        menu.splice(1,0,"Section")
         function bodyLoad() {
             menu.map(function (item) {
                 var div = document.createElement("div");
