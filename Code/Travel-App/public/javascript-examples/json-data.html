@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON PRESENTATION</title>
+    <link rel="stylesheet" href="../../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.css">
+    <script>
+        var mobile = {
+            "title": "Apple iPhone 15 (Black, 128 GB)",
+            "price": 64999,
+            "rating": { "rate": 4.6, "ratings": 39755, "reviews": 2187 },
+            "offers": [
+                "Bank Offer Get ₹50 Instant Discount on first Flipkart UPI transaction on order of ₹200 and above T & C",
+                "Bank Offer 5 % Cashback on Flipkart Axis Bank Card T & C",
+                "Bank Offer ₹1000 off on Selected Bank Net Banking Transaction T & C",
+                "Special Price Get extra ₹12901 off(price inclusive of cashback / coupon) T & C"
+            ],
+            "image": "../../public/image/iphone-black.jpg"
+        }
+
+        function bodyLoad() {
+            document.getElementById("imgProduct").src = mobile.image;
+            document.getElementById("lblTitle").innerHTML = mobile.title;
+            document.getElementById("lblRating").innerHTML =
+                `${mobile.rating.rate} <span class="bi bi-star-fill"></span>`;
+            document.getElementById("lblReviews").innerHTML = `<b> ${mobile.rating.ratings.toLocaleString()} rating ${mobile.rating.reviews.toLocaleString()} reviews</b>`;
+            document.getElementById("lblPrice").innerHTML = mobile.price.toLocaleString("en-in", { style: "currency", currency: "INR" })
+
+            mobile.offers.map(function (offer) {
+                var li = document.createElement("li");
+                li.className = "text-success bi bi-tag-fill my-2";
+                li.innerHTML = `<span class="text-secondary"> ${offer}</span>`;
+                document.querySelector("ul").appendChild(li);
+
+            });
+        }
+    </script>
+</head>
+
+<body class="container-fluid" onload="bodyLoad()">
+    <div class="mt-4 row">
+        <div class="col-3">
+            <img id="imgProduct" width="100%">
+        </div>
+        <div class="col-9">
+            <div id="lblTitle" class="h5"> </div>
+            <div class="my-3">
+                <span class="bg-success p-1 rounded text-white" id="lblRating"></span>
+                <span id="lblRating"></span>
+                <span id="lblReviews" class="text-secondary ms-3"></span>
+            </div>
+            <div class="my-4">
+                <div id="lblPrice" class="h3"></div>
+            </div>
+
+            <div class="my-3">
+                <ul class="list-unstyled">
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</body>
+
+</html>

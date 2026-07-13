@@ -1131,6 +1131,184 @@ Eg.
 
 </html>
 
+-----------------------------------------------------------------------------------------------------------
+
+								Lecture-66
+
+Array with Spread Operator:
+- You can use " ... " which is a spread operator to copy the elements of an array into another.
+- It allows to spread the values of a collection into individual references.
+
+Syntax:
+	var one = ["A", "B"];
+	var two = [one];					// two have 1 element ie ["A", "B"]
+	var two = [one, "C", "D"];			// two have 3 elements
+	var two = [...one, "C", "D"];		// two have 4 elements								
+
+Syntax:
+	var one = ["A", "B"];
+	var two = ["C", "D"];
+	var three = [ ...one, two];			// 3 elements
+	var three = [ ...one, ...two];		// 4 elements
+	var three = [one, two];				// 2 elements
+
+- Array functions for finding elements
+
+	indexOf()
+	lastlndexOf()
+	find()
+	filter()
+
+
+								Object Type
+								
+- Object is used to keep all related data and logic together.
+- "Alan kay" introduced the concept of object into computer programming in early 1960's.
+- Technically object is a key-value pair.
+- Key is always string type and value can be any type.
+
+Syntax:
+	var obj = {
+		"Key": value
+		"Key": value,
+	}
+
+- Value can be
+	a) Primitive
+	b) Non Primitive
+	c) Function
+
+Syntax:
+	var obj = {
+		"Key": number,
+		"Key": string,
+		"Key": new Array(),
+		"Key": { object },
+		"Key": function(){}
+	}
+
+- Now in Programming Data is maintained in two format ie xml and json
+- google map is designed with xml
+- Now a day we use json more than xml
+- Before xml and json we take data in COM to marshal
+
+- If object comprises of only data without any action (function) defined, then it is referred as "JSON".
+- JSON is JavaScript Object Notation, It is a format for data.
+	* JSON is light weight
+	* JSON is faster in transporting and rendering
+	* JSON doesn't require COM to Marshal [Converting object to binary & vice versa]
+	 Before JSON became common, data was converted from an object or database format into a transferable format
+	 (serialization/marshalling) and sent over the network.
+	 At the receiving side, the data was converted back into the required object format (deserialization/unmarshalling).
+	 Marshalling is the process of converting an object into a transferable format (such as JSON or XML), 
+	 and unmarshalling is converting it back into an object.
+	 
+	* JSON can flow through firewalls.
+	* JSON is not infected by VIRUS.
+
+Syntax:
+	{
+		"Name": "TV",
+		"Price": 34000.44,
+		"Stock": true,
+		"ShippedTo": ["Delhi", "Hyd"],
+		"Rating": { "Rate": 4.6, "Count": 4500}
+	}
+
+- Object values are accessed with reference of "Key".
+
+Syntax:
+	var product = { "Name": "TV", "Price":56000 };
+	
+	product.Name;		// returns TV
+	product.Price;		// returns 56000
+	
+- You can assign new values if declared with "var or let".
+
+	product.Name = newname;
+	product.Price = newprice;	
+
+eg.
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON PRESENTATION</title>
+    <link rel="stylesheet" href="../../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.css">
+    <script>
+        var mobile = {
+            "title": "Apple iPhone 15 (Black, 128 GB)",
+            "price": 64999,
+            "rating": { "rate": 4.6, "ratings": 39755, "reviews": 2187 },
+            "offers": [
+                "Bank Offer Get ₹50 Instant Discount on first Flipkart UPI transaction on order of ₹200 and above T & C",
+                "Bank Offer 5 % Cashback on Flipkart Axis Bank Card T & C",
+                "Bank Offer ₹1000 off on Selected Bank Net Banking Transaction T & C",
+                "Special Price Get extra ₹12901 off(price inclusive of cashback / coupon) T & C"
+            ],
+            "image": "../../public/image/iphone-black.jpg"
+        }
+
+        function bodyLoad() {
+            document.getElementById("imgProduct").src = mobile.image;
+            document.getElementById("lblTitle").innerHTML = mobile.title;
+            document.getElementById("lblRating").innerHTML =
+                `${mobile.rating.rate} <span class="bi bi-star-fill"></span>`;
+            document.getElementById("lblReviews").innerHTML = `<b> ${mobile.rating.ratings.toLocaleString()} rating ${mobile.rating.reviews.toLocaleString()} reviews</b>`;
+            document.getElementById("lblPrice").innerHTML = mobile.price.toLocaleString("en-in", { style: "currency", currency: "INR" })
+
+            mobile.offers.map(function (offer) {
+                var li = document.createElement("li");
+                li.className = "text-success bi bi-tag-fill my-2";
+                li.innerHTML = `<span class="text-secondary"> ${offer}</span>`;
+                document.querySelector("ul").appendChild(li);
+
+            });
+        }
+    </script>
+</head>
+
+<body class="container-fluid" onload="bodyLoad()">
+    <div class="mt-4 row">
+        <div class="col-3">
+            <img id="imgProduct" width="100%">
+        </div>
+        <div class="col-9">
+            <div id="lblTitle" class="h5"> </div>
+            <div class="my-3">
+                <span class="bg-success p-1 rounded text-white" id="lblRating"></span>
+                <span id="lblRating"></span>
+                <span id="lblReviews" class="text-secondary ms-3"></span>
+            </div>
+            <div class="my-4">
+                <div id="lblPrice" class="h3"></div>
+            </div>
+
+            <div class="my-3">
+                <ul class="list-unstyled">
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
 
 
 
