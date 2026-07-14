@@ -1299,6 +1299,243 @@ eg.
 
 </html>
 
+-----------------------------------------------------------------------------------------------------------
+
+								Lecture-67
+
+Object Data Type
+JSON - JavaScript Object Notation
+
+Note:
+	- You can store data offline in a JSON file. So that you can access from any page.
+	- JSON file must have the extension ".json"
+	- To access data from JSON file you need "Ajax Requests".
+
+- Here we deal with data form external file 
+- Create new folder as data and here we kept our data related file
+- create file product.json
+- paste yesterday product data 
+- Synchronous means one after another.
+- Asynchronous means when work is going on allow other work to do in background without blocking tasks.
+
+							JavaScript Ajax
+
+- Ajax is Asynchronous JavaScript And XML.
+- By using ajax without loading complete page , it bring new data in page - it improve performance of application
+- Ajax used to enable partial postback 
+- Partila postback means without posting entire page, only specific portion of page can be posted
+- Ajax :
+ Asynchronous -  Perform action without reloading complete page
+ that action are defined through a language called javascript 
+ and xml is medium used to handle communation. 
+- Asynchronous allows to handle a task without blocking other tasks in process.
+- Ajax enables "Partial Postback". It can post specific portion of page without submitting
+  entire page.
+- Ajax allows to add new content into page without reloading the complete page.
+- JavaScript is used as browser language to hand Async request.
+- XML is used as medium to transport data in async request.
+- In a browser the Ajax calls are managed by "XMLHttpRequest" object. 
+
+- href means set a new url
+- XMLHttpRequest object it can GET,POST,PUT,DELETE data from server
+
+GET : fetch data form server
+POST : Submit data to server
+PUT : Edit/Modify data on server and save the chnages 
+DELETE : Remove the data form server.
+
+Step-1: Create a new XMLHttpRequest object
+
+	var http = new XMLHttpRequest();
+
+Step-2: Configure the request by using "open()" method
+
+	http.open("requestMethod", "url", async:boolean)
+
+	requestMethod	=> GET, POST, PUT, PATCH, DELETE 
+	Async			=> It is default false.
+
+Step-3: Send the request for processing
+
+	http.send();
+
+- This request will procssed by browser.(bcz this is browser window object.)
+- Other browser window object are : alert(), conform()
+
+- Every ajax request have 4 phases : initial phase, success phase, complete phase, ready phase - (here response is ready) 
+
+Setp-4: You have to check the readyState "onreadystatechange" function.
+
+	http.onreadystatechange = function() {
+
+		if(http.readyState == 4){
+			//on 4th stage response is ready we can get the response and use the reponse
+		}
+
+	}
+
+
+	readyState == 1			=> Initial
+	readyState == 2			=> Success
+	readyState == 3			=> Complete
+	readyState == 4			=> Response Ready
+
+
+Step-5: Collect the response details using http object
+
+	http.responseText
+	http.responseXML
+
+Ex:
+1. Create a new folder "data"
+2. Add a new file "help.txt" with some content inside
+3. Add HTML page
+	ajax-demo.html
+
+eg.
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajax Demo</title>
+    <script>
+        function bodyload() {
+            var now = new Date();
+            console.log(`Page Loaded on : ${now.toLocaleTimeString()}`);
+        }
+
+        function LoadClick() {
+            var now = new Date();
+            console.log(`Load button Clicked at ${now.toLocaleTimeString()}`);
+            // here if page load time != load button click then our page not loaded when click on button 
+            
+            var http = new XMLHttpRequest();
+            http.open("get", "../../data/help.txt", true);
+            http.send();
+
+            http.onreadystatechange = function () {
+                if (http.readyState == 4) {
+                    document.getElementById("container").innerHTML = http.responseText;
+                }
+            }
+        }
+    </script>
+</head>
+
+<body onload="bodyload()">
+    <button onclick="LoadClick()">Load Help</button>
+    <br><br>
+    <pre id="container">
+
+    </pre>
+</body>
+
+</html>
+
+- Note: When we read json file, You have to convert text into JSON by using "JSON.parse()"
+
+1. data/product.json
+
+{
+    "title": "Apple iPhone 15 (Black, 128 GB)",
+    "price": 64999,
+    "rating": {
+        "rate": 4.6,
+        "ratings": 39755,
+        "reviews": 2187
+    },
+    "offers": [
+        "Bank Offer Get ₹50 Instant Discount on first Flipkart UPI transaction on order of ₹200 and above T & C",
+        "Bank Offer 5 % Cashback on Flipkart Axis Bank Card T & C",
+        "Bank Offer ₹1000 off on Selected Bank Net Banking Transaction T & C",
+        "Special Price Get extra ₹12901 off(price inclusive of cashback / coupon) T & C"
+    ],
+    "image": "../../public/image/iphone-black.jpg"
+}
+
+2. Ajax-demo.html
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajax Demo</title>
+    <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <script>
+        function bodyLoad() {
+            var product = {};
+            var http = new XMLHttpRequest();
+            http.open("get", "../../data/product.json", true);
+            http.send();
+
+            http.onreadystatechange = function () {
+                if (http.readyState == 4) {
+                    product = JSON.parse(http.responseText);
+                    document.getElementById("imgProduct").src = product.image;
+                    document.getElementById("lblTitle").innerHTML = product.title;
+                    document.getElementById("lblRating").innerHTML = product.rating.rate;
+                    document.getElementById("lblReviews").innerHTML =
+							`${product.rating.ratings.toLocaleString()} ratings ${product.rating.reviews.toLocaleString()} reviews `;
+                    document.getElementById("lblPrice").innerHTML = "$" + product.price.toLocaleString();
+                    product.offers.map(function (offer) {
+                        var li = document.createElement("li");
+                        li.className = "bi bi-tag-fill text-success";
+                        li.innerHTML = `<span class="text-secondary"> ${offer} </span>`;
+                        document.getElementById("lstoffers").appendChild(li);
+                    });
+                }
+            }
+        }
+    </script>
+</head>
+
+<body onload="bodyLoad()" class="container-fluid">
+    <div class="row mt-3">
+        <div class="col-3">
+            <img width="100%" id="imgProduct">
+        </div>
+        <div class="col-9">
+            <div class="h4" id="lblTitle"></div>
+            <div class="my-3">
+                <span class="bg-success rounded badge p-2">
+                    <span id="lblRating"></span>
+                    <span class="bi bi-star-fill text-white"></span>
+                </span>
+                <span class="fw-bold text-secondary" id="lblReviews"></span>
+            </div>
+            <div class="my-3">
+                <div class="h3" id="lblPrice"></div>
+            </div>
+            <div class="my-3">
+                <ul class="list-unstyled" id="lstoffers">
+
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

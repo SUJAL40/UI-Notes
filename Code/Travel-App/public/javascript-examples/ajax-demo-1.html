@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajax Demo</title>
+    <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <script>
+        function bodyLoad() {
+            var product = {};
+            var http = new XMLHttpRequest();
+            http.open("get", "../../data/product.json", true);
+            http.send();
+
+            http.onreadystatechange = function () {
+                if (http.readyState == 4) {
+                    product = JSON.parse(http.responseText);
+                    document.getElementById("imgProduct").src = product.image;
+                    document.getElementById("lblTitle").innerHTML = product.title;
+                    document.getElementById("lblRating").innerHTML = product.rating.rate;
+                    document.getElementById("lblReviews").innerHTML = `${product.rating.ratings.toLocaleString()} ratings ${product.rating.reviews.toLocaleString()} reviews `;
+                    document.getElementById("lblPrice").innerHTML = "$" + product.price.toLocaleString();
+                    product.offers.map(function (offer) {
+                        var li = document.createElement("li");
+                        li.className = "bi bi-tag-fill text-success";
+                        li.innerHTML = `<span class="text-secondary"> ${offer} </span>`;
+                        document.getElementById("lstoffers").appendChild(li);
+                    });
+                }
+            }
+        }
+    </script>
+</head>
+
+<body onload="bodyLoad()" class="container-fluid">
+    <div class="row mt-3">
+        <div class="col-3">
+            <img width="100%" id="imgProduct">
+        </div>
+        <div class="col-9">
+            <div class="h4" id="lblTitle"></div>
+            <div class="my-3">
+                <span class="bg-success rounded badge p-2">
+                    <span id="lblRating"></span>
+                    <span class="bi bi-star-fill text-white"></span>
+                </span>
+                <span class="fw-bold text-secondary" id="lblReviews"></span>
+            </div>
+            <div class="my-3">
+                <div class="h3" id="lblPrice"></div>
+            </div>
+            <div class="my-3">
+                <ul class="list-unstyled" id="lstoffers">
+
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
