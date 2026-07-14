@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object Demo</title>
+    <script>
+        var topic = [
+            { title: "HTML", description: "This is used to create structure" },
+            { title: "CSS", description: "This is used to style html element" }
+        ]
+        function bodyLoad() {
+            topic.map(function (item) {
+                var dt = document.createElement("dt");
+                var dd = document.createElement("dd");
+                console.log(item);
+
+                dt.innerHTML = item.title;
+                dd.innerHTML = item.description;
+                var dl = document.querySelector("dl");
+                dl.appendChild(dt);
+                dl.appendChild(dd);
+            })
+        }
+    </script>
+</head>
+
+<body onload="bodyLoad()">
+    <dl></dl>
+</body>
+
+</html>

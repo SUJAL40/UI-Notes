@@ -1,0 +1,20 @@
+<script>
+
+    var products = [
+        { Name: "Nike Causals", Category: "Footwear", price: 3400 },
+        { Name: "Samsung TV", Category: "Electronics", price: 5200 },
+        { Name: "Woodland Boots", Category: "Footwear", price: 5180 },
+        { Name: "Jeans", Category: "Fashion", price: 8180 },
+    ]
+
+    var total = 0;
+
+    products.filter(function (product) {
+        return product.Category == "Footwear";
+    }).map(function (product) {
+        total += product.price;
+        document.write(`${product.Name} : ${product.price} <br>`);
+    })
+
+    document.write(`Total Price : ${total}`);
+</script>
