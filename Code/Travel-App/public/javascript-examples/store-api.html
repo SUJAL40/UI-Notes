@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Store API</title>
+    <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <script>
+        function bodyLoad() {
+            fetch("https://fakestoreapi.com/products")
+                .then(function (response) {
+                    return response.json();
+                })
+                .then(function (products) {
+                    products.map(function (product) {
+                        var div = document.createElement("div");
+                        div.className = "card m-2 p-2";
+                        div.style.width = "200px";
+                        div.innerHTML = `
+                            <a href="${product.image}" target="_blank"> <img class="card-img-top" src=${product.image} height="200"> </a>
+                            <div class="card-header">
+                                ${product.title.substring(0,10)}
+                            </div>
+                           <div class="card-body col border border-1" >
+                            <div class="row-4">    
+                                <b >Desc. : </b> ${product.description.substring(0,50)}<br>
+                            </div>
+                            <div class="row-4">    
+                                <b >Price : </b> ${product.price}<br>
+                            </div>
+                            <div class="row-4">    
+                                 <b >Category : </b> ${product.category}
+                            </div>
+                                                               
+                            </div>
+                            <div class="card-footer bg-success text-white align-content-center">
+                                ${product.rating.rate}
+                                <span class="bi bi-star-fill"></span> &nbsp&nbsp
+                                ${product.rating.count}
+                                <span class="bi bi-pencil-fill"></span>
+                            </div>
+                        `;
+
+                        document.querySelector("section").appendChild(div);
+                    })
+                })
+        }
+    </script>
+</head>
+
+<body onload="bodyLoad()" class="container-fluid">
+
+    <section class="d-flex flex-wrap">
+
+    </section>
+</body>
+
+</html>
