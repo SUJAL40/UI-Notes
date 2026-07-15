@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interval Demo</title>
+    <link rel="stylesheet" href="../../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.css">
+    <style>
+        progress {
+            height: 30px;
+            width: 300px;
+        }
+
+        @keyframes ZoomEffects {
+            from {
+                width: 50px;
+                height: 50px;
+            }
+
+            to {
+                width: 200px;
+                height: 300px;
+            }
+        }
+    </style>
+    <script>
+        var count = 0;
+        function StartProgress() {
+            count++;
+            document.getElementById("progress").value = count;
+            document.getElementById("lblStatus").innerHTML = `${count} % Completed`;
+            if (count == 100) {
+                clearInterval(thread)
+                document.getElementById("progressContainer").style.display = "none"
+                document.getElementById("imageContainer").style.display = "block";
+                document.getElementById("pic").style.animationName = "ZoomEffects";
+                document.getElementById("pic").style.animationDuration = "5000ms";
+            }
+        }
+
+        var thread;
+        function LoadClick() {
+            document.getElementById("btnContainer").style.display = "none";
+            document.getElementById("progressContainer").style.display = "block"
+            thread = setInterval(StartProgress, 100);
+
+        }
+
+        function pauseClick() {
+            clearInterval(thread);
+            document.getElementById("lblStatus").innerHTML = `${count}% Completed [paused]`;
+            document.getElementById("pause").style.display = "none";
+            document.getElementById("play").style.display = "block";
+        }
+
+        function playClick() {
+            clearInterval(thread);
+            thread = setInterval(StartProgress, 100);
+            document.getElementById("pause").style.display = "block";
+            document.getElementById("play").style.display = "none";
+        }
+
+    </script>
+</head>
+
+<body class="container-fluid d-flex justify-content-center align-items-center" style="height: 100vh;">
+    <div class="text-center">
+        <div id="btnContainer">
+            <button class="btn btn-primary" onclick="LoadClick()">Load Image</button>
+        </div>
+
+        <div id="progressContainer" style="display: none;">
+            <progress id="progress" min="1" max="100"></progress>
+            <div class="d-flex justify-content-center gap-2">
+                <button class="btn btn-danger bi bi-pause justify-content-center" onclick="pauseClick()"
+                    id="pause"></button>
+                <button class="btn btn-success bi bi-play justify-content-center" onclick="playClick()" id="play"
+                    style="display: none;"></button>
+            </div>
+            <p id="lblStatus"></p>
+        </div>
+        <div id="imageContainer" style="display: none;">
+            <img id="pic" src=" ../../public/image/women-fashion.jpg" width="200" height="300">
+        </div>
+
+    </div>
+</body>
+
+</html>

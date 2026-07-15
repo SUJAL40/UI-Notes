@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manually Carousel Creation</title>
+    <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <script>
+        function LoadProduct(id) {
+            fetch(`https://fakestoreapi.com/products/${id}`)
+                .then(function (response) {
+                    return response.json();
+                }).then(function (products) {
+                    document.getElementById("lblTitle").innerHTML = products.title;
+                    document.getElementById("imgPoster").src = products.image;
+                })
+        }
+
+        var count = 1;
+        function NextClick() {
+            count++;
+            LoadProduct(count);
+        }
+        function PrevClick() {
+            count--;
+            LoadProduct(count);
+        }
+
+        function LoadProductAuto() {
+            count++;
+            document.getElementById("rangePicker").value = count;
+            fetch(`https://fakestoreapi.com/products/${count}`)
+                .then(function (response) {
+                    return response.json();
+                }).then(function (products) {
+                    document.getElementById("lblTitle").innerHTML = products.title;
+                    document.getElementById("imgPoster").src = products.image;
+                })
+        }
+
+        var thred;
+        function PlayClick() {
+            thred = setInterval(LoadProductAuto, 1000);
+            document.getElementById("lblStatus").innerHTML = "[Auto Playing]";
+        }
+
+        function PauseClick() {
+            clearInterval(thred);
+            document.getElementById("lblStatus").innerHTML = "Paused";
+        }
+
+        function PickerChange() {
+            LoadProduct(document.getElementById("rangePicker").value)
+        }
+
+    </script>
+</head>
+
+<body class="container-fluid d-flex justify-content-center" onload="LoadProduct(1)">
+    <div class="card mt-3 p-2 w-50">
+        <div class="card-header text-center">
+            <div id="lblTitle"></div>
+            <div id="lblStatus"></div>
+        </div>
+        <div class="card-body row">
+            <div class="col-1 d-flex flex-column justify-content-center align-items-center">
+                <button class="btn bi bi-chevron-left" onclick="PrevClick()"></button>
+            </div>
+            <div class="col-10">
+                <img width="100%" height="300" id="imgPoster">
+                <input onchange="PickerChange()" type="range" id="rangePicker" min="1" max="20" class="form-range"
+                    value="1">
+            </div>
+            <div class="col-1 d-flex flex-column justify-content-center align-items-center">
+                <button class="btn bi bi-chevron-right" onclick="NextClick()">
+                </button>
+            </div>
+        </div>
+        <div class="card-footer text-center">
+            <button class="btn btn-primary bi bi-play" id="play" onclick="PlayClick()"></button>
+            <button class="btn btn-danger bi bi-pause" id="pause" onclick="PauseClick()"></button>
+        </div>
+    </div>
+</body>
+
+</html>

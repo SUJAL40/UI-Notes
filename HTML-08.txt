@@ -192,6 +192,343 @@ eg.
 
 </html>
 
+---------------------------------------------------------------------------------------------------
+
+												 Lecture-72
+
+1. setTimeout()
+- It is used to control "debounce".
+- Bounce is a mechanism where the tasks are sent into process immediately one after
+  another.
+- Debounce is a mechanism where you can keep the tasks wating in memory and release
+  after specific duration of time interval.
+
+Syntax:
+	setTimeout(function(){}, interval)
+
+- we can write function outside and ony call in setTimeout()
+- In normal clock 100ms = 1s
+		CPU clock 1000ms = 1s
+
+eg.
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intervals</title>
+    <script>
+        function msg1() {
+            document.querySelector("p").innerHTML = "Hi";
+        }
+
+        function msg2() {
+            document.querySelector("p").innerHTML = "How are you !";
+        }
+
+        function msg3() {
+            document.querySelector("p").innerHTML = "Welcome to JS";
+        }
+        function buttonClick() {
+            setTimeout(msg1, 2000);
+            setTimeout(msg2, 4000);
+            setTimeout(msg3, 6000);
+        }
+    </script>
+</head>
+
+<body>
+    <div align="center">
+        <button onclick="buttonClick()">Get Message !</button>
+        <p></p>
+    </div>
+</body>
+
+</html>
+
+
+2. clearTimeout()
+
+- It removes the task from memory before it is released into process.
+
+Syntax:		clearTimeout(refName);
+
+eg.
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intervals</title>
+    <script>
+        function msg1() {
+            document.querySelector("p").innerHTML = "Hi";
+        }
+
+        function msg2() {
+            document.querySelector("p").innerHTML = "How are you !";
+        }
+
+        function msg3() {
+            document.querySelector("p").innerHTML = "Welcome to JS";
+        }
+
+        var m1, m2, m3;
+
+        function buttonClick() {
+            m1 = setTimeout(msg1, 2000);
+            m2 = setTimeout(msg2, 4000);
+            m3 = setTimeout(msg3, 6000);
+        }
+
+        function end2ndTask() {
+            clearTimeout(m2);
+        }
+
+
+    </script>
+</head>
+
+<body>
+    <div align="center">
+        <button onclick="buttonClick()">Get Message !</button>
+        <button onclick="end2ndTask()">End Second Task</button>
+        <p></p>
+    </div>
+</body>
+
+</html>
+
+3. setlnterval()
+- It loads the task into memory and releases a copy of task into process at regular time
+ intervals.
+- It performs the given task repeatedly, until removed from memory.
+
+Syntax:
+	setlnterval(function(){}, interval)
+
+4. clearlnterval()
+- It removes the task from memory, which is set to execute at regular intervals.
+
+Syntax:
+	clearlnterval(refName)
+
+eg.
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interval Demo</title>
+    <script>
+        function bodyLoad() {
+            setInterval(function () {
+                var time = new Date();
+                document.querySelector("p").innerHTML = time.toLocaleTimeString();
+            }, 1000);
+        }
+    </script>
+</head>
+
+<body onload="bodyLoad()">
+    <p></p>
+</body>
+
+</html>
+
+eg.
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interval Demo</title>
+    <link rel="stylesheet" href="../../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.css">
+    <style>
+        progress {
+            height: 30px;
+            width: 300px;
+        }
+
+        @keyframes ZoomEffects {
+            from {
+                width: 50px;
+                height: 50px;
+            }
+
+            to {
+                width: 200px;
+                height: 300px;
+            }
+        }
+    </style>
+    <script>
+        var count = 0;
+        function StartProgress() {
+            count++;
+            document.getElementById("progress").value = count;
+            document.getElementById("lblStatus").innerHTML = `${count} % Completed`;
+            if (count == 100) {
+                clearInterval(thread)
+                document.getElementById("progressContainer").style.display = "none"
+                document.getElementById("imageContainer").style.display = "block";
+                document.getElementById("pic").style.animationName = "ZoomEffects";
+                document.getElementById("pic").style.animationDuration = "5000ms";
+            }
+        }
+
+        var thread;
+        function LoadClick() {
+            document.getElementById("btnContainer").style.display = "none";
+            document.getElementById("progressContainer").style.display = "block"
+            thread = setInterval(StartProgress, 100);
+
+        }
+
+        function pauseClick() {
+            clearInterval(thread);
+            document.getElementById("lblStatus").innerHTML = `${count}% Completed [paused]`;
+            document.getElementById("pause").style.display = "none";
+            document.getElementById("play").style.display = "block";
+        }
+
+        function playClick() {
+            clearInterval(thread);
+            thread = setInterval(StartProgress, 100);
+            document.getElementById("pause").style.display = "block";
+            document.getElementById("play").style.display = "none";
+        }
+
+    </script>
+</head>
+
+<body class="container-fluid d-flex justify-content-center align-items-center" style="height: 100vh;">
+    <div class="text-center">
+        <div id="btnContainer">
+            <button class="btn btn-primary" onclick="LoadClick()">Load Image</button>
+        </div>
+
+        <div id="progressContainer" style="display: none;">
+            <progress id="progress" min="1" max="100"></progress>
+            <div class="d-flex justify-content-center gap-2">
+                <button class="btn btn-danger bi bi-pause justify-content-center" onclick="pauseClick()"
+                    id="pause"></button>
+                <button class="btn btn-success bi bi-play justify-content-center" onclick="playClick()" id="play"
+                    style="display: none;"></button>
+            </div>
+            <p id="lblStatus"></p>
+        </div>
+        <div id="imageContainer" style="display: none;">
+            <img id="pic" src=" ../../public/image/women-fashion.jpg" width="200" height="300">
+        </div>
+
+    </div>
+</body>
+
+</html>
+
+eg. Slide Show
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manually Carousel Creation</title>
+    <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <script>
+        function LoadProduct(id) {
+            fetch(`https://fakestoreapi.com/products/${id}`)
+                .then(function (response) {
+                    return response.json();
+                }).then(function (products) {
+                    document.getElementById("lblTitle").innerHTML = products.title;
+                    document.getElementById("imgPoster").src = products.image;
+                })
+        }
+
+        var count = 1;
+        function NextClick() {
+            count++;
+            LoadProduct(count);
+        }
+        function PrevClick() {
+            count--;
+            LoadProduct(count);
+        }
+
+        function LoadProductAuto() {
+            count++;
+            document.getElementById("rangePicker").value = count;
+            fetch(`https://fakestoreapi.com/products/${count}`)
+                .then(function (response) {
+                    return response.json();
+                }).then(function (products) {
+                    document.getElementById("lblTitle").innerHTML = products.title;
+                    document.getElementById("imgPoster").src = products.image;
+                })
+        }
+
+        var thred;
+        function PlayClick() {
+            thred = setInterval(LoadProductAuto, 1000);
+            document.getElementById("lblStatus").innerHTML = "[Auto Playing]";
+        }
+
+        function PauseClick() {
+            clearInterval(thred);
+            document.getElementById("lblStatus").innerHTML = "Paused";
+        }
+
+        function PickerChange() {
+            LoadProduct(document.getElementById("rangePicker").value)
+        }
+
+    </script>
+</head>
+
+<body class="container-fluid d-flex justify-content-center" onload="LoadProduct(1)">
+    <div class="card mt-3 p-2 w-50">
+        <div class="card-header text-center">
+            <div id="lblTitle"></div>
+            <div id="lblStatus"></div>
+        </div>
+        <div class="card-body row">
+            <div class="col-1 d-flex flex-column justify-content-center align-items-center">
+                <button class="btn bi bi-chevron-left" onclick="PrevClick()"></button>
+            </div>
+            <div class="col-10">
+                <img width="100%" height="300" id="imgPoster">
+                <input onchange="PickerChange()" type="range" id="rangePicker" min="1" max="20" class="form-range"
+                    value="1">
+            </div>
+            <div class="col-1 d-flex flex-column justify-content-center align-items-center">
+                <button class="btn bi bi-chevron-right" onclick="NextClick()">
+                </button>
+            </div>
+        </div>
+        <div class="card-footer text-center">
+            <button class="btn btn-primary bi bi-play" id="play" onclick="PlayClick()"></button>
+            <button class="btn btn-danger bi bi-pause" id="pause" onclick="PauseClick()"></button>
+        </div>
+    </div>
+</body>
+
+</html>
+
+
+
 
 
 
