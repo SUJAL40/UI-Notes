@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gretting</title>
+    <script>
+        function bodyLoad() {
+            var now = new Date();
+            now.setHours(20);
+
+            var h1 = document.querySelector("h1");
+            var img = document.querySelector("img");
+
+            if (now.getHours() >= 0 && now.getHours() <= 12) {
+                h1.innerHTML = "Good Morning";
+                img.src = "../image/gm.gif"
+                //Code\Travel-App\public\image\gm.gif
+            } else if (now.getHours() > 12 && now.getHours() <= 16) {
+                h1.innerHTML = "Good Afternoon"
+                img.src = "../image/ge.gif";
+            } else {
+                h1.innerHTML = "Good Neight";
+                img.src = "../image/gn.gif";
+            }
+        }
+    </script>
+</head>
+
+<body onload="bodyLoad()">
+    <div align="center">
+        <img alt="" height="100" width="100" align="center">
+    </div>
+    <h1 align="center"></h1>
+
+</body>
+
+</html>

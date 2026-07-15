@@ -1,0 +1,7 @@
+<script>
+    //date format : Wed 15 July, 2026
+    var departure = new Date("2026-07-15 14:50:31.62")
+    var weekdays = ["Sunday", "Monday", "Tue", "Wed", "Thur", "Friday", "Saturday"];
+    var months = ["Jan", "Feb", "March", "April", "May", "June", "July", "August", "Sep", "Oct", "Nov", "Dec"];
+    document.write(`${weekdays[departure.getDay()]} ${departure.getDate()} ${months[departure.getMonth()]}, ${departure.getFullYear()}`);
+</script>

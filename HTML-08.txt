@@ -1,0 +1,208 @@
+								Lecture-71
+
+FAQ: What are the issues with object?
+- It can have keys only of "string" type.
+- It uses all explicit methods and operators for manipulation.
+- It is slow in interactions.
+
+Note: Object provides a schema for data. [structured data]
+
+
+								Map Type
+								
+- It is a key / value collection same as object.
+- It provides schema less data means Key can be any type and value can be any type.
+- It provides implicit methods for manipulation.
+- It is faster when compared to object.
+
+Syntax:
+
+	var ref = new Map();
+
+	.size		: It returns the length of keys
+	.set()		: It adds a new key and value
+	.get()		: It can access the value with reference of key
+	.delete()	: It removes a keys
+	.clear()	: It removes all keys
+	.has()		: It finds a key
+	.keys()		: It returns all keys
+	.values()	: It returns all values
+	.entries()	: It returns both keys and values
+
+
+eg.
+
+	var topics = new Map();
+	topics.set(1, "HTML is a markup language");
+	topics.set("CSS", "It configures styles");
+	topics.set(true, "Stock Available");
+	topics.set("Cities", ["Delhi", "Hyd"]);
+	topics.set(1001, {Name:"TV", Rating:4.3});
+	
+	if(topics.has("CSS")){
+		document.write(topics.get("CSS"));
+	} else {
+		document.write("Can't find cSS<br>");
+	}
+
+	for(var item of topics.entries()){
+		document.write(item + "<br>");
+	}
+	
+- Object is used for structured key-value data, while Map provides more flexible key-value storage with keys of any data type.
+
+
+							JavaScript Date & Time
+
+- JavaScript provides Date() constructor to configure date and time values.
+Syntax:
+
+	var dept = new Date();			// loads the current date and time into memory	
+	
+	var dept = new Date("yy-mm-dd hrs:min:sec.milliSec"); // stores specific date
+
+eg.
+	var Departure = new Date("2024-07-14 14:50:31.64");
+	document.write(Departure);
+
+- JavaScript provides various methods to access the date and time values
+
+	getHours()				0 to 23
+	getMinutes()			0 to 59
+	getSeconds()			0 to 59
+	getMilliSeconds()		0 to 99
+	getDate()				1 to 28, 29, 30, 31
+	getDay()				weekday number 0=sunday, 1=Monday ...
+	getMonth()				month number 0=Jan,... 11=Dec
+	getFullYear()			year number 4 digits 2024
+	getYear() [obsolete]
+	toDateString()
+	toTimeString()
+	toLocaleDateString()
+	toLocaleTimeString()
+
+- In computer history we face a big problem called Y2K in 2000.
+	
+- If you want to display date in our own format we need to write login for that
+
+eg.
+<script>
+    //date format : Wed 15 July, 2026
+    var departure = new Date("2026-07-15 14:50:31.62")
+    var weekdays = ["Sunday", "Monday", "Tue", "Wed", "Thur", "Friday", "Saturday"];
+    var months = ["Jan", "Feb", "March", "April", "May", "June", "July", "August", "Sep", "Oct", "Nov", "Dec"];
+    document.write(`${weekdays[departure.getDay()]} ${departure.getDate()} ${months[departure.getMonth()]}, ${departure.getFullYear()}`);
+</script>
+
+Note: JavaScript supports various 3rd party Date Adapters to handle and manipulate
+	Date and Time values.
+		a) moment
+		b) dayjs
+		c) luxon
+		etc ...
+
+- JavaScript provides various methods to set date and time.
+
+	setHours()
+	setMinutes()
+	setSeconds()
+	setMilliSeconds()"
+	setDate()
+	setMonth()
+	setYear()
+
+- Departure.setDate(12);
+
+- Gretting with time
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gretting</title>
+    <script>
+        function bodyLoad() {
+            var now = new Date();
+            now.setHours(20);
+
+            var h1 = document.querySelector("h1");
+            var img = document.querySelector("img");
+
+            if (now.getHours() >= 0 && now.getHours() <= 12) {
+                h1.innerHTML = "Good Morning";
+                img.src = "../image/gm.gif"
+                //Code\Travel-App\public\image\gm.gif
+            } else if (now.getHours() > 12 && now.getHours() <= 16) {
+                h1.innerHTML = "Good Afternoon"
+                img.src = "../image/ge.gif";
+            } else {
+                h1.innerHTML = "Good Neight";
+                img.src = "../image/gn.gif";
+            }
+        }
+    </script>
+</head>
+
+<body onload="bodyLoad()">
+    <div align="center">
+        <img alt="" height="100" width="100" align="center">
+    </div>
+    <h1 align="center"></h1>
+
+</body>
+
+</html>
+
+							JavaScript Timer Events
+
+setTimeout()
+clearTimeout()
+setlnterval()
+clearlnterval()
+
+Syntax:
+	setlnterval(function(){}, interval);		// interval 1000ms = 1sec - after particular interval inner function will call
+
+eg.
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intervals</title>
+    <script>
+        function bodyLoad() {
+            var p = document.querySelector("p");
+
+            setInterval(() => {
+                var now = new Date();
+                p.innerHTML = now.toLocaleString();
+            }, 1000);
+        }
+    </script>
+</head>
+
+<body onload="bodyLoad()">
+    <p></p>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
