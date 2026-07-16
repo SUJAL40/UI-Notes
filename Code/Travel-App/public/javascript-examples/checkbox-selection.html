@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkbox Selction</title>
+    <style>
+        ul{
+            list-style: none;
+        }
+    </style>
+    <script>
+        
+        function CourseClick() {
+            console.log("hio");
+            
+            var courseName = "";
+            var courses = document.getElementsByName("courses");
+            for (var course of courses) {
+                if (course.checked) {
+                    courseName += course.value + "<br>";
+                }
+            }
+            document.querySelector("p").innerHTML = `Selected Courses : <br> ${courseName}`;
+        }
+    </script>
+</head>
+
+
+<body>
+    <ul>
+        <li>
+            <input type="checkbox" onchange="CourseClick()" name="courses" value="UI FULL STACK"> <label for="">
+                UI Full Stack</label>
+        </li>
+        <li>
+            <input type="checkbox" onchange="CourseClick()" name="courses" value="JAVA"> <label for="">Java</label>
+        </li>
+        <li><input type="checkbox" onchange="CourseClick()" name="courses" value=".NET"> <label for="">.Net</label></li>
+        <li>
+            <input type="checkbox" onchange="CourseClick()" name="courses" value="ORACLE"> <label for="">Oracle</label>
+        </li>
+    </ul>
+    <p></p>
+</body>
+
+</html>
